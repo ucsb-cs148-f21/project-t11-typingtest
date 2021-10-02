@@ -1,0 +1,3 @@
+My name is Jeffrey and I am the original creator of this project idea.
+
+Originally I wanted a typing test web app that used lines of code or code blocks to serve as typing tests. Since then my teammates have changed the project into a wildly different project that doesn't really involve anything similar to a typing test now. I personally would rather continue with my project idea but I'll stick with what we have now if it means that everyone will cooperate.
