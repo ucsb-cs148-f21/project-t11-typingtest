@@ -1,0 +1,3 @@
+My name is Jeffrey and I came up with the original idea for this project.
+
+The original idea was for it to be a simple webapp that used random lines of code or code blocks as typing test. Since then it has been dramatically changed into something that doesn't really relate to typing tests at all. I personally would have loved to continue with my original idea but I will accept the new ideas if it means everyone is willing to cooperate.
