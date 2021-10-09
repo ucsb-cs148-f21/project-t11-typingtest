@@ -1,9 +1,11 @@
-#Personas
+Personas
+===========
 
-##Persona1
+Persona1
+-----------
 A is a freshman of CS major. A wants a place just to practise coding typing with actually compiling the code and for traditional methods you have to actually compile the code in order to know the typos without an IDE, so that A can get familiar with the syntaxs of some functions in a certain language. 
 
-##Persona2
+Persona2
 B has some coding experience with C++ and want to learn a new language Python. B wants a web for typing in Python would to get familiar with the code snippets of python as quick as possible.
 
 ##Persona3
