@@ -4,5 +4,7 @@ Plan for Learning Technologies for TypingTest:
 3. Zoey, Jeffrey, Hirish: Front End Emphasis (Javascript, React)
 
 https://code.visualstudio.com/docs/nodejs/reactjs-tutorial
+
 https://scrimba.com/learn/learnreact
+
 5. Jason, Sean: BackEnd (Spring Boot, React)
