@@ -20,6 +20,6 @@ Issue: Hirish couldnt start authentication on CSIL
 basic starting point, following the videos
 
 possible backend goals: a timer and google API
-possible frontend goals: a basic textbox, and a title, sign in as well
+possible frontend goals: a basic textbox, and a title, sign in as well(update: we finished the Google authentification)
 
 virtual keyboard? as a luxury idea
