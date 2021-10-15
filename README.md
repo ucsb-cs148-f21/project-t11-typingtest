@@ -6,7 +6,7 @@ Members: Jeffrey Chen, Jason Dunne, Sean Shanley, Zoey Zhou, Hirish Chandrasekar
 
 Tech Stack:
 Frontend: React
-Backend: Springboot
+We do not think we need a serious backend. Most of this is client-side code.
 
 
 General Strategy: Get our template up, look at preexisting react projects, modify accordingly. There is nothing wrong with modifying previously implemented code, it will give us more time to add more features down the line.
