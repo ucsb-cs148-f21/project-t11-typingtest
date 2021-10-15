@@ -11,4 +11,4 @@ https://code.visualstudio.com/docs/nodejs/reactjs-tutorial
 
 https://scrimba.com/learn/learnreact
 
-5. Jason, Sean: BackEnd (Spring Boot, React)
+5. Jason, Sean: BackEnd (React)
