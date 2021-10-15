@@ -1,4 +1,6 @@
 Prior Knowledge: Hirish and Jason have taken CS156
+Hirish has lots of project group experience and git experience, but mainly with Data Science.
+
 
 Plan for Learning Technologies for TypingTest:
 1. Go through video: https://www.youtube.com/watch?v=t4W7PN4js-8
