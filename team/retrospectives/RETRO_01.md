@@ -6,7 +6,7 @@
 
 ## Action item
 
-* a goal: get the framework running by thursday
+* a goal: getting the entire team on board with runnning and compiling the webpage and deploying it with heroku
 * a change: dividing people to work in smaller groups
 * a measurement: if our deployment on heroku works
 
