@@ -14,4 +14,5 @@ https://scrimba.com/learn/learnreact
 5. Jason, Sean: BackEnd (React)
 
 \_articles posts:
-1.Zoey posted https://scrimba.com/learn/learnreact in frontend_articles.
+1. Zoey posted https://scrimba.com/learn/learnreact in frontend_articles.
+2. Jeffrey posted https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell in git_articles
