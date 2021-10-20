@@ -12,3 +12,6 @@ https://code.visualstudio.com/docs/nodejs/reactjs-tutorial
 https://scrimba.com/learn/learnreact
 
 5. Jason, Sean: BackEnd (React)
+
+\_articles posts:
+1.Zoey posted https://scrimba.com/learn/learnreact in frontend_articles.
