@@ -35,3 +35,5 @@ The 4 L's structure was loosely used in this retrospective. Later on we also tri
 The measurement went well, as we deployed our app onto heroku.
 
 If I had to give advice to the next leader, I would suggest to try and come into the retrospective with a more clear idea of how your structure could apply to discussing how the product is going. Sometimes the group can break into chunks and just discuss whatever is on their mind, which is fine, but if you really need to focus on a specific topic, then having a more calculated retrospective could help. Encouraging the team to consider the goal, change, and measurement rather than working on that after the fact would be helpful as well.
+
+We also finished the starter code deployment. We got it pushed to main. This was a successful retro.
