@@ -9,7 +9,7 @@ Jeffrey Chen, Jason Dunne, Sean Shanley, Zoey Zhou, Hirish Chandrasekaran
 Tech Stack:
 =======
 Frontend: React
-We do not think we need a serious backend. Most of this is client-side code. (Possibly Springboost for code storage?)
+Backend: MongoDB, Flask
 
 
 General Strategy: 
