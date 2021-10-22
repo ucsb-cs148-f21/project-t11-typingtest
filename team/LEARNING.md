@@ -16,3 +16,4 @@ https://scrimba.com/learn/learnreact
 \_articles posts:
 1. Zoey posted https://scrimba.com/learn/learnreact in frontend_articles.
 2. Jeffrey posted https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell in git_articles
+3. Hirish posted https://morioh.com/p/b1006926b47f in backedn_articles
