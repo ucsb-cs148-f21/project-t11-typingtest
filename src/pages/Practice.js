@@ -4,7 +4,8 @@ import Container from "react-bootstrap/Container";
 import getUser from "../utils/get-user";
 import Timer from "../utils/Timer";
 import { TextField } from "@mui/material";
-import BasicCard from "../utils/Card";
+import CodeCard from "../utils/CodeCard";
+import WordCount from '../utils/WordCount'
 
 export default function Practice() {
     const user = getUser();
@@ -13,13 +14,8 @@ export default function Practice() {
             <Container>
                 <div>
                     <Timer/>
-                    <BasicCard/> 
-                    <TextField variant = "outlined"
-                    placeholder = "Start Writing"
-                    multiline
-                    rows = {5}
-                    rowsMax = {10}
-                    fullWidth/>
+                    <CodeCard/> 
+                    <WordCount/>
                 </div>
             </Container>
         </Layout>
