@@ -7,6 +7,7 @@ import { Card } from "react-bootstrap";
 import CardContent from '@mui/material/CardContent';
 import HomeSection from "../components/HomeSection";
 import { Typography } from "@mui/material";
+import Button from "../utils/button/button";
 
 const TextWrapper = styled.div`
   width: 700px;
@@ -29,7 +30,7 @@ export default function Home() {
           </Typography>
         </CardContent> 
       </Card>
-
+    <Button label = "Get Started!"></Button>
     </Layout>
   );
 }
