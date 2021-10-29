@@ -11,6 +11,15 @@ Tech Stack:
 Frontend: React
 Backend: MongoDB, Flask
 
+How to Deploy:
+=======
+To deploy the webapp we first run npm install, npm run build, (to build the static webpages) then deploy with flask:
+
+export FLASK_APP=./backend/main.py
+flask run
+
+Then click on the link.
+
 
 General Strategy: 
 =======
