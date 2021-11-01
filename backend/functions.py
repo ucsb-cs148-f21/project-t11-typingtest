@@ -21,7 +21,7 @@ class codesnippets(db.Document):
 
 def parseCodeFile():
     codesnippets.drop_collection()
-    codeFile = open("code.txt", "r")
+    codeFile = open("./backend/code.txt", "r")
     parsingCode = False
     pNumber = -1
     pDifficulty = -1
