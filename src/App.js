@@ -19,7 +19,7 @@ export default function App() {
     window.gapi.load("auth2", () => {
       window.gapi.auth2
         .init({
-          client_id: process.env.REACT_APP_AUTH_CLIENT_ID,
+          client_id: "361825927079-ug2rgcfc6152dpahls5uhq0nntiobr5f.apps.googleusercontent.com",
         })
         .then(() => {
           const authInstance = window.gapi.auth2.getAuthInstance();
@@ -31,12 +31,15 @@ export default function App() {
           });
         });
     });
+
+
     window.gapi.load("signin2", () => {
       window.gapi.signin2.render("login-button", {
         theme: "dark",
       });
     });
   }
+  
 
   function PrivateRoute(props) {
     const { component, ...rest } = props;
