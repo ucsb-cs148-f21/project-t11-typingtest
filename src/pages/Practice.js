@@ -6,6 +6,7 @@ import Timer from "../utils/Timer";
 import { TextField } from "@mui/material";
 import CodeCard from "../utils/CodeCard";
 import WordCount from '../utils/WordCount'
+import TypingComponent from '../components/TypingComponent'
 
 export default function Practice() {
     const user = getUser();
@@ -16,6 +17,7 @@ export default function Practice() {
                     <Timer/>
                     <CodeCard/> 
                     <WordCount/>
+                    <TypingComponent/>
                 </div>
             </Container>
         </Layout>
