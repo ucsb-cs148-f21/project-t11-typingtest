@@ -1,1 +1,1 @@
-web: gunicorn main.py:cs148-typing-test
+web: gunicorn backend/main.py:app
