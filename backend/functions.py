@@ -1,6 +1,7 @@
 import mongoengine as db
 import json
 import re
+from flask import jsonify
 
 class codesnippets(db.Document):
     index = db.IntField(unique=True)
@@ -51,9 +52,18 @@ def parseCodeFile():
     codeFile.close()
 
 def returnProblemFromIndex(problemIndex):
-    jsonfile = json.loads(codesnippets.objects(index=str(problemIndex)).to_json()) #returns a list containing a dictionary
-    first_elem = jsonfile[0] #access the dictionary
+    jsonfile = json.loads(codesnippets.objects(index=str(problemIndex)).to_json()) #returns a list containing a list
+    first_elem = jsonfile[0] #access the list
     return first_elem
+
+def returnProblemsFromLanguage(problemLanguage):
+    jsonfile = json.loads(codesnippets.objects(language=problemLanguage).to_json()) #returns a list containing a list
+    return jsonify(jsonfile)
+
+
+def returnProblemsFromLanguageAndSkill(problemLanguage, problemskill):
+    jsonfile = json.loads(codesnippets.objects(language=problemLanguage, skillcategory=problemskill).to_json()) #returns a list containing a list
+    return jsonify(jsonfile)
 
 #print("\nFetch a book")
 #problem = codesnippets.objects(language="Java").first()
