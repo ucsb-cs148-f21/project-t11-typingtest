@@ -2,10 +2,11 @@ import React from "react";
 import Layout from "../components/Layout";
 import Container from "react-bootstrap/Container";
 import getUser from "../utils/get-user";
-import Timer from "../utils/Timer";
+import  Timer from "../utils/Timer";
 import { TextField } from "@mui/material";
 import CodeCard from "../utils/CodeCard";
 import WordCount from '../utils/WordCount'
+import CodeList from "../components/CodeList";
 
 export default function Practice() {
     const user = getUser();
@@ -15,6 +16,7 @@ export default function Practice() {
                 <div>
                     <Timer/>
                     <CodeCard/> 
+                    <CodeList/>
                     <WordCount/>
                 </div>
             </Container>

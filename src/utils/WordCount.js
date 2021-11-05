@@ -41,6 +41,7 @@ export default class  WordCount extends React.Component {
     return(
      <div>
         <TextField 
+          data = {this.state.wordCount}
           type="text"
           value={this.state.value}
           onChange={this.secondHandle}
