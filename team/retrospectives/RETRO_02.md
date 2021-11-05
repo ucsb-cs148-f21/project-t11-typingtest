@@ -2,7 +2,7 @@
 
 * Led by: Jeffrey
 * Present: Jeffrey, Sean, Zoey, Jason 
-* Absent: Hirish
+* Present Via Zoom: Hirish
 
 ## Action item
 
