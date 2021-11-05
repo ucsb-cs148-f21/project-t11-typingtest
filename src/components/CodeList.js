@@ -16,7 +16,6 @@ export default class CodeList extends React.Component {
 
 
     render(){
-        return<ul>{this.state.persons.map(person => <li>{person.name}</li>)}
-        </ul>;
+        return this.state.persons.map(person => <li>{person.email}</li>);
     }
 }

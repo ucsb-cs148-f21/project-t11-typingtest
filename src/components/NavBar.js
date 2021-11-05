@@ -8,13 +8,14 @@ export default function NavBar(props) {
   const user = props.user;
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar data-testid="NavBar" bg="light" expand="lg">
       <Container>
         <Navbar.Brand href="/">TypingTest</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/language">Language</Nav.Link>
             <Nav.Link href="/practice">Practice</Nav.Link>
             {user && <Nav.Link href="/profile">Profile</Nav.Link>}
           </Nav>
