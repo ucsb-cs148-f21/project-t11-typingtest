@@ -4,7 +4,7 @@ import mongoengine as db
 from functions import parseCodeFile, codesnippets, returnProblemFromIndex, returnProblemsFromLanguage, returnProblemsFromLanguageAndSkill
 database_name = "testdb"
 
-app = Flask(__name__, static_folder='../build', static_url_path='/')
+app = Flask(__name__, static_folder='./build', static_url_path='/')
 DB_URI = 'mongodb+srv://jasonrdunne:wordpass@cluster0.aho0z.mongodb.net/testdb?retryWrites=true&w=majority'
 db.connect(host=DB_URI)
 parseCodeFile()
