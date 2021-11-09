@@ -1,56 +1,21 @@
 {
-  "name": "starter-code",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@emotion/react": "^11.5.0",
-    "@emotion/styled": "^11.3.0",
-    "@material-ui/core": "^4.12.3",
-    "@material/textfield": "^13.0.0",
-    "@mui/material": "^5.0.4",
-    "@testing-library/user-event": "^12.1.10",
-    "axios": "^0.24.0",
-    "bootstrap": "^4.6.0",
-    "highlight.js": "^11.3.1",
-    "husky": "^6.0.0",
-    "lint-staged": "^10.5.4",
-    "prettier": "^2.2.1",
-    "react": "^17.0.2",
-    "react-bootstrap": "^1.5.2",
-    "react-dom": "^17.0.2",
-    "react-highlight": "^0.14.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
-    "react-syntax-highlighter": "^15.4.4",
-    "styled-components": "^5.3.1",
-    "web-vitals": "^1.0.1"
-  },
+  "name": "project-t11-typingtest",
+  "version": "1.0.0",
+  "description": "It's a webapp that helps improve coding speed and gauge coding level. We will include a clock and accuracy in our API. The user can choose the language and difficulty of the coding problems and we want to expand it into a more code learning web by adding some questions so users can think about while they are coding to improve the coding skills.",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "prettier": "./node_modules/.bin/prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ucsb-cs148-f21/project-t11-typingtest.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ucsb-cs148-f21/project-t11-typingtest/issues"
   },
-  "devDependencies": {
-    "@testing-library/jest-dom": "^5.15.0",
-    "@testing-library/react": "^12.1.2"
-  }
+  "homepage": "https://github.com/ucsb-cs148-f21/project-t11-typingtest#readme"
 }
+
