@@ -52,6 +52,7 @@ export default function App() {
           <PrivateRoute exact path="/profile" component={Profile} />
           <Route exact path="/practice" component={Practice} />
           <Route exact path="/language" component={Language} />
+          <Route path='/Java' component={Java}/>
           <Route path="/" component={PageNotFound} />
         </Switch>
       </BrowserRouter>

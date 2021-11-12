@@ -9,8 +9,6 @@ DB_URI = 'mongodb+srv://jasonrdunne:wordpass@cluster0.aho0z.mongodb.net/testdb?r
 db.connect(host=DB_URI)
 parseCodeFile()
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=False, port=os.environ.get('PORT', 80))
 
 @app.route('/')
 def index():
@@ -34,3 +32,6 @@ def returnLanguage(language):
 @app.errorhandler(404)
 def not_found(e):
     return app.send_static_file('index.html')
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', debug=False, port=os.environ.get('PORT', 80))
