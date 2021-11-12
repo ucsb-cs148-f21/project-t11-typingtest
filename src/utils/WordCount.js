@@ -33,7 +33,6 @@ export default class  WordCount extends React.Component {
       secondValue: event.target.value,
       wordCount: event.target.value === '' ? 0 : this.state.secondValue.split(' ').length,
     })
-
   }
 
   render(){
