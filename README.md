@@ -29,3 +29,7 @@ Get our template up, look at preexisting react projects, modify accordingly. The
 User Roles:
 ========
 General User Trying to Learn How to Code, and remember syntax. Doesn't need permission to any data except his/her own. Can log in through his/her ucsb account and save progress. Our app provides typing practice for difficult lines of code and helps with syntax memorization and also explains what code blocks do so helps with pattern recognition.
+
+User Roles:
+========
+One unit test was already implemented, to see it look at project-t11-typingtest/src/utils/button/.

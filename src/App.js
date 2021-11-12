@@ -7,6 +7,7 @@ import Profile from "./pages/Profile";
 import Private from "./pages/Private";
 import Practice from "./pages/Practice";
 import PageNotFound from "./pages/PageNotFound";
+import Language from "./pages/ Language";
 
 export default function App() {
   const [isSignedIn, setIsSignedIn] = useState(null);
@@ -50,6 +51,7 @@ export default function App() {
           <Route exact path="/" component={Home} />
           <PrivateRoute exact path="/profile" component={Profile} />
           <Route exact path="/practice" component={Practice} />
+          <Route exact path="/language" component={Language} />
           <Route path="/" component={PageNotFound} />
         </Switch>
       </BrowserRouter>
