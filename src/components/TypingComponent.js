@@ -4,6 +4,7 @@ import "./styles.css";
 class TypingComponent extends Component {
   state = {
     text: "",
+    textID: this.props.ID,
     inputValue: "",
     lastLetter: "",
     words: [],
@@ -16,7 +17,11 @@ class TypingComponent extends Component {
     progress: 0
   };
   componentDidMount(){
-    fetch("http://127.0.0.1:5000/codesnippetID/1")
+    var fetchURL = window.location.href
+    fetchURL = fetchURL.replace("practice", "codesnippetID/")
+    fetchURL += this.state.textID
+    console.log(fetchURL)
+    fetch(fetchURL)
       .then(response => response.json())
       .then(data => {
         console.log(data);

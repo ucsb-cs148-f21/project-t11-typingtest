@@ -19,7 +19,7 @@ export default function Practice() {
                     <CodeCard/> 
                     <CodeList/>
                     <WordCount/>
-                    <TypingComponent/>
+                    <TypingComponent ID='1'/>
                 </div>
             </Container>
         </Layout>
