@@ -1,4 +1,7 @@
 LANGUAGE:Java
+
+
+NAME:Two or Three Twice
 DIFFICULTY:2
 SKILL:Array
 PROBLEMSTART:1
@@ -21,6 +24,7 @@ public boolean double23(int[] nums) {
 PROBLEMEND:1
 
 
+NAME:Combine First Elements of Array
 DIFFICULTY:3
 PROBLEMSTART:2
 /* Given 2 int arrays, a and b, of any length, return a new array with the 
@@ -38,8 +42,28 @@ public int[] front11(int[] a, int[] b) {
     return new int[0];
 PROBLEMEND:2
 
+
 LANGUAGE:Python
+
+
 DIFFICULTY:1
+SKILL:String
+PROBLEMSTART:3
+def combo_string(a, b):
+  """
+  Given 2 strings, a and b, return a string of the form short+long+short, 
+  with the shorter string on the outside and the longer string on the inside. 
+  The strings will not be the same length, but they may be empty (length 0). 
+  """
+  return a+b+a if len(a)<len(b) else b+a+b
+PROBLEMEND:3
+
+
+LANGUAGE:C++
+
+
+NAME: Short Long Short
+DIFFICULTY:3
 SKILL:String
 PROBLEMSTART:3
 def combo_string(a, b):

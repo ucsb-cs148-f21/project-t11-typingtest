@@ -9,6 +9,7 @@ class codesnippets(db.Document):
     skillcategory = db.StringField()
     difficulty = db.IntField()
     code = db.StringField()
+    name = db.StringField()
 
     def to_json(self):
         return {
@@ -16,7 +17,8 @@ class codesnippets(db.Document):
             "languange": self.language,
             "skillcategory": self.skillcategory,
             "difficulty": self.difficulty,
-            "code": self.code
+            "code": self.code,
+            "name": self.name
         }
 
 
@@ -29,6 +31,7 @@ def parseCodeFile():
     codeString = ""
     pLanguage = "Default"
     pSkill = "Default"
+    pName = "Default"
     for x in codeFile:
         if "LANGUAGE:" in x: #sets language
             pLanguage = x.split("LANGUAGE:",1)[1].strip()
@@ -36,8 +39,10 @@ def parseCodeFile():
             pDifficulty = int(re.search(r'\d+', x).group()) #gets integer from line
         if "SKILL:" in x:
             pSkill = x.split("SKILL:",1)[1].strip()
+        if "NAME:" in x:
+            pName = x.split("NAME:",1)[1].strip()
         if "PROBLEMEND:" in x: #detects end of problem, saves json file to server
-            problem = codesnippets(index=pNumber, language=pLanguage, skillcategory = pSkill, difficulty = pDifficulty, code = codeString)
+            problem = codesnippets(index=pNumber, language=pLanguage, skillcategory = pSkill, difficulty = pDifficulty, code = codeString, name = pName)
             problem.save()
             parsingCode = False
             pNumber = -1
