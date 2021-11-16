@@ -3,3 +3,5 @@ The webapp first gets the code stored on mongoDB using flask and creates a bunch
 ![SystemArchitecture](SystemDiagram.drawio.png)
 
 Though this feature is not yet implemented, the frontend should also be able to take code from the user and send to the flask backend to store. Then this code can then be used as a test later for the user to type on.
+
+![UserFlow](coderaceruserflow.PNG)
