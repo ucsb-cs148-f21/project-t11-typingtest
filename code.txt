@@ -74,3 +74,104 @@ def combo_string(a, b):
   """
   return a+b+a if len(a)<len(b) else b+a+b
 PROBLEMEND:3
+
+NAME: Cutting Past Middle
+DIFFICULTY:2  //I dont know how to determine this
+Skill:String
+PROBLEMSTART:4 //will there be a standard procedure for numbering code across languages
+/* Given one string a, create a new string, which is a copy of a, which stops before 
+ * the middle character (for a string of odd length)
+ * or the middle two characters (for a string of even length) of a.
+ * If a is empty, return the empty string
+ */
+public string cutMiddle(string a)
+{
+    if (a.empty())
+        return a;
+    
+    int half_len = (a.length()-1)/2;
+    return a.substr(0,half_len);
+}
+PROBLEMEND:4
+
+NAME: Recursive Equation
+SKILL:Recursion
+DIFFICULTY:2
+PROBLEMSTART:5
+/* For a given number n, calculate 2^n * n!
+* If the given n is less than 0, return 0
+*/
+int recursive2NFact(int n)
+{
+    if (n<0)
+    {
+        return 0;
+    }
+    if (n==0)
+    {
+        return 1;
+    }
+    return 2*n*recursive2NFact(n-1);
+}
+PROBLEMEND:5
+
+NAME: Number Wrapper Class //this one might not be that great, but i think a memory management question would be nice
+SKILL:Memory
+DIFFICULTY:2
+PROBLEMSTART:6
+/* Create the default constructor, constructor, and destructor
+* for the wrapper class containing pointers to one integer and one double,
+* given that the variables are defined as int* i and double* d
+*/
+Wrapper()
+{
+    i = new int(0);
+    d = new double(0.0);
+}
+Wrapper(int n1, double n2)
+{
+    i = new int(n1);
+    d = new double(n2);
+}
+~Wrapper()
+{
+    delete i;
+    delete d;
+}
+PROBLEMEND:6
+
+NAME: Array Traversal of Various Step Sizes
+SKILL:Input,Exceptions
+DIFFICULTY:3
+PROBLEMSTART:7
+/*Assume array a[] has already been initialized and filled with strings, with variable arraysize equal to its length,
+* and the function traverseInStep() has been declared.
+* Ask for an integer n > 0, and then put that input into a function, which will
+* print out every value a[i] such that i is a multiple of n.
+* If not given an integer, or the integer is nonpositive, loop the prompt until an integer is given.
+*/
+bool noIntProvided = true;
+int n;
+while (noIntProvided)
+{
+        cout<<"Please provide an integer\n";
+        cin>>n;
+    if (n < 1)
+    {
+        cout<<"Integer is below 1, not valid\n";
+    }
+    else
+    {
+        noIntProvided = false;
+    }
+}
+traverseInStep(n,a);
+
+void traverseInStep(int n, string array[], int arraysize)
+{
+    for (int i = 0; i < arraysize; i+=n)
+    {
+        cout<<array[i]<<endl;
+    }
+}
+PROBLEMEND:7
