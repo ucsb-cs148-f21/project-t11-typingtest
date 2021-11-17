@@ -26,7 +26,7 @@ const langs = [
 ]
   
 const langList = langs.map(lang => (
-  <Link to="/Practice">
+  <Link to="/Java">
     <button type="button" className="LangButton">
       <Typography sx={{ fontSize: 20 }} color='#3699cf' gutterBottom>
         {lang.name}

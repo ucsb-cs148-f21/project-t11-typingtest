@@ -8,6 +8,8 @@ import Private from "./pages/Private";
 import Practice from "./pages/Practice";
 import PageNotFound from "./pages/PageNotFound";
 import Language from "./pages/ Language";
+import Java from "./pages/Java";
+import CodePractice from "./utils/CodePractice";
 
 export default function App() {
   const [isSignedIn, setIsSignedIn] = useState(null);
@@ -52,7 +54,8 @@ export default function App() {
           <PrivateRoute exact path="/profile" component={Profile} />
           <Route exact path="/practice" component={Practice} />
           <Route exact path="/language" component={Language} />
-          <Route path='/Java' component={Java}/>
+          <Route path="/java" exact component={Java} />
+          <Route path="/java/:id" component={CodePractice}/>
           <Route path="/" component={PageNotFound} />
         </Switch>
       </BrowserRouter>

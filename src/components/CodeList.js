@@ -30,6 +30,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import {Link} from 'react-router-dom';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -58,6 +59,7 @@ const useStyles = makeStyles({
 const CodeList = () => {
   const classes = useStyles();
   const [product, setProduct] = useState([]);
+  const [search, setSearch] = useState("");
 
   const getProductData = async () => {
     try {
@@ -76,6 +78,31 @@ const CodeList = () => {
   }, []);
   return (
     <div className="App">
+      <h1>Code</h1>
+      <input
+        type="text"
+        placeholder="Search here"
+        onChange={(e) => {
+          setSearch(e.target.value);
+        }}
+      />
+
+      {/* {product
+        .filter((item) => {
+          if (search == "") {
+            return item;
+          } else if (item.name.toLowerCase().includes(search.toLowerCase())) {
+            return item;
+          }
+        })
+        .map((item) => {
+          return (
+            <p>
+              {item.name} - {item.price}
+            </p>
+          );
+        })} */}
+
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
@@ -86,14 +113,23 @@ const CodeList = () => {
           </TableHead>
           <TableBody>
             {product
+              .filter((item) => {
+                if (search == "") {
+                  return item;
+                } else if (
+                  item.name.toLowerCase().includes(search.toLowerCase())
+                ) {
+                  return item;
+                }
+              })
               .map((item) => {
                 return (
-                  <StyledTableRow>
+                  <StyledTableRow key={item.id}>
                     <StyledTableCell component="th" scope="row">
-                      {item.index}
+                      {item.difficulty}
                     </StyledTableCell>
                     <StyledTableCell align="right">
-                      {item.difficulty}
+                      <Link to={`/Java/${item.index}`}>{item.index}</Link>
                     </StyledTableCell>
                   </StyledTableRow>
                 );

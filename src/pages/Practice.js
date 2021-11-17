@@ -15,7 +15,6 @@ export default function Practice() {
                 <div>
                     <Timer/>
                     <CodeCard/> 
-                    <CodeList/>
                     <WordCount/>
                 </div>
             </Container>
