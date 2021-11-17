@@ -70,5 +70,9 @@ def returnProblemsFromLanguageAndSkill(problemLanguage, problemskill):
     jsonfile = json.loads(codesnippets.objects(language=problemLanguage, skillcategory=problemskill).to_json()) #returns a list containing a list
     return jsonify(jsonfile)
 
+def returnProblemsFromLanguageAndIndex(problemLanguage, id):
+    jsonfile = json.loads(codesnippets.objects(language=problemLanguage, index=id).to_json()) #returns a list containing a list
+    return jsonify(jsonfile)
+
 #print("\nFetch a book")
 #problem = codesnippets.objects(language="Java").first()
