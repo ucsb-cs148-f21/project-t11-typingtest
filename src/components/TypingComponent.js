@@ -16,7 +16,7 @@ class TypingComponent extends Component {
     progress: 0
   };
   componentDidMount(){
-    fetch("http://127.0.0.1:5000/codesnippetID/1")
+    fetch("http://127.0.0.1:5000/codesnippetID/-4862049077753703823")
       .then(response => response.json())
       .then(data => {
         console.log(data);
@@ -24,6 +24,17 @@ class TypingComponent extends Component {
         this.setState({text: JSON.stringify(data.code)})
       })
   }
+  componentDidMount() {
+    // Simple POST request with a JSON body using fetch
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: 'React POST Request Example' })
+    };
+    fetch('http://127.0.0.1:5000/codesnippetID/-4862049077753703823', requestOptions)
+        .then(response => response.json())
+        .then(data => this.setState({ postId: data.id }));
+}
   setText = () => {
     /*
     const texts = [

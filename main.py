@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, request, flash
 import mongoengine as db
-from functions import parseCodeFile, codesnippets, returnProblemFromIndex, returnProblemsFromLanguage, returnProblemsFromLanguageAndSkill
+from functions import parseCodeFile, codesnippets, returnProblemFromIndex, returnProblemsFromLanguage, returnProblemsFromLanguageAndSkill, returnProfile, updateProfile
 database_name = "testdb"
 
 app = Flask(__name__, static_folder='./build', static_url_path='/')
@@ -16,10 +16,12 @@ if __name__ == "__main__":
 def index():
     return app.send_static_file('index.html')
 
-
-@app.route('/codesnippetID/<id>', methods=['GET'])
-def returnID(id):
-    return returnProblemFromIndex(id)
+@app.route('/codesnippetID/<problemId>', methods=['GET', 'POST'])
+def returnID(problemId):
+    if request.method == 'GET':
+        return returnProblemFromIndex(problemId)
+    if request.method == 'POST':
+        updateProfile(problemId, request.form)
 
 
 # codesnippet?language=Java&skill=2

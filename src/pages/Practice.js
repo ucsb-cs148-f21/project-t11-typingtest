@@ -20,6 +20,7 @@ export default function Practice() {
                     <CodeList/>
                     <WordCount/>
                     <TypingComponent/>
+                    
                 </div>
             </Container>
         </Layout>
