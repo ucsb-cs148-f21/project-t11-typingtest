@@ -21,3 +21,4 @@
 * Update our kanban board more often so we can know what everyone is working on.
 * Think about more functionalities and prioritize the most feasible one. 
 * Communicate more about the difficulties we are facing
+* Study more about the fundamentals of how React and JavaScript work
