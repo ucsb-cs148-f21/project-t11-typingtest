@@ -18,5 +18,6 @@
 
 ## Possible Improvement
 * We should spend more time on checking if our labs are done. 
-* Also need to update our kanpan board more often so we can know what everyone is working on; 
-* We need to think about more functionalities and prioritize the most feasible one. 
+* Update our kanban board more often so we can know what everyone is working on.
+* Think about more functionalities and prioritize the most feasible one. 
+* Communicate more about the difficulties we are facing
