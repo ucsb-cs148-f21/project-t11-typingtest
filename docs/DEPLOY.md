@@ -1,4 +1,7 @@
 Starting with "read only" access of our repo to deploy our app the following steps must be followed:
+
+
+
 (1) Cloning the Repository 
 * You must create a local copy of our code
 * You must then replace the .envSAMPLE with a .env with the single parameter: REACT_AUTH_APP_CLIENT_ID = ____
