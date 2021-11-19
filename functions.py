@@ -87,14 +87,15 @@ def updateProfile(problemId, request):
         newUser = profile(_id=userID, Easy=0, Medium=0, Hard=0, problemsSolved = [])
         newUser.save()
     user = profile.objects(_id=request.json["userID"])
-    #if (user.problemsSolved[]) make sure that the user hasnt already completed this problem
-    if (problem.difficulty == "Easy"):
-        user.update(inc__Easy=1)
-    elif (problem.difficulty == "Medium"):
-        user.update(inc__Medium=1)
-    elif (problem.difficulty == "Hard"):
-        user.update(inc__Hard=1)
-    user.update(add_to_set__problemsSolved=problemId)
+    if problemId in user[0].problemsSolved:
+        if (problem.difficulty == "Easy"):
+            user.update(inc__Easy=1)
+        elif (problem.difficulty == "Medium"):
+            user.update(inc__Medium=1)
+        elif (problem.difficulty == "Hard"):
+            user.update(inc__Hard=1)
+        user.update(add_to_set__problemsSolved=problemId)
+    
     
     
 
