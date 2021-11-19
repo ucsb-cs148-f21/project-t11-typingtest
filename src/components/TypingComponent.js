@@ -1,5 +1,10 @@
 import React, { Component, useEffect, useState } from "react";
 import "./styles.css";
+import getUser from "../utils/get-user";
+
+
+
+const user = getUser();
 
 class TypingComponent extends Component {
   state = {
@@ -18,7 +23,7 @@ class TypingComponent extends Component {
   };
   componentDidMount(){
     var fetchURL = window.location.href
-    fetchURL = fetchURL.replace("practice", "codesnippetID/-4862049077753703823")
+    fetchURL = fetchURL.replace("practice", "codesnippetID/")
     fetchURL += this.state.textID
     console.log(fetchURL)
     fetch(fetchURL)
@@ -28,6 +33,16 @@ class TypingComponent extends Component {
         console.log(this.state.text)
         this.setState({text: JSON.stringify(data.code)})
       })
+
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userID: 32123, problemID: this.state.text})
+    };
+    fetch(fetchURL, requestOptions)
+        .catch(err => console.error(err));
+    
+    
   }
   setText = () => {
     /*

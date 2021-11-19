@@ -1,3 +1,4 @@
+from enum import unique
 import mongoengine as db
 import json
 import re
@@ -27,7 +28,7 @@ class codesnippets(db.Document):
         }
 
 class profile(db.Document):
-    id = db.IntField(unique=True)
+    _id = db.IntField()
     Easy = db.IntField() #number of easy problems solved
     Medium = db.IntField()
     Hard = db.IntField()
@@ -36,7 +37,7 @@ class profile(db.Document):
 
     def to_json(self):
         return {
-            "id": self.id,
+            "_id": self._id,
             "Easy": self.Easy,
             "Medium": self.Medium,
             "Hard": self.Hard
@@ -78,12 +79,22 @@ def parseCodeFile():
 
     codeFile.close()
 
-def updateProfile(problemId, requestForm):
-    problem = codesnippets.objects(_id=problemId)
-    user = profile.objects(id=requestForm.get('id'))
+def updateProfile(problemId, request):
+    request_json = request.get_json()
+    userID = request_json.get('userID')
+    problem = codesnippets.objects.get(_id=problemId)
+    if not (profile.objects(_id=userID)):
+        newUser = profile(_id=userID, Easy=0, Medium=0, Hard=0, problemsSolved = [])
+        newUser.save()
+    user = profile.objects(_id=request.json["userID"])
     #if (user.problemsSolved[]) make sure that the user hasnt already completed this problem
-    user[problem.difficulty].inc(1)
-    user.problemsSolved.push(problemId)
+    if (problem.difficulty == "Easy"):
+        user.update(inc__Easy=1)
+    elif (problem.difficulty == "Medium"):
+        user.update(inc__Medium=1)
+    elif (problem.difficulty == "Hard"):
+        user.update(inc__Hard=1)
+    user.update(add_to_set__problemsSolved=problemId)
     
     
 
@@ -103,7 +114,7 @@ def returnProblemsFromLanguageAndSkill(problemLanguage, problemskill):
 
 
 def returnProfile(profileId):
-    jsonfile = json.loads(profile.objects(id=profileId).to_json()) #returns a profile from id
+    jsonfile = json.loads(profile.objects(_id=profileId).to_json()) #returns a profile from id
     return jsonify(jsonfile)
 
 
