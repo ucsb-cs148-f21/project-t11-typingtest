@@ -22,3 +22,9 @@
 * Think about more functionalities and prioritize the most feasible one. 
 * Communicate more about the difficulties we are facing
 * Study more about the fundamentals of how React and JavaScript work
+
+## Retro Assessment
+
+* I utilized the start stop continue method.
+* There was good participation from all the team members it went well.
+* I think the team is more focused now and willing to work on the projects now. They tasks have been clearly delineated and people know what they have to start.
