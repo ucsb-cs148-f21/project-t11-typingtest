@@ -3,6 +3,9 @@ The current website is structured to allow students to learn and improve their t
 by adults trying to learn or gain some experience with code. 
 
 # Navigation
+<img width="1680" alt="Screen Shot 2021-11-19 at 2 40 48 AM" src="https://user-images.githubusercontent.com/32660271/142609557-6c4b20a3-f687-4761-bf27-3fccbe7f5080.png">
+
+
 In the future we have an additional navigation panel that links to statistics global and user specific.
 Currently there is only three tabs, Home, Language, Practice. 
 The Home page lists the information about the app, who is intended for its use, and how it can be  used.
