@@ -1,4 +1,6 @@
 # How to use our current website
+
+# Intended User Audience
 The current website is structured to allow students to learn and improve their typing skills. It can also be used
 by adults trying to learn or gain some experience with code. 
 
