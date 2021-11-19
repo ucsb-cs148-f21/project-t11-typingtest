@@ -11,6 +11,7 @@ Though this feature is not yet implemented, the frontend should also be able to 
 # Design Process Documentation Section
 the React frontend fetches the code from these urls and displays them to the user. The user can then interact with the frontend and it will respond by giving the user details on their typing progress like time and speed. This was discussed in **RETRO 1**. Take code from the user and send to the flask backend to store. Then this code can then be used as a test later for the user to type on. This was discussed in **RETRO 2**.We made design choices to the profile page to save information of each use and this is something we will adress in **RETRO 3**.
 
+# User Interface and User Experience (UX) considerations
 
 ![UserFlow](userflow.PNG)
 
