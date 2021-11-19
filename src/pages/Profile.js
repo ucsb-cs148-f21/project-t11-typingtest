@@ -15,18 +15,25 @@ const Doggo = styled.img`
 export default function Profile() {
   const user = getUser();
 
+  var fetchURL = window.location.href
+  fetchURL = fetchURL.replace("profile", "profile/")
+  fetchURL += user.id
+  console.log(fetchURL)
+  fetch(fetchURL)
+    .then(response => response.json())
+
   return (
     <Layout user={user}>
       <Container>
-        <h1>This is your Profile page!</h1>
+        <h1>Welcome back {user.givenName}!</h1>
         <div>
-          Here's what this app knows about you based on your Google login:
+          Number of easy problems completed: 
         </div>
-        <pre>{JSON.stringify(user, null, "\t")}</pre>
+          Number of medium problems completed: 
         <div>
-          Your name is "{user.fullName}" and your email is "{user.email}."
+          Number of hard problems completed: 
         </div>
-        <div>Google also thinks you'll like this picture :)</div>
+          List of problems completed: 
         <br />
         <Doggo src={DoggoImg} />
       </Container>

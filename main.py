@@ -21,7 +21,8 @@ def returnID(problemId):
     if request.method == 'GET':
         return returnProblemFromIndex(problemId)
     if request.method == 'POST':
-        updateProfile(problemId, request.form)
+        updateProfile(problemId, request)
+        return "Profile Updated."
 
 
 # codesnippet?language=Java&skill=2
@@ -33,9 +34,9 @@ def returnLanguageAndSkill(language, skill):
 def returnLanguage(language):
     return returnProblemsFromLanguage(language)
 
-@app.route('/codesnippet/<language>/<id>', methods=['GET'])
-def returnProblemsFromLanguageAndIndex(language, id):
-    return returnProblemsFromLanguageAndIndex(language, id)
+@app.route('/profile/<id>', methods=['GET'])
+def returnUserProfile(id):
+    return returnProfile(id)
 
 @app.errorhandler(404)
 def not_found(e):
