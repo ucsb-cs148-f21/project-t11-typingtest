@@ -26,7 +26,8 @@ Starting with "read only" access of our repo to deploy our app the following ste
 * Select GitHub as the method
 * search for your GitHub repository and click connect
 * Open the Settings tab and locate Buildpacks and click “Add buildpack”
-* Select nodejs
+* Select python
 * You need to also look into authentication
 * Set the authentication variable to REACT_AUTH_APP_CLIENT_ID
+* App should run!
 
