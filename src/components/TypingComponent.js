@@ -28,6 +28,8 @@ class TypingComponent extends Component {
         console.log(this.state.text)
         this.setState({text: JSON.stringify(data.code)})
       })
+    this.setState({text: this.state.text.replace(/\\n/g, "\n")})
+    console.log(this.state.text)
   }
   setText = () => {
     /*
@@ -41,6 +43,7 @@ class TypingComponent extends Component {
     ]; 
     const text = texts[Math.floor(Math.random() * texts.length)]; */
     const words = this.state.text.split(" ");
+    console.log(words);
     this.setState({
       words: words,
       completedWords: []
@@ -105,6 +108,38 @@ class TypingComponent extends Component {
 
     this.calculateWPM();
   };
+
+  _handleKeyPress = (e) => {
+    if (e.key === 'Enter'){
+      const { words, completedWords } = this.state;
+
+      const currentWord = words[0];
+      console.log(currentWord, "currentWord");
+
+      if (currentWord === "\n"){
+        const newWords = [...words.slice(1)];
+        console.log(newWords, "newWords");
+        console.log(newWords.length, "newWords.length");
+        const newCompletedWords = [...completedWords, currentWord];
+        console.log(newCompletedWords, "newCompletedWords");
+        console.log("----------------");
+
+        // Get the total progress by checking how much words are left
+        const progress =
+          (newCompletedWords.length /
+            (newWords.length + newCompletedWords.length)) *
+          100;
+        this.setState({
+          words: newWords,
+          completedWords: newCompletedWords,
+          inputValue: "",
+          completed: newWords.length === 0,
+          progress: progress
+        });
+      }
+    }
+    this.calculateWPM();
+  } 
 
   calculateWPM = () => {
     const { startTime, completedWords } = this.state;
@@ -241,6 +276,7 @@ class TypingComponent extends Component {
           <input
             type="text"
             onChange={this.handleChange}
+            onKeyPress={this._handleKeyPress}
             value={inputValue}
             // autoFocus={started ? 'true' : 'false'}
             autoFocus={true}
