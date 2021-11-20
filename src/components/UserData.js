@@ -36,7 +36,7 @@ class UserData extends Component {
 
         return(
             <>
-                <h1>Welcome back {user.givenName}!</h1>
+                <h1>Welcome back {user.fullName}!</h1>
                 <div>
                 Number of easy problems completed: {easyProblems}
                 </div>
