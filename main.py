@@ -35,8 +35,8 @@ def returnLanguage(language):
     return returnProblemsFromLanguage(language)
 
 @app.route('/profile/<id>', methods=['GET'])
-def returnUserProfile(id):
-    return returnProfile(id)
+def returnUserProfile(email):
+    return returnProfile(email)
 
 @app.errorhandler(404)
 def not_found(e):

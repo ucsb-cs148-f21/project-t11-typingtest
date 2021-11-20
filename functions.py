@@ -81,12 +81,13 @@ def parseCodeFile():
 
 def updateProfile(problemId, request):
     request_json = request.get_json()
-    userID = request_json.get('userID')
+    userEmail = request_json.get('userEmail')
+    userID = hash(userEmail)
     problem = codesnippets.objects.get(_id=problemId)
     if not (profile.objects(_id=userID)):
         newUser = profile(_id=userID, Easy=0, Medium=0, Hard=0, problemsSolved = [])
         newUser.save()
-    user = profile.objects(_id=request.json["userID"])
+    user = profile.objects(userID)
     if problemId in user[0].problemsSolved:
         if (problem.difficulty == "Easy"):
             user.update(inc__Easy=1)
@@ -114,8 +115,8 @@ def returnProblemsFromLanguageAndSkill(problemLanguage, problemskill):
     return jsonify(jsonfile)
 
 
-def returnProfile(profileId):
-    jsonfile = json.loads(profile.objects(_id=profileId).to_json()) #returns a profile from id
+def returnProfile(userEmail):
+    jsonfile = json.loads(profile.objects(_id=hash(userEmail)).to_json()) #returns a profile from id
     return jsonify(jsonfile)
 
 

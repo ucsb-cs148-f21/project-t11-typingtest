@@ -37,7 +37,7 @@ class TypingComponent extends Component {
       const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userID: user.id, problemID: this.state.text})
+        body: JSON.stringify({ userEmail: user.email, problemID: this.state.text})
     };
     fetch(fetchURL, requestOptions)
         .catch(err => console.error(err));
