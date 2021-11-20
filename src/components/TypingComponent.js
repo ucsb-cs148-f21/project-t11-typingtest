@@ -1,10 +1,8 @@
 import React, { Component, useEffect, useState } from "react";
 import "./styles.css";
-import getUser from "../utils/get-user";
 
 
-
-const user = getUser();
+const user = props.user;
 
 class TypingComponent extends Component {
   state = {
