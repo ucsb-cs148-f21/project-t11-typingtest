@@ -89,7 +89,8 @@ def parseCodeFile():
 
 def updateProfile(problemId, request):
     request_json = request.get_json()
-    userID = request_json.get('userId')
+    userID = request_json.get('userID')
+    userID = int(userID)
     problem = codesnippets.objects.get(_id=problemId)
     if not (profile.objects(_id=userID)):
         newUser = profile(_id=userID, Easy=0, Medium=0, Hard=0, problemsSolved = [])
