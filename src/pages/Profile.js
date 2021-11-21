@@ -20,7 +20,7 @@ export default function Profile() {
   return (
     <Layout user={user}>
       <Container>
-        <UserData/>
+        <UserData user={user}/>
       </Container>
     </Layout>
   );

@@ -6,7 +6,15 @@ from flask import jsonify
 
 import os
 import sys
-os.environ['PYTHONHASHSEED'] = '1234'
+def ensure_pythonhashseed(seed=1234):
+    current_seed = os.environ.get("PYTHONHASHSEED")
+
+    seed = str(seed)
+    if current_seed is None or current_seed != seed:
+        print(f'Setting PYTHONHASHSEED="{seed}"')
+        os.environ["PYTHONHASHSEED"] = seed
+        # restart the current process
+        #os.execl(sys.executable, sys.executable, *sys.argv)
 
 
 class codesnippets(db.Document):
@@ -81,8 +89,7 @@ def parseCodeFile():
 
 def updateProfile(problemId, request):
     request_json = request.get_json()
-    userEmail = request_json.get('userEmail')
-    userID = hash(userEmail)
+    userID = request_json.get('userId')
     problem = codesnippets.objects.get(_id=problemId)
     if not (profile.objects(_id=userID)):
         newUser = profile(_id=userID, Easy=0, Medium=0, Hard=0, problemsSolved = [])
@@ -115,8 +122,8 @@ def returnProblemsFromLanguageAndSkill(problemLanguage, problemskill):
     return jsonify(jsonfile)
 
 
-def returnProfile(userEmail):
-    jsonfile = json.loads(profile.objects(_id=hash(userEmail)).to_json()) #returns a profile from id
+def returnProfile(id):
+    jsonfile = json.loads(profile.objects(_id=id).to_json()) #returns a profile from id
     return jsonify(jsonfile)
 
 

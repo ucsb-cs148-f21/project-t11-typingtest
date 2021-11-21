@@ -6,7 +6,7 @@ class TypingComponent extends Component {
   state = {
     text: "",
     user: this.props.user,
-    textID: this.props.ID,
+    textID: this.props.codesnippetID,
     inputValue: "",
     lastLetter: "",
     words: [],
@@ -34,7 +34,7 @@ class TypingComponent extends Component {
       const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userEmail: this.state.user.email, problemID: this.state.text})
+        body: JSON.stringify({ userId: this.state.user.id, problemID: this.state.text})
     };
     fetch(fetchURL, requestOptions)
         .catch(err => console.error(err));

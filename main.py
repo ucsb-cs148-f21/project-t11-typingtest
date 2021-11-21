@@ -1,13 +1,14 @@
 import os
 from flask import Flask, render_template, request, flash
 import mongoengine as db
-from functions import parseCodeFile, codesnippets, returnProblemFromIndex, returnProblemsFromLanguage, returnProblemsFromLanguageAndSkill, returnProfile, updateProfile
+from functions import parseCodeFile, codesnippets, returnProblemFromIndex, returnProblemsFromLanguage, returnProblemsFromLanguageAndSkill, returnProfile, updateProfile, ensure_pythonhashseed
 database_name = "testdb"
 
 app = Flask(__name__, static_folder='./build', static_url_path='/')
 DB_URI = 'mongodb+srv://jasonrdunne:wordpass@cluster0.aho0z.mongodb.net/testdb?retryWrites=true&w=majority'
 db.connect(host=DB_URI)
 #parseCodeFile()
+ensure_pythonhashseed(seed=1234)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=False, port=os.environ.get('PORT', 80))
@@ -35,8 +36,8 @@ def returnLanguage(language):
     return returnProblemsFromLanguage(language)
 
 @app.route('/profile/<id>', methods=['GET'])
-def returnUserProfile(email):
-    return returnProfile(email)
+def returnUserProfile(id):
+    return returnProfile(id)
 
 @app.errorhandler(404)
 def not_found(e):
