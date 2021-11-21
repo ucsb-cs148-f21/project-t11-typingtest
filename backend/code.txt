@@ -1,52 +1,18 @@
 LANGUAGE:Java
 DIFFICULTY:2
 SKILL:Array
-PROBLEMSTART:1
-/* Given an int array, return true if the array contains 2 twice, or 3 twice. 
- * The array will be length 0, 1, or 2.
- */
-public boolean double23(int[] nums) {
-    int count2 = 0;
-    int count3 = 0;
-      
-    for(int i = 0; i < nums.length; i++) {
-        if(nums[i] == 2)
-            count2++;
-                        
-        if(nums[i] == 3)
-            count3++;
-    }
-                                      
-    return count2 == 2 || count3 == 2;
-PROBLEMEND:1
-
+PROBLEMSTART:0
+This is where our code will go, code snippet 1
+PROBLEMEND:0
 
 DIFFICULTY:3
-PROBLEMSTART:2
-/* Given 2 int arrays, a and b, of any length, return a new array with the 
- * first element of each array. If either array is length 0, ignore that array.
- */
-public int[] front11(int[] a, int[] b) {
-    if(a.length > 0 && b.length > 0) {
-        return new int[] {a[0], b[0]};
-    } else if(a.length > 0) {
-        return new int[] {a[0]};
-    } else if(b.length > 0) {
-        return new int[] {b[0]};
-    }
-                      
-    return new int[0];
-PROBLEMEND:2
+PROBLEMSTART:1
+This is where our code will go, code snippet 2
+PROBLEMEND:1
 
 LANGUAGE:Python
 DIFFICULTY:1
 SKILL:String
 PROBLEMSTART:3
-def combo_string(a, b):
-  """
-  Given 2 strings, a and b, return a string of the form short+long+short, 
-  with the shorter string on the outside and the longer string on the inside. 
-  The strings will not be the same length, but they may be empty (length 0). 
-  """
-  return a+b+a if len(a)<len(b) else b+a+b
+This is where our code will go, code snippet 3
 PROBLEMEND:3
