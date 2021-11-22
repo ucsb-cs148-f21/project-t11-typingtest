@@ -53,6 +53,7 @@ class profile(db.Document):
 
 
 def parseCodeFile():
+    ensure_pythonhashseed(seed=1234)
     countIndex = 1
     codesnippets.drop_collection()
     codeFile = open("code.txt", "r")
