@@ -20,6 +20,11 @@ export default function Home() {
   return (
     <Layout user={user}>
       <HomeSection/>
+      <Link to="/Language">
+        <button type="button" className = "Navlink">
+            Start Typing
+        </button>
+      </Link>
       <Card>
         <CardContent>
           <Typography sx={{mb:1.5}} variant="h5" color= "#3699cf">
@@ -30,11 +35,7 @@ export default function Home() {
           </Typography>
         </CardContent> 
       </Card>
-      <Link to="/Language">
-        <button type="button" className = "Navlink">
-            Start Typing
-        </button>
-      </Link>
+      
     </Layout>
   );
 }
