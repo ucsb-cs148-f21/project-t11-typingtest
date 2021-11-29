@@ -1,0 +1,6 @@
+LANGUAGE:Java
+DIFFICULTY:2
+SKILL:Array
+PROBLEMSTART:0
+This is where our code will go, code snippet 1
+PROBLEMEND:0

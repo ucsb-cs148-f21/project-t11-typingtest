@@ -107,8 +107,8 @@ const CodeList = () => {
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell>Product Name</StyledTableCell>
-              <StyledTableCell align="right">Product Price</StyledTableCell>
+              <StyledTableCell>Problem Name</StyledTableCell>
+              <StyledTableCell align="right">Problem Index</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -122,14 +122,14 @@ const CodeList = () => {
                   return item;
                 }
               })
-              .map((item) => {
+              .map((item, index) => {
                 return (
-                  <StyledTableRow key={item.id}>
+                  <StyledTableRow key={item.name}>
+                    <StyledTableCell align="right">
+                      <Link to={`/Java/${item._id}`}>{item.name}</Link>
+                    </StyledTableCell>
                     <StyledTableCell component="th" scope="row">
                       {item.difficulty}
-                    </StyledTableCell>
-                    <StyledTableCell align="right">
-                      <Link to={`/Java/${item.index}`}>{item.index}</Link>
                     </StyledTableCell>
                   </StyledTableRow>
                 );

@@ -55,7 +55,7 @@ export default function App() {
           <Route exact path="/practice" component={Practice} />
           <Route exact path="/language" component={Language} />
           <Route path="/java" exact component={Java} />
-          <Route path="/java/:id" component={CodePractice}/>
+          <Route path="/java/:_id" component={CodePractice}/>
           <Route path="/" component={PageNotFound} />
         </Switch>
       </BrowserRouter>

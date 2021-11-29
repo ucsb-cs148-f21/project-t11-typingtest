@@ -6,6 +6,8 @@ import  Timer from "../utils/Timer";
 import CodeCard from "../utils/CodeCard";
 import WordCount from '../utils/WordCount'
 import CodeList from "../components/CodeList";
+import TypingComponent from "../components/TypingComponent";
+
 
 export default function Practice() {
     const user = getUser();
@@ -13,9 +15,7 @@ export default function Practice() {
         <Layout user = {user}>
             <Container>
                 <div>
-                    <Timer/>
-                    <CodeCard/> 
-                    <WordCount/>
+                    <TypingComponent ID='3687284161695356416'/>
                 </div>
             </Container>
         </Layout>
