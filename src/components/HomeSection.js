@@ -1,7 +1,6 @@
 import React from "react";
 import './HomeSection.css'
 import Video from "../images/video.mp4"; 
-import { Divider } from "@mui/material";
 
 function HomeSection() {
     return (
