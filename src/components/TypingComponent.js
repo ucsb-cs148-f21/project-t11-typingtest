@@ -3,8 +3,7 @@ import "./styles.css";
 
 class TypingComponent extends Component {
   state = {
-    text: "",
-    textID: this.props.ID,
+    text: this.props.text,
     inputValue: "",
     lastLetter: "",
     words: [],
@@ -17,17 +16,6 @@ class TypingComponent extends Component {
     progress: 0
   };
   componentDidMount(){
-    var fetchURL = window.location.href
-    fetchURL = fetchURL.replace("practice", "codesnippetID/")
-    fetchURL += this.state.textID
-    console.log(fetchURL)
-    fetch(fetchURL)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        console.log(this.state.text)
-        this.setState({text: JSON.stringify(data.code).replace(/"([^"]+)":/g, '$1:') })
-      })
     console.log(this.state.text)
   }
   setText = () => {

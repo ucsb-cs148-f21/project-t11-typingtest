@@ -1,9 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import TypingComponent from '../components/TypingComponent';
 
-
-
-
 export default function CodePractice(match) {
 
 	useEffect(() => {
@@ -11,10 +8,9 @@ export default function CodePractice(match) {
         console.log(match.match.params._id);
 	}, []);
 
-	const [item, setItem] = useState({code:"a"}); 
-	const [code, setCode] = useState({code:"a"}); 
+	const [item, setItem] = useState([]); 
+	const [code, setCode] = useState(""); 
 	const [_id, setID] = useState();
-	const name = 'Josh Perez';
     
 	const fetchItem = async () => {
 		const fetchItem = await fetch(`http://127.0.0.1:5000/codesnippet/Java`
@@ -30,7 +26,6 @@ export default function CodePractice(match) {
 		//setCode(code)
 		console.log(code);
 		console.log(typeof code)
-		setCode(console.log(item[0].code));
 
 		for(var i = 0; i < item.length; i++) {
 			var obj = item[i];
@@ -43,11 +38,14 @@ export default function CodePractice(match) {
 		}
 		console.log(_id)
 	}
-
-
+	if(code != ""){
 	return (
 		<div>
-			<TypingComponent ID='3687284161695356416'/>
+			<TypingComponent text={code}/>
 		</div>
 	);
+}
+return (
+	<div></div>
+)
 }
