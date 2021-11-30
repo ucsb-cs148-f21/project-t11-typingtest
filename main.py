@@ -1,4 +1,5 @@
 import os
+import sys
 from flask import Flask, render_template, request, flash
 import mongoengine as db
 from functions import parseCodeFile, codesnippets, returnProblemFromIndex, returnProblemsFromLanguage, returnProblemsFromLanguageAndSkill, returnProfile, updateProfile, ensure_pythonhashseed
@@ -21,6 +22,7 @@ def returnID(problemId):
     if request.method == 'GET':
         return returnProblemFromIndex(problemId)
     if request.method == 'POST':
+        print('Hello world!', file=sys.stderr)
         updateProfile(problemId, request)
         return "Profile Updated."
     return "ERROR"
