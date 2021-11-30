@@ -23,6 +23,7 @@ def returnID(problemId):
     if request.method == 'POST':
         updateProfile(problemId, request)
         return "Profile Updated."
+    return "ERROR"
 
 
 # codesnippet?language=Java&skill=2
