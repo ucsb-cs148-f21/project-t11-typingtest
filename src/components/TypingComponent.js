@@ -30,11 +30,11 @@ class TypingComponent extends Component {
         console.log(this.state.text)
         this.setState({text: JSON.stringify(data.code)})
       })
-
+      console.log(this.state.user.id)
       const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userID: 154653, problemID: this.state.textID}) //userID: this.state.user.id, problemID: this.state.textID
+        body: JSON.stringify({ userID: this.state.user.id, problemID: this.state.textID}) //userID: this.state.user.id, problemID: this.state.textID
     };
     fetch(fetchURL, requestOptions)
         .catch(err => console.error(err));
