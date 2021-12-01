@@ -28,9 +28,9 @@ class UserData extends Component {
       const easy = this.state.easyProblems;
       const medium = this.state.mediumProblems;
       const hard = this.state.hardProblems;
-      const problems = this.state.listOfProblems;
-      console.log("problem length:", problems.length);
-      for (let i=0; i<this.state.listOfProblems.length; i++)
+      //const problems = this.state.listOfProblems;
+      //console.log("problem length:", problems.length);
+      /*for (let i=0; i<this.state.listOfProblems.length; i++)
       {
         var fetchURL = window.location.href;
         fetchURL = fetchURL.replace("profile", "codesnippetID/");
@@ -41,7 +41,7 @@ class UserData extends Component {
           console.log(data);
           problems[i] = data.name;
         })
-      }
+      }*/
 
         return(
             <>
@@ -53,7 +53,6 @@ class UserData extends Component {
                 <div>
                 Number of hard problems completed: {hard} 
                 </div>
-                List of problems completed: {problems}
                 <br />
             </>
             );
