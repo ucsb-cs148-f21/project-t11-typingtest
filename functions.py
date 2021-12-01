@@ -18,7 +18,7 @@ def ensure_pythonhashseed(seed=1234):
 
 
 class codesnippets(db.Document):
-    _id = db.IntField()
+    _id = db.LongField()
     language = db.StringField()
     skillcategory = db.StringField()
     difficulty = db.StringField()

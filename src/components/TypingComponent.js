@@ -16,7 +16,7 @@ class TypingComponent extends Component {
     timeElapsed: 0,
     wpm: 0,
     started: false,
-    progress: 0
+    progress: 0,
   };
   componentDidMount(){
     var fetchURL = window.location.href
@@ -34,7 +34,7 @@ class TypingComponent extends Component {
       const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userID: this.state.user.id.toString(), problemID: this.state.textID}) //userID: this.state.user.id, problemID: this.state.textID
+        body: JSON.stringify({ userID: this.state.user.id.toString().substr(0, 17), problemID: this.state.textID}) //userID: this.state.user.id, problemID: this.state.textID
     };
     fetch(fetchURL, requestOptions)
         .catch(err => console.error(err));
