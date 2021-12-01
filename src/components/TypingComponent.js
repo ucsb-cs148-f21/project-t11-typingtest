@@ -35,6 +35,7 @@ class TypingComponent extends Component {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userID: this.state.user.id.toString().substr(0, 17), problemID: this.state.textID}) //userID: this.state.user.id, problemID: this.state.textID
+        //body: JSON.stringify({ userID: 43531, problemID: this.state.textID}) //userID: this.state.user.id, problemID: this.state.textID
     };
     fetch(fetchURL, requestOptions)
         .catch(err => console.error(err));
