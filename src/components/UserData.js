@@ -4,7 +4,11 @@ import "./styles.css";
 
 class UserData extends Component {
   state = {
-    user: this.props.user
+    user: this.props.user,
+    easyProblems: 0,
+    mediumProblems: 0,
+    hardProblems: 0,
+    listOfProblems: []
   };
 
   componentDidMount(){
