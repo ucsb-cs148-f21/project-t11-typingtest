@@ -29,11 +29,12 @@ class UserData extends Component {
       const medium = this.state.mediumProblems;
       const hard = this.state.hardProblems;
       const problems = this.state.listOfProblems;
-      for (let i=0; i<problems.length; i++)
+      console.log("problem length:", problems.length);
+      for (let i=0; i<this.state.listOfProblems.length; i++)
       {
         var fetchURL = window.location.href;
         fetchURL = fetchURL.replace("profile", "codesnippetID/");
-        fetchURL += problems[i];
+        fetchURL += this.state.listOfProblems[i];
         fetch(fetchURL)
         .then(response => response.json())
         .then(data => {
