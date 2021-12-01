@@ -20,12 +20,11 @@ class UserData extends Component {
       .then(response => response.json())
       .then(data => {
         console.log(data);
-        this.setState({easyProblems: JSON.stringify(data.Easy), mediumProblems: JSON.stringify(data.Medium), hardProblems: JSON.stringify(data.Hard), listOfProblems: JSON.stringify(data.problemsSolved)})
+        this.setState({easyProblems: JSON.stringify(data[0].Easy), mediumProblems: JSON.stringify(data[0].Medium), hardProblems: JSON.stringify(data[0].Hard), listOfProblems: JSON.stringify(data[0].problemsSolved)})
       })
     }
 
     render(){
-      console.log(this.state.easyProblems);
       const easy = this.state.easyProblems;
       const medium = this.state.mediumProblems;
       const hard = this.state.hardProblems;
