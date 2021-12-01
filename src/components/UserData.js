@@ -14,7 +14,7 @@ class UserData extends Component {
   componentDidMount(){
     var fetchURL = window.location.href
     fetchURL += '/'
-    fetchURL += this.state.user.id
+    fetchURL += this.state.user.id.toString().substr(0, 17)
     console.log(fetchURL)
     fetch(fetchURL)
       .then(response => response.json())
