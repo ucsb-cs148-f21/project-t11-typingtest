@@ -19,7 +19,8 @@ class TypingComponent extends Component {
     console.log(this.state.text)
   }
   setText = () => {
-    const words = this.state.text.split(" ");
+    const wordsE = this.state.text.split(" ");
+    const words = wordsE.filter(x => x != "");
     console.log(words);
     this.setState({
       words: words,
@@ -87,13 +88,14 @@ class TypingComponent extends Component {
   };
 
   _handleKeyPress = (e) => {
+    const inputValue = e.target.value;
     if (e.key === 'Enter'){
       const { words, completedWords } = this.state;
 
       const currentWord = words[0];
       console.log(currentWord, "currentWord");
-
-      if (currentWord === "\n"){
+      
+      if (currentWord == inputValue + "\n"){
         const newWords = [...words.slice(1)];
         console.log(newWords, "newWords");
         console.log(newWords.length, "newWords.length");
@@ -206,50 +208,56 @@ class TypingComponent extends Component {
           <h4>Type the text below</h4>
           <progress value={progress} max="100" />
           <p className="text">
-            {text.split(" ").map((word, w_idx) => {
-              let highlight = false;
-              let currentWord = false;
+            {text.split("\n").map((line, li_idx) => {
+              return(
+              <div key = {li_idx}>
+              {line.split(" ").map((word, w_idx) => {
+                let highlight = false;
+                let currentWord = false;
 
-              // this means that the word is completed, so turn it green
-              if (completedWords.length > w_idx) {
-                highlight = true;
-              }
+                // this means that the word is completed, so turn it green
+                if (completedWords.length > w_idx) {
+                  highlight = true;
+                }
 
-              if (completedWords.length === w_idx) {
-                currentWord = true;
-              }
+                if (completedWords.length === w_idx) {
+                  currentWord = true;
+                }
 
-              return (
-                <span
-                  className={`word 
-                                ${highlight && "green"} 
-                                ${currentWord && "underline"}`}
-                  key={w_idx}
-                >
-                  {word.split("").map((letter, l_idx) => {
-                    const isCurrentWord = w_idx === completedWords.length;
-                    const isWronglyTyped = letter !== inputValue[l_idx];
-                    const shouldBeHighlighted = l_idx < inputValue.length;
+                return (
+                  <span
+                    className={`word 
+                                  ${highlight && "green"} 
+                                  ${currentWord && "underline"}`}
+                    key={w_idx}
+                  >
+                    {word.split("").map((letter, l_idx) => {
+                      const isCurrentWord = w_idx === completedWords.length;
+                      const isWronglyTyped = letter !== inputValue[l_idx];
+                      const shouldBeHighlighted = l_idx < inputValue.length;
 
-                    return (
-                      <span
-                        className={`letter ${
-                          isCurrentWord && shouldBeHighlighted
-                            ? isWronglyTyped
-                              ? "red"
-                              : "green"
-                            : ""
-                        }`}
-                        key={l_idx}
-                      >
-                        {letter}
-                      </span>
-                    );
-                  })}
-                </span>
+                      return (
+                        <span
+                          className={`letter ${
+                            isCurrentWord && shouldBeHighlighted
+                              ? isWronglyTyped
+                                ? "red"
+                                : "green"
+                              : ""
+                          }`}
+                          key={l_idx}
+                        >
+                          {letter}
+                        </span>
+                      );
+                    })}
+                  </span>
+                );
+              })}
+              </div>
               );
             })}
-          </p>
+            </p>
           <input
             type="text"
             onChange={this.handleChange}

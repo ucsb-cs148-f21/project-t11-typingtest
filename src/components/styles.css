@@ -38,12 +38,12 @@ p {
   padding: 30px;
   width: 650px;
   max-width: 100%;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .container .text {
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
 }
 
 .container input {
