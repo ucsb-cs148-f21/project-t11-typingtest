@@ -25,24 +25,21 @@ class UserData extends Component {
     }
 
     render(){
-        const {
-            easyProblems,
-            mediumProblems,
-            hardProblems,
-            listOfProblems
-          } = this.state;
-
+      const easy = this.state.easyProblems;
+      const medium = this.state.mediumProblems;
+      const hard = this.state.hardProblems;
+      const problems = this.state.listOfProblems;
         return(
             <>
                 <h1>Welcome back {this.state.user.fullName}!</h1>
                 <div>
-                Number of easy problems completed: {easyProblems}
+                Number of easy problems completed: {easy}
                 </div>
-                Number of medium problems completed: {mediumProblems}
+                Number of medium problems completed: {medium}
                 <div>
-                Number of hard problems completed: {hardProblems} 
+                Number of hard problems completed: {hard} 
                 </div>
-                List of problems completed: {listOfProblems}
+                List of problems completed: {problems}
                 <br />
             </>
             );
