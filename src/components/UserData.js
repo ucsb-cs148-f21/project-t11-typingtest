@@ -25,6 +25,7 @@ class UserData extends Component {
     }
 
     render(){
+      console.log(this.state.easyProblems);
       const easy = this.state.easyProblems;
       const medium = this.state.mediumProblems;
       const hard = this.state.hardProblems;
