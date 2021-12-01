@@ -96,8 +96,8 @@ def updateProfile(problemId, request):
     if not (profile.objects(_id=userID)):
         newUser = profile(_id=userID, Easy=0, Medium=0, Hard=0, problemsSolved = [])
         newUser.save()
-    user = profile.objects(userID)
-    if problemId in user[0].problemsSolved:
+    user = profile.objects(_id=userID)
+    if problemId not in user[0].problemsSolved:
         if (problem.difficulty == "Easy"):
             user.update(inc__Easy=1)
         elif (problem.difficulty == "Medium"):
