@@ -31,7 +31,7 @@ export default function CodePracticeJava(match) {
 
 		for(var i = 0; i < item.length; i++) {
 			var obj = item[i];
-			if (obj._id  == match.match.params._id)
+			if (obj._id  === match.match.params._id)
 			{
 				console.log(obj);
 				setCode(obj.code)
@@ -40,7 +40,7 @@ export default function CodePracticeJava(match) {
 		}
 		console.log(_id)
 	}
-	if(code != ""){
+	if(code !== ""){
 	
 	const user = getUser();
 	return (

@@ -114,7 +114,7 @@ const CodeListJava = () => {
           <TableBody>
             {product
               .filter((item) => {
-                if (search == "") {
+                if (search === "") {
                   return item;
                 } else if (
                   item.name.toLowerCase().includes(search.toLowerCase())
