@@ -11,22 +11,25 @@ const langs = [
   {
     id: 1,
     name: 'C++',
-    version: 11
+    version: 11,
+    link: "/Cpp"
    },
   {
     id: 2,
     name: 'Python',
-    version: 3
+    version: 3,
+    link: "/Python"
   },
   {
     id: 3,
     name: 'Java',
-    version: 17
+    version: 17,
+    link: "/Java"
    }
 ]
   
 const langList = langs.map(lang => (
-  <Link to="/Java">
+  <Link to={lang.link}>
     <button type="button" className="LangButton">
       <Typography sx={{ fontSize: 20 }} color='#3699cf' gutterBottom>
         {lang.name}
@@ -40,7 +43,7 @@ const langList = langs.map(lang => (
 
 export default function OutlinedCard() {
   return (
-    <Box sx={{ width: 300, m: 10, px: 70}}>
+    <Box sx={{width: 300, m: 10, px: 70}}>
       {langList}
     </Box>
   );

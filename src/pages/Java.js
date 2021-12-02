@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../components/Layout";
 import Container from "react-bootstrap/Container";
 import getUser from "../utils/get-user";
-import CodeList from "../components/CodeList";
+import CodeListJava from "../components/CodeListJava";
 
 export default function Java() {
     const user = getUser();
@@ -10,7 +10,7 @@ export default function Java() {
         <Layout user = {user}>
             <Container>
                 <div>
-                    <CodeList/>
+                    <CodeListJava/>
                 </div>
             </Container>
         </Layout>

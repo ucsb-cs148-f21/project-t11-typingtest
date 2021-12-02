@@ -8,7 +8,6 @@ import Container from "react-bootstrap/Container";
 const CheckingSignedInWrapper = styled.div`
   height: 100vh;
   width: 100vw;
-  display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.1);

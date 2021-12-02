@@ -1,5 +1,4 @@
 .LangButton{
-    position:relative;
     height:100px;
     width:200px;
     margin: 20px;
@@ -10,5 +9,4 @@
     text-align: center;
     display: grid;
     font-size: 16px;
-    transform: translate(300%,50%);
 }

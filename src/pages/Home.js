@@ -8,11 +8,7 @@ import { Card } from "react-bootstrap";
 import CardContent from '@mui/material/CardContent';
 import HomeSection from "../components/HomeSection";
 import { Typography } from "@mui/material";
-import "./Home.css"
-const TextWrapper = styled.div`
-  width: 700px;
-  max-width: 100%;
-`;
+
 
 export default function Home() {
   const user = getUser();
@@ -30,11 +26,6 @@ export default function Home() {
           </Typography>
         </CardContent> 
       </Card>
-      <Link to="/Language">
-        <button type="button" className = "Navlink">
-            Start Typing
-        </button>
-      </Link>
     </Layout>
   );
 }
