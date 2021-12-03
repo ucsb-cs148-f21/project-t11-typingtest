@@ -15,7 +15,7 @@ export default function CodePracticeJava(match) {
 	const [_id, setID] = useState();
     
 	const fetchItem = async () => {
-		const fetchItem = await fetch(`http://127.0.0.1:5000/codesnippet/Java`
+		const fetchItem = await fetch(`https://code-per-minute.herokuapp.com/codesnippet/Java`
         );
         const item = await fetchItem.json();
         setItem(item);
