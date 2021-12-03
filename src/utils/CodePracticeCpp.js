@@ -33,9 +33,9 @@ export default function CodePracticeCpp(match) {
 			var obj = item[i];
 			if (obj._id  === match.match.params._id)
 			{
-				console.log(obj);
+				//.log(obj);
 				setCode(obj.code);
-				console.log(obj.code);
+				//console.log(obj.code);
 				setID(obj._id);
 			}
 		}
@@ -44,7 +44,8 @@ export default function CodePracticeCpp(match) {
 	if(code !== ""){
 	
 	const user = getUser();
-	console.log("AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
+	console.log("CODE:" + code);
+	console.log("ID: " + _id);
 	return (
 		<Layout user = {user}>
 			<TypingComponent text={code} textID={_id}/>
