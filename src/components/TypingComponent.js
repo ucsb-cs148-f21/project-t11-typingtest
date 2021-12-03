@@ -37,7 +37,9 @@ class TypingComponent extends Component {
       started: true,
       startTime: Date.now(),
       completed: false,
-      progress: 0
+      progress: 0,
+      lineCount: 0,
+      lineWCompleted: 0
     });
   };
 
@@ -218,6 +220,15 @@ class TypingComponent extends Component {
           <progress value={progress} max="100" />
           <p className="text">
             {text.split("\n").map((line, li_idx) => {
+              let indent = 0;
+              for (let i = 0; i < line.length; i++){
+                if (line[i] == " "){
+                  indent++;
+                }
+                else{
+                  break;
+                }
+              }
               return(
               <div key = {li_idx}>
               {line.split(" ").map((word, w_idx) => {
@@ -225,11 +236,11 @@ class TypingComponent extends Component {
                 let currentWord = false;
 
                 // this means that the word is completed, so turn it green
-                if (lineWCompleted > w_idx || li_idx < lineCount) {
+                if ((lineWCompleted+indent > w_idx && li_idx == lineCount) || li_idx < lineCount) {
                   highlight = true;
                 }
 
-                if (lineWCompleted === w_idx && lineCount == li_idx) {
+                if (lineWCompleted+indent === w_idx && lineCount == li_idx) {
                   currentWord = true;
                 }
 
@@ -241,7 +252,7 @@ class TypingComponent extends Component {
                     key={w_idx}
                   >
                     {word.split("").map((letter, l_idx) => {
-                      const isCurrentWord = w_idx === lineWCompleted && li_idx == lineCount;
+                      const isCurrentWord = w_idx === lineWCompleted+indent && li_idx == lineCount;
                       const isWronglyTyped = letter !== inputValue[l_idx] && li_idx == lineCount;
                       const shouldBeHighlighted = l_idx < inputValue.length && li_idx == lineCount;
 
