@@ -1,0 +1,16 @@
+Part One: “What will we do?”
+We came up with a list of issues and stories that we had to deal with. Chief of them being a simple web interface up and running.
+List of User Stories and Issues:
+(1) As a user I want a basic web interface so I can use the typingtest app.
+(2) As a user I want categories of coding problems so that I can train specific skills.
+(3) As a user I want a clock or numerical countdown to see how much time I have left.
+(4) As a user I want to measure how accurately I type so I can set benchmarks for how much I can improve.
+(5) As a user I want to measure how fast I can type so I can measure my typing skills.
+(6) As a user I want to use Google Authenticate so users can save their progress and be verified.
+(7) As a user I want to choose the programming language I want to practice.
+
+
+Part 2: “How will we do it?”
+We start off with the first two issues. Zoey, Hirish and Jeffrey are planning on getting the basic webapp running whereas Sean and Jason are compiling code blocks for
+specific coding problems so the user can choose which category of code they want to get better with. After this Zoey, Hirish and Jeffrey will utilize prexisting code 
+to create the logic for the app, tacking issues 4-7 with the help of Sean and Jason.
