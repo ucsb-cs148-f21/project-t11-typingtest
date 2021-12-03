@@ -43,7 +43,7 @@ const CodeListPython = () => {
   const getProductData = async () => {
     try {
       const data = await axios.get(
-        "http://127.0.0.1:5000/codesnippet/Python"
+        "https://code-per-minute.herokuapp.com/codesnippet/Python"
       );
       console.log(data.data);
       setProduct(data.data);
