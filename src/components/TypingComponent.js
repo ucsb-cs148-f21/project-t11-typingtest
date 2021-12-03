@@ -32,7 +32,8 @@ class TypingComponent extends Component {
       .catch(err => console.error(err));
   }
   setText = () => {
-    const wordsE = this.state.text.split(" ");
+    const wordS = this.state.text.replace(/\n/g, "\n ");
+    const wordsE = wordS.split(" ");
     const words = wordsE.filter(x => x != "");
     console.log(words);
     this.setState({
