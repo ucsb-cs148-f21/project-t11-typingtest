@@ -28,7 +28,7 @@ export default function CodePracticeCpp(match) {
 		//setCode(code)
 		//console.log(code);
 		//console.log(typeof code)
-		console.log(match.match.params._id);
+		console.log("MATCHES:" , match.match.params._id);
 		for(var i = 0; i < item.length; i++) {
 			var obj = item[i];
 			if (obj._id  == match.match.params._id)
@@ -37,6 +37,7 @@ export default function CodePracticeCpp(match) {
 				setCode(obj.code);
 				//console.log(obj.code);
 				setID(obj._id);
+				console.log(obj._id);
 			}
 		}
 		console.log(_id);
@@ -44,7 +45,7 @@ export default function CodePracticeCpp(match) {
 
 	console.log("CODE1:" + code);
 
-	if(code !== ""){
+	if(code !== "" && _id != null){
 	
 	const user = getUser();
 	console.log("CODE2:" + code);
