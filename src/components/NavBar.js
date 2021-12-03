@@ -15,7 +15,6 @@ export default function NavBar(props) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/language">Practice</Nav.Link>
             <NavDropdown title="Language">
               <NavDropdown.Item href="/Cpp">C++</NavDropdown.Item>
               <NavDropdown.Item href="/Java">Java</NavDropdown.Item>
