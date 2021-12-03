@@ -77,7 +77,8 @@ def parseCodeFile():
         #    pNumber = int(re.search(r'\d+', x).group()) #gets integer from line
     codeFile.close()
 def updateProfile(problemId, request):
-    problemId = int(problemId/1000)
+
+    problemId = int(int(problemId)/1000)
     request_json = request.get_json()
     userID = request_json.get('userID')
     userID = int(userID)
