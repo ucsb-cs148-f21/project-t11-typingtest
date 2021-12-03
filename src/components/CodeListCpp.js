@@ -87,7 +87,8 @@ const CodeListCpp = () => {
           <TableHead>
             <TableRow>
               <StyledTableCell align="center">Problem Name</StyledTableCell>
-              <StyledTableCell align="center">Problem Index</StyledTableCell>
+              <StyledTableCell align="center">Problem Difficulty</StyledTableCell>
+              <StyledTableCell align="center">Skill</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -109,6 +110,9 @@ const CodeListCpp = () => {
                     </StyledTableCell>
                     <StyledTableCell align="center" component="th" scope="row">
                       {item.difficulty}
+                    </StyledTableCell>
+                    <StyledTableCell align="center" component="th" scope="row">
+                      {item.skillcategory}
                     </StyledTableCell>
                   </StyledTableRow>
                 );

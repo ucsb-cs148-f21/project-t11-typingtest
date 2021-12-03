@@ -42,7 +42,7 @@ class UserData extends Component {
         return(
             <>
                 <h1>Welcome back {this.state.user.fullName}!</h1>
-                <div>
+                <div style={{alignItems: "center"}}>
                   <Circle percentage={(100 * easy/15).toFixed(1)} strokeWidth={7} text="Easy" primaryColor={["#AAFFB9", "#AAFFB9"]} secondaryColor="#F0F0F0"/>
                   <Circle percentage={(100 * medium/9).toFixed(1)} text="Medium" strokeWidth={7} secondaryColor="#F0F0F0"/>
                   <Circle percentage={(100 * hard/6).toFixed(1)} text="Hard" strokeWidth={7} primaryColor={["#EB1547", "#EB1547"]} secondaryColor="#F0F0F0"/>
