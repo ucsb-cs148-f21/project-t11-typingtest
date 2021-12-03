@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Container from "react-bootstrap/Container";
-
 import Layout from "../components/Layout";
 import getUser from "../utils/get-user";
 import DoggoImg from "../images/doggo.jpg";

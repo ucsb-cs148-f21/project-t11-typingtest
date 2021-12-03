@@ -8,7 +8,6 @@ import Container from "react-bootstrap/Container";
 const CheckingSignedInWrapper = styled.div`
   height: 100vh;
   width: 100vw;
-  display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.1);
@@ -19,7 +18,7 @@ export default function CheckingSignedIn() {
     <>
       <Navbar bg="light" expand="lg">
         <Container>
-          <Navbar.Brand href="/">ReactGoogleAuthStarter</Navbar.Brand>
+          <Navbar.Brand href="/">Code Per Minute</Navbar.Brand>
         </Container>
       </Navbar>
       <CheckingSignedInWrapper>

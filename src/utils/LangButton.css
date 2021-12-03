@@ -1,12 +1,13 @@
 .LangButton{
-    height:100px;
-    width:200px;
+    height:180px;
+    width:700px;
     margin: 20px;
-    background-color: #ffffff;
+    background: #ffffff;
     border: 0.08em solid;
     color: while;
     padding: 10px;
     text-align: center;
     display: grid;
     font-size: 16px;
+    opacity: 0.9;
 }

@@ -1,6 +1,4 @@
 import React from "react";
-import styled from "styled-components";
-import { Link } from 'react-router-dom';
 
 import getUser from "../utils/get-user";
 import Layout from "../components/Layout";
@@ -8,11 +6,7 @@ import { Card } from "react-bootstrap";
 import CardContent from '@mui/material/CardContent';
 import HomeSection from "../components/HomeSection";
 import { Typography } from "@mui/material";
-import "./Home.css"
-const TextWrapper = styled.div`
-  width: 700px;
-  max-width: 100%;
-`;
+
 
 export default function Home() {
   const user = getUser();

@@ -5,9 +5,14 @@ import CheckingSignedIn from "./pages/CheckingSignedIn";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Private from "./pages/Private";
-import Practice from "./pages/Practice";
 import PageNotFound from "./pages/PageNotFound";
 import Language from "./pages/ Language";
+import Java from "./pages/Java";
+import Cpp from "./pages/Cpp";
+import Python from "./pages/Python";
+import CodePracticeJava from "./utils/CodePracticeJava";
+import CodePracticeCpp from "./utils/CodePracticeCpp";
+import CodePracticePython from "./utils/CodePracticePython";
 
 export default function App() {
   const [isSignedIn, setIsSignedIn] = useState(null);
@@ -50,8 +55,16 @@ export default function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <PrivateRoute exact path="/profile" component={Profile} />
-          <Route exact path="/practice" component={Practice} />
           <Route exact path="/language" component={Language} />
+
+          <Route path="/java" exact component={Java} />
+          <Route path="/cpp" exact component={Cpp} />
+          <Route path="/python" exact component={Python}/>
+
+          <Route path="/java/:_id" component={CodePracticeJava}/>
+          <Route path="/cpp/:_id" component={CodePracticeCpp}/>
+          <Route path="/python/:_id" component={CodePracticePython}/>
+
           <Route path="/" component={PageNotFound} />
         </Switch>
       </BrowserRouter>
