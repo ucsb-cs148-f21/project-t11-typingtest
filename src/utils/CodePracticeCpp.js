@@ -44,8 +44,9 @@ export default function CodePracticeCpp(match) {
 	console.log(_id);
 	console.log(code);
 
-	if(code !== ""){
-	
+	if(code !== "" || _id !== null){
+	console.log(_id);
+	console.log(code);
 	const user = getUser();
 	return (
 		<Layout user = {user}>
