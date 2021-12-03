@@ -44,6 +44,7 @@ export default function CodePracticeCpp(match) {
 	if(code !== ""){
 	
 	const user = getUser();
+	console.log("AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
 	return (
 		<Layout user = {user}>
 			<TypingComponent text={code} textID={_id}/>
