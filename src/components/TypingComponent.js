@@ -13,7 +13,9 @@ class TypingComponent extends Component {
     timeElapsed: 0,
     wpm: 0,
     started: false,
-    progress: 0
+    progress: 0,
+    lineCount: 0,
+    lineWCompleted: 0
   };
   componentDidMount(){
     console.log(this.state.text)
@@ -40,7 +42,7 @@ class TypingComponent extends Component {
   };
 
   handleChange = e => {
-    const { words, completedWords } = this.state;
+    const { words, completedWords, lineWCompleted } = this.state;
     const inputValue = e.target.value;
     const lastLetter = inputValue[inputValue.length - 1];
 
@@ -60,6 +62,7 @@ class TypingComponent extends Component {
         const newCompletedWords = [...completedWords, currentWord];
         console.log(newCompletedWords, "newCompletedWords");
         console.log("----------------");
+        const newLineWCompleted = lineWCompleted+1;
 
         // Get the total progress by checking how much words are left
         const progress =
@@ -71,7 +74,8 @@ class TypingComponent extends Component {
           completedWords: newCompletedWords,
           inputValue: "",
           completed: newWords.length === 0,
-          progress: progress
+          progress: progress,
+          lineWCompleted: newLineWCompleted
         });
       }
     } else {
@@ -90,7 +94,7 @@ class TypingComponent extends Component {
   _handleKeyPress = (e) => {
     const inputValue = e.target.value;
     if (e.key === 'Enter'){
-      const { words, completedWords } = this.state;
+      const { words, completedWords, lineCount, lineWCompleted } = this.state;
 
       const currentWord = words[0];
       console.log(currentWord, "currentWord");
@@ -102,6 +106,7 @@ class TypingComponent extends Component {
         const newCompletedWords = [...completedWords, currentWord];
         console.log(newCompletedWords, "newCompletedWords");
         console.log("----------------");
+        const newLineCount = lineCount+1;
 
         // Get the total progress by checking how much words are left
         const progress =
@@ -113,7 +118,9 @@ class TypingComponent extends Component {
           completedWords: newCompletedWords,
           inputValue: "",
           completed: newWords.length === 0,
-          progress: progress
+          progress: progress,
+          lineCount: newLineCount,
+          lineWCompleted: 0
         });
       }
     }
@@ -157,7 +164,9 @@ class TypingComponent extends Component {
       timeElapsed,
       started,
       completed,
-      progress
+      progress,
+      lineCount,
+      lineWCompleted
     } = this.state;
 
     if (!started)
@@ -216,11 +225,11 @@ class TypingComponent extends Component {
                 let currentWord = false;
 
                 // this means that the word is completed, so turn it green
-                if (completedWords.length > w_idx) {
+                if (lineWCompleted > w_idx || li_idx < lineCount) {
                   highlight = true;
                 }
 
-                if (completedWords.length === w_idx) {
+                if (lineWCompleted === w_idx && lineCount == li_idx) {
                   currentWord = true;
                 }
 
@@ -232,9 +241,9 @@ class TypingComponent extends Component {
                     key={w_idx}
                   >
                     {word.split("").map((letter, l_idx) => {
-                      const isCurrentWord = w_idx === completedWords.length;
-                      const isWronglyTyped = letter !== inputValue[l_idx];
-                      const shouldBeHighlighted = l_idx < inputValue.length;
+                      const isCurrentWord = w_idx === lineWCompleted && li_idx == lineCount;
+                      const isWronglyTyped = letter !== inputValue[l_idx] && li_idx == lineCount;
+                      const shouldBeHighlighted = l_idx < inputValue.length && li_idx == lineCount;
 
                       return (
                         <span
