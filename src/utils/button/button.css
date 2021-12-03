@@ -1,0 +1,10 @@
+.button-style{
+    margin-left: 700px;
+    background-color: #3699cf;
+    border: 1px solid;
+    color: while;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}
