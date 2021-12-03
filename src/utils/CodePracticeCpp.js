@@ -7,7 +7,7 @@ export default function CodePracticeCpp(match) {
 
 	useEffect(() => {
 		fetchItem();
-        console.log(match.match.params._id);
+        //console.log(match.match.params._id);
 	}, []);
 
 	const [item, setItem] = useState([]); 
@@ -31,7 +31,7 @@ export default function CodePracticeCpp(match) {
 		console.log(match.match.params._id);
 		for(var i = 0; i < item.length; i++) {
 			var obj = item[i];
-			if (obj._id  === match.match.params._id)
+			if (obj._id  == match.match.params._id)
 			{
 				//.log(obj);
 				setCode(obj.code);
@@ -41,10 +41,13 @@ export default function CodePracticeCpp(match) {
 		}
 		console.log(_id);
 	}
+
+	console.log("CODE1:" + code);
+
 	if(code !== ""){
 	
 	const user = getUser();
-	console.log("CODE:" + code);
+	console.log("CODE2:" + code);
 	console.log("ID: " + _id);
 	return (
 		<Layout user = {user}>
