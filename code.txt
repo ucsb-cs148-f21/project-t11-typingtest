@@ -5,9 +5,6 @@ NAME:Two or Three Twice
 DIFFICULTY:Easy
 SKILL:Array
 PROBLEMSTART
-/* Given an int array, return true if the array contains 2 twice, or 3 twice. 
- * The array will be length 0, 1, or 2.
- */
 public boolean double23(int[] nums) {
     int count2 = 0;
     int count3 = 0;
@@ -23,14 +20,10 @@ public boolean double23(int[] nums) {
     return count2 == 2 || count3 == 2;
 PROBLEMEND
 
-
 NAME:Combine First Elements of Array
 DIFFICULTY:Easy
 SKILL:Array
 PROBLEMSTART
-/* Given 2 int arrays, a and b, of any length, return a new array with the 
- * first element of each array. If either array is length 0, ignore that array.
- */
 public int[] front11(int[] a, int[] b) {
     if(a.length > 0 && b.length > 0) {
         return new int[] {a[0], b[0]};
@@ -47,9 +40,6 @@ NAME:Compare Sets of Bits
 DIFFICULTY:Easy
 SKILL:Operations
 PROBLEMSTART
-/*Given an integer a, take the first 8 and the next 8 bits of the integer.
-* Then compare these two sets of bits with each other by performing an xor operation.
-*/
 public int compareBits(int a){
    a8 = a & 256;
    a16 = (a >> 8) & 256;
@@ -61,9 +51,6 @@ NAME:Point Constructor
 DIFFICULTY:Easy
 SKILL:Constructor
 PROBLEMSTART
-/*Write 3 constructors for a 2 dimensional point, with int variables x and y. One with 0 arguments that creates a default point, one with
-* 1 argument n such that the point is placed at (n,n), and one with 2 arguments i,j such that the point is placed at i,j.
-*/
 Point(){
    x = 0;
    y = 0;
@@ -82,9 +69,6 @@ NAME:ToString Summary
 DIFFICULTY:Easy
 SKILL:toString
 PROBLEMSTART
-/*For a Cat class with parameters (int length, string color, bool cute),
-* write a toString to summarize these variables.
-*/
 public String toString()
 {
    String start = "This cat ";
@@ -93,19 +77,15 @@ public String toString()
       start = "This cute cat ";
    }
    String finalString = start + "is " + color;
-   finalString += " and " + length + " inches long.";
+   finalString += " and " + toString(length) + " inches long.";
    return finalString;
 }
 PROBLEMEND
 
-NAME: Encapsulate Card Details
+NAME:Encapsulate Card Details
 DIFFICULTY:Medium
 SKILL:Class,Input
 PROBLEMSTART
-/*Create a card class with two integers, one representing the ID of the card holder, and the other the passcode.
-* Write a method that only gives the ID if the user writes the passcode. The two integers and the ID acquisition are private.
-* If the user does not put in the right password, inform them and return -1.
-*/
 import java.util.Scanner;
 public class IDCard
 {
@@ -140,54 +120,47 @@ public class IDCard
 }
 PROBLEMEND
 
-NAME: Halved Number in Certain Type
+NAME:Complex Number Class
 DIFFICULTY:Medium
-SKILL:Input,Switch
+SKILL:Math,Class
 PROBLEMSTART
-/*Write a main function that allows a user to choose whether they want an integer, double, or float,
-* and then half a number they input. The result will then be printed, and be in the requested type.
-*/ 
-public static void main(String args[]){
-   Scanner input = Scanner(System.in);
-   bool haveOption = false;
-   String type_option;
-   while (!(haveOption))
+class ComplexNum{
+   public int real;
+   public int imag;
+   
+   ComplexNum(){real = 0; imag = 0};
+   ComplexNum(int r, int m){real = r; imag = m};
+   
+}
+ComplexNum scalarMult(ComplexNum n, int s, boolean realScalar)
+{
+   if (realScalar)
    {
-      System.out.println("Please choose what type your number will be. (i for int, d for double, f for float)");
-      type_option = input.next();
-      haveOption = type_option.equals("i") | type_option.equals("d") | type_option.equals("f");
-      if (!(haveOption)){
-         System.out.println("Invalid option");
-      }
+      return ComplexNum(n.real*s,n.imag*s);
    }
-   System.out.println("Please input a number");
-   switch(type_option){
-      case "i":
-         int n = input.nextInt();
-         System.out.println(n/2);
-         break;
-      case "d":
-         int n = input.nextDouble();
-         System.out.println(n/2);
-         break;
-      case "f":
-         int n = input.nextFloat();
-         System.out.println(n/2);
-         break;
-      default:
-         System.out.println("Sorry, an error has occurred.");
-         break;
+   else
+   {
+      return ComplexNum(-1*n.imag*s,n.real*s);
    }
+}
+ComplexNum add(ComplexNum n1, ComplexNum n2)
+{
+   return ComplexNum(n1.real + n2.real,n1.imag + n2.imag);
+}
+ComplexNum subtract(ComplexNum n1, ComplexNum n2)
+{
+   return add(n1, scalarMult(n2,-1,true));
+}
+ComplexNum multiply(ComplexNum n1, ComplexNum n2)
+{
+   return ComplexNum(n1.real*n2.real - n1.imag*n2.imag, n1.real*n2.imag + n2.real*n1.imag);
 }
 PROBLEMEND
 
-NAME: Abstract Class Extension
+NAME:Abstract Class Extension
 DIFFICULTY:Medium
 SKILL:Class
 PROBLEMSTART
-/*Create two separate classes from an abstract vehicle class, one that tracks the miles driven,
-* and another that simply prints multiple strings as it drives.
-*/
 abstract class Vehicle{
    public abstract void drive();
    public abstract String toString();
@@ -225,38 +198,117 @@ public void rideVehicle(Vehicle v)
 }
 PROBLEMEND
 
+NAME:Iterate through Tree Recursively
+DIFFICULTY:Hard
+SKILL:Traversal
+PROBLEMSTART
+class Node{
+   public Node left = null;
+   public Node right = null;
+   public String str;
+   public Node();
+   public void setString(String s);
+   public void setL(Node n);
+   public void setR(Node n);
+
+   public void recNodePrint()
+   {
+        if (left)
+        {
+           left.recNodePrint();
+        }
+        printNode();
+        if (right)
+        {
+           left.recNodePrint();
+        }
+   }
+
+   public void printNode()
+   {
+        for (int i = 0; i < str.length(); i++)
+        {
+           System.out.println(str.substring(0,str.length()-i));
+        }
+   }
+} 
+
+class Tree{
+   Node head = null;
+   Tree();
+   void addNode(string s);
+   public void treePrint()
+   {
+        if (head)
+        {
+           head.recNodePrint();
+        }
+   }
+}
+PROBLEMEND
+
+NAME:Half Number in Requested Type
+DIFFICULTY:Hard
+SKILL:Input,Switch
+PROBLEMSTART
+public static void main(String args[]){
+   Scanner input = Scanner(System.in);
+   bool haveOption = false;
+   String type_option;
+   while (!(haveOption))
+   {
+      System.out.println("Please choose what type your number will be. (i for int, d for double, f for float)");
+      type_option = input.next();
+      haveOption = type_option.equals("i") | type_option.equals("d") | type_option.equals("f");
+      if (!(haveOption)){
+         System.out.println("Invalid option");
+      }
+   }
+   System.out.println("Please input a number");
+   switch(type_option){
+      case "i":
+         int n = input.nextInt();
+         System.out.println(n/2);
+         break;
+      case "d":
+         double n = input.nextDouble();
+         System.out.println(n/2);
+         break;
+      case "f":
+         float n = input.nextFloat();
+         System.out.println(n/2);
+         break;
+      default:
+         System.out.println("Sorry, an error has occurred.");
+         break;
+   }
+}
+PROBLEMEND
 
 
 LANGUAGE:Python
 
-NAME: Right Shift by Division
+
+NAME:Right Shift by Division
 DIFFICULTY:Easy
 SKILL:String
 PROBLEMSTART
- #Write a function that mimics (without the use of >>) the right shift operator and returns the result from the two given integers.
 def shift_to_right(x, y):
 	return x // 2**y
 PROBLEMEND
 
-NAME: Short Long Short
+NAME:Short Long Short
 DIFFICULTY:Easy
 SKILL:String
 PROBLEMSTART
 def combo_string(a, b):
-  """
-  Given 2 strings, a and b, return a string of the form short+long+short, 
-  with the shorter string on the outside and the longer string on the inside. 
-  The strings will not be the same length, but they may be empty (length 0). 
-  """
-  return a+b+a if len(a)<len(b) else b+a+b
+    return a+b+a if len(a)<len(b) else b+a+b
 PROBLEMEND
 
-Name: Move Front 3 in Array
+Name:Move Front 3 in Array
 DIFFICULTY:Easy
 SKILL:Array
 PROBLEMSTART
-#Given an array arr, take the first 3 elements of the array and move them to the end of the array.
-#If the length of the array is 3 or less, do not change the array
 def move_front3(arr):
   if len(arr) <= 3:
     return arr
@@ -266,11 +318,10 @@ def move_front3(arr):
   return arr
 PROBLEMEND
 
-Name: Print Strings depending on Size
+Name:Print Strings depending on Size
 DIFFICULTY:Easy
 SKILL:Input,Format
 PROBLEMSTART
-#Write a function that requests that the user write two strings. The larger one is placed first in the sentence.
 def sentence_based_on_size():
     a = input("Write a string: ")
     b = input("Write another string: ")
@@ -280,30 +331,161 @@ def sentence_based_on_size():
         print('The {1} said hello to the {0}'.format(a,b))
 PROBLEMEND
 
-Name: First Sums of Squares
+NAME:Normalize all Columns in a Matrix
 DIFFICULTY:Easy
-Skill:Loop
+SKILL:Matrix
 PROBLEMSTART
-#Write a function that prints the sums of all squares from 0 to i^2 for each i in the loop.
-#The code goes up to a maximum of i = a, where a is passed as a parameter. Assume a is always an integer.
-def sums_of_squares(a):
-    runningsum = 0
-    for i in range(0,a):
-        runningsum += a*a
-        print(runningsum)
+import numpy as np
+def normColumns(M):
+   M2 = M
+   for i in range(len(M2)):
+       M2[:,i] = M[:,i]/sum(M[:,i]*M[:,i])
+   return M2
 PROBLEMEND
+
+NAME:Get Two Elements from Periodic Table
+DIFFICULTY:Medium
+SKILL:Array
+PROBLEMSTART
+def print_atoms_number(a,n):
+   alk_nums = [3,11,19,37,55,87]
+   alks = ["Lithium", "Sodium", "Potassium", "Rubidium", "Cesium", "Francium"]
+   noble_nums = [2,10,18,36,54,86,118]
+   nobles = ["Helium", "Neon", "Argon", "Krypton", "Xenon", "Radon", "Oganesson"]
+   
+   found = false
+   for i in range(len(alk_nums)):
+       if (a == alk_nums[i]):
+           found = true
+           print(alks[i])
+
+   if (not found):
+      print("null")
+
+   found = false
+   for i in range(len(noble_nums)):
+       if (n == noble_nums[i]):
+           found = true
+           print(nobles[i])
+
+   if (not found):
+      print("null")
+PROBLEMEND
+
+NAME:Draw a Scatter Plot
+DIFFICULTY:Medium
+SKILL:Plot,Random
+PROBLEMSTART
+import numpy
+import matplotlib.pyplot as plt
+
+def plotRandom():
+    random.seed()
+
+    x = [1,1,2,3,1,1,2,3,3,2,2,7,4,3,1,2,3]
+    y = x
+    for i in range(len(x)):
+        y[i] = 3*x[i]*random.random()
+    
+    plt.scatter(x,y)
+    plt.show()
+PROBLEMEND
+
+NAME:Ensure the Number is 1 Mod 3
+DIFFICULTY:Medium
+SKILL:Input,Exceptions
+PROBLEMSTART
+def input1Mod3(n):
+   while True:
+      print("Please enter a number to add to %d, or exit to quit",n)
+      startinput = input("")
+      if (startinput == "exit"):
+         return n
+      try:
+        addterm = int(startinput)
+        if ((n + addterm) % 3 == 1):
+           n += addterm
+        else:
+           print("The number was not equivalent to 1 mod 3, ignoring request")
+      except:
+           print("Could not make input an integer")
+PROBLEMEND      
+
+NAME:Create Simulation Classes
+DIFFICULTY:Hard
+SKILL:Class
+PROBLEMSTART
+class City:
+   def __init__(self,popl,growth):
+       self.population = popl
+       self.pgrowth = growth
+
+    def incPopl(self):
+        self.population *= self.pgrowth
+
+    def reduceGrowth(self):
+        if self.pgrowth > 0.001:
+            self.pgrowth -= 0.001
+
+c1 = City(1230,0.01)
+c2 = City(20000, 0.002)
+c3 = City(70,0.05)
+
+c1.incPopl()
+c2.incPopl()
+c2.reduceGrowth()
+c2.incPopl()
+c3.incPopl()
+
+print(c1.population)
+print(c2.population)
+print(c3.population)
+PROBLEMEND
+
+NAME:Find Next Fridays
+DIFFICULTY:Hard
+SKILL:Date
+PROBLEMSTART
+from calendar import monthrange
+def nextFridays():
+   curr = datetime.date.now()
+   
+   dow = int(curr.strftime(%u))
+   
+   offset = 5 - dow
+   if (offset < 0):
+        offset += 7
+   
+   newday = (curr.day + offset) % monthrange(curr.year,curr.month)[1] + 1
+
+   newfri1 = curr.replace(day=newday)
+
+   bool feb29 = False
+   i = 1
+   if (curr.strftime(%m) == 2) and (curr.strftime(%d) == 29):
+        i = 4
+        feb29 = True
+   while i < 1000000:
+        newfri2 = curr.replace(year=(curr.year+1))
+        if newfri2.strftime(%u) == 5:
+            return newfri1,newfri2
+        if (feb29):
+           i+=4
+        else:
+            i++
+
+    print("Error, could not find Friday with same month and day in a million years")
+    return newfri1,newfri1
+PROBLEMEND
+
+
 LANGUAGE:C++
 
 
-NAME: Cutting Past Middle
+NAME:Cutting Past Middle
 DIFFICULTY:Easy
-Skill:String
+SKILL:String
 PROBLEMSTART
-/* Given one string a, create a new string, which is a copy of a, which stops before 
- * the middle character (for a string of odd length)
- * or the middle two characters (for a string of even length) of a.
- * If a is empty, return the empty string
- */
 public string cutMiddle(string a)
 {
     if (a.empty())
@@ -314,13 +496,10 @@ public string cutMiddle(string a)
 }
 PROBLEMEND
 
-NAME: Recursive Equation
-SKILL:Recursion
+NAME:Recursive Equation
 DIFFICULTY:Easy
+SKILL:Recursion
 PROBLEMSTART
-/* For a given number n, calculate 2^n * n!
-* If the given n is less than 0, return 0
-*/
 int recursive2NFact(int n)
 {
     if (n<0)
@@ -335,14 +514,10 @@ int recursive2NFact(int n)
 }
 PROBLEMEND
 
-NAME: Number Wrapper Class
+NAME:Number Wrapper Class
 SKILL:Memory
 DIFFICULTY:Easy
 PROBLEMSTART
-/* Create the default constructor, constructor, and destructor
-* for the wrapper class containing pointers to one integer and one double,
-* given that the variables are defined as int* i and double* d
-*/
 Wrapper()
 {
     i = new int(0);
@@ -360,16 +535,10 @@ Wrapper(int n1, double n2)
 }
 PROBLEMEND
 
-NAME: Array Traversal of Various Step Sizes
+NAME:Array Traversal of Various Step Sizes
 SKILL:Input, Exceptions
 DIFFICULTY:Easy
 PROBLEMSTART
-/*Assume array a[] has already been initialized and filled with strings, with variable arraysize equal to its length,
-* and the function traverseInStep() has been declared.
-* Ask for an integer n > 0, and then put that input into a function, which will
-* print out every value a[i] such that i is a multiple of n.
-* If not given an integer, or the integer is nonpositive, loop the prompt until an integer is given.
-*/
 bool noIntProvided = true;
 int n;
 while (noIntProvided)
@@ -396,14 +565,10 @@ void traverseInStep(int n, string array[], int arraysize)
 }
 PROBLEMEND
 
-NAME: Vector of Words
+NAME:Vector of Words
 SKILL:File, Vectors
 DIFFICULTY:Easy
 PROBLEMSTART
-/* For an input file i.txt, push every word onto a vector of strings,
-*  where each word is separated by spaces. If i.txt does not exist or another error occurs,
-*  exit the program.
-*/
 ifStream in;
 in.open("i.txt");
 if (in.fail())
@@ -419,13 +584,10 @@ while(!(in.eof))
 }
 PROBLEMEND
 
-NAME: Random Day
+NAME:Random Day
 SKILL:Random
 DIFFICULTY:Medium
 PROBLEMSTART
-/*Generate a string of a random day (in the format (first 3 letters of month) day), 
-* that is a valid day in the calendar. Ignore February 29th.
-*/
 #include <random>
 string randomDay()
 {
@@ -464,14 +626,10 @@ string randomDay()
 }
 PROBLEMEND
 
-NAME: Search Tree for String
+NAME:Search Tree for String
 SKILL:Traversal,Pointer
 DIFFICULTY:Medium
 PROBLEMSTART
-/*Given a tree of strings, already sorted such that alphabetically, the left child comes before the node, which comes before the right child,
-* search from the root to find a given string, and then return the ID on the node. If the string does not exist, return -1.
-* Assume that constructors, sort and insert methods, and node methods are defined elsewhere, which include giving every node a unique positive ID.
-*/
 struct Node{
    Node* left = nullptr;
    Node* right = nullptr;
@@ -510,5 +668,117 @@ int Tree::search(string target)
       }
    }
    return -1;
+}
+PROBLEMEND
+
+NAME:Copy a File Ignoring one Character
+DIFFICULTY:Medium
+SKILL:File
+PROBLEMSTART
+void copyFileWithoutChar(string filename, char c, ifStream in, ofStream out)
+{
+   in.open(filename);
+   string outputname = filename;
+   outputname += "_without_";
+   outputname.push_back(c);
+   out.open(outputname);
+   if (in.fail() | out.fail())
+   {
+      cout<<"Failed to open/close file"<<endl;
+      in.close();
+      out.close();
+      return;
+   }
+   char read;
+   while(in.get(read))
+   {
+     if (!(read == c))
+     {
+        out>>read;
+     }
+   }
+   in.close();
+   out.close();
+}
+PROBLEMEND
+
+NAME:Convert from Array to Hash
+DIFFICULTY:Hard
+SKILL:Hash
+PROBLEMSTART
+struct HashTable
+{
+   HashTable(int j) 
+   {
+      table = vector<string>(j);
+      for (int i; i < j; i++)
+      {
+         table[i] = "";
+      }
+   };
+   vector<string> table;
+};
+HashTable putIntoHash(string arr[],int k)
+{
+   int j = generateJ(k);
+   Hashtable h = HashTable(j);
+   for (int i = 0; i < k; i++)
+   {
+      int insert_loc = hash(arr[i])%k;
+      
+      int attempt_move = 0;
+      while ((table[insert_loc].compare("") != 0) && attempt_move < j))
+      {
+          insert_loc = (insert_loc + attempt_move*attempt_move) % k;
+      }
+      table[insert_loc] = arr[i];
+   }
+}
+PROBLEMEND
+
+NAME:Odd Even Word Juggling with Two Queues
+DIFFICULTY:Hard
+SKILL:String,Vector
+PROBLEMSTART
+void oddEvenPrint(string sentence)
+{
+   if (sentence.length() == 0)
+      return;
+   vector<string> evens;
+   vector<string> odds;
+
+   size_t current_pos = 0;
+   string nextword;
+
+   do
+   {
+      size_t nextspace = sentence.find(" ");
+      nextword = sentence.substr(current_pos,nextspace-current_pos);
+      if (nextword.length() % 2 == 0)
+      {
+         evens.push_back(nextword);
+      }
+      else
+      {
+         odds.push_back(nextword);
+      }
+      current_pos = nextspace + 1;
+   }while (current_pos < sentence.length())
+
+   size_t smallest_vec = min(evens.size(),odds.size());
+   
+   for (int i = 0; i < smallest_vec; i++)
+   {
+      cout<<evens[i]<<endl;
+      cout<<odds[i]<<endl;
+   }
+   if (evens.size() == smallest_vec)
+   {
+      evens = odds;
+   }
+   for (int i = smallest_vec; i < evens.size(); i++)
+   {
+      cout<<evens[i]<<endl;
+   }
 }
 PROBLEMEND
