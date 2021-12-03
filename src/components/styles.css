@@ -41,11 +41,6 @@ p {
   /* text-align: center; */
 }
 
-.container .text {
-  /* display: flex; */
-  /* flex-wrap: wrap; */
-}
-
 .container input {
   padding: 12px 15px;
   font-size: 20px;

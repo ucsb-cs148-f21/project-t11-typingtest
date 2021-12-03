@@ -26,7 +26,7 @@ export default function CodePracticeCpp(match) {
 		//console.log(typeof item[0].code)
 		//const code = item[match.match.params._id].code;
 		//setCode(code)
-		console.log(code);
+		//console.log(code);
 		console.log(typeof code)
 
 		for(var i = 0; i < item.length; i++) {
@@ -35,6 +35,7 @@ export default function CodePracticeCpp(match) {
 			{
 				console.log(obj);
 				setCode(obj.code)
+				console.log(obj.code);
 				setID(obj._id)
 			}
 		}
