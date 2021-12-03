@@ -33,7 +33,7 @@ p {
 
 .container .text {
   /* display: flex; */
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 
 .container input {

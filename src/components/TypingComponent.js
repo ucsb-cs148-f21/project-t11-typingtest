@@ -1,4 +1,4 @@
-import React, { Component} from "react";
+import React, { Component, useEffect, useState } from "react";
 import "./styles.css";
 
 class TypingComponent extends Component {
@@ -13,23 +13,16 @@ class TypingComponent extends Component {
     timeElapsed: 0,
     wpm: 0,
     started: false,
-    progress: 0
+    progress: 0,
+    lineCount: 0,
+    lineWCompleted: 0
   };
   componentDidMount(){
     console.log(this.state.text)
   }
   setText = () => {
-    /*
-    const texts = [
-      `You never read a book on psychology, Tippy. You didn't need to. You knew by some divine instinct that you can make more friends in two months by becoming genuinely interested in other people than you can in two years by trying to get other people interested in you.`,
-      `I know more about the private lives of celebrities than I do about any governmental policy that will actually affect me. I'm interested in things that are none of my business, and I'm bored by things that are important to know.`,
-      `A spider's body consists of two main parts: an anterior portion, the prosoma (or cephalothorax), and a posterior part, the opisthosoma (or abdomen).`,
-      `As customers of all races, nationalities, and cultures visit the Dekalb Farmers Market by the thousands, I doubt that many stand in awe and contemplate the meaning of its existence. But in the capital of the Sunbelt South, the quiet revolution of immigration and food continues to upset and redefine the meanings of local, regional, and global identity.`,
-      `Outside of two men on a train platform there's nothing in sight. They're waiting for spring to come, smoking down the track. The world could come to an end tonight, but that's alright. She could still be there sleeping when I get back.`,
-      `I'm a broke-nose fighter. I'm a loose-lipped liar. Searching for the edge of darkness. But all I get is just tired. I went looking for attention. In all the wrong places. I was needing a redemption. And all I got was just cages.`
-    ]; 
-    const text = texts[Math.floor(Math.random() * texts.length)]; */
-    const words = this.state.text.split(" ");
+    const wordsE = this.state.text.split(" ");
+    const words = wordsE.filter(x => x != "");
     console.log(words);
     this.setState({
       words: words,
@@ -44,12 +37,14 @@ class TypingComponent extends Component {
       started: true,
       startTime: Date.now(),
       completed: false,
-      progress: 0
+      progress: 0,
+      lineCount: 0,
+      lineWCompleted: 0
     });
   };
 
   handleChange = e => {
-    const { words, completedWords } = this.state;
+    const { words, completedWords, lineWCompleted } = this.state;
     const inputValue = e.target.value;
     const lastLetter = inputValue[inputValue.length - 1];
 
@@ -57,7 +52,7 @@ class TypingComponent extends Component {
     console.log(currentWord, "currentWord");
 
     // if space or '.', check the word
-    if (lastLetter === " " || lastLetter === ".") {
+    if (lastLetter === " ") {
       // check to see if it matches to the currentWord
       // trim because it has the space
       if (inputValue.trim() === currentWord) {
@@ -69,6 +64,7 @@ class TypingComponent extends Component {
         const newCompletedWords = [...completedWords, currentWord];
         console.log(newCompletedWords, "newCompletedWords");
         console.log("----------------");
+        const newLineWCompleted = lineWCompleted+1;
 
         // Get the total progress by checking how much words are left
         const progress =
@@ -80,7 +76,8 @@ class TypingComponent extends Component {
           completedWords: newCompletedWords,
           inputValue: "",
           completed: newWords.length === 0,
-          progress: progress
+          progress: progress,
+          lineWCompleted: newLineWCompleted
         });
       }
     } else {
@@ -97,19 +94,21 @@ class TypingComponent extends Component {
   };
 
   _handleKeyPress = (e) => {
+    const inputValue = e.target.value;
     if (e.key === 'Enter'){
-      const { words, completedWords } = this.state;
+      const { words, completedWords, lineCount, lineWCompleted } = this.state;
 
       const currentWord = words[0];
       console.log(currentWord, "currentWord");
-
-      if (currentWord === "\n"){
+      
+      if (currentWord == inputValue + "\n"){
         const newWords = [...words.slice(1)];
         console.log(newWords, "newWords");
         console.log(newWords.length, "newWords.length");
         const newCompletedWords = [...completedWords, currentWord];
         console.log(newCompletedWords, "newCompletedWords");
         console.log("----------------");
+        const newLineCount = lineCount+1;
 
         // Get the total progress by checking how much words are left
         const progress =
@@ -121,7 +120,9 @@ class TypingComponent extends Component {
           completedWords: newCompletedWords,
           inputValue: "",
           completed: newWords.length === 0,
-          progress: progress
+          progress: progress,
+          lineCount: newLineCount,
+          lineWCompleted: 0
         });
       }
     }
@@ -165,7 +166,9 @@ class TypingComponent extends Component {
       timeElapsed,
       started,
       completed,
-      progress
+      progress,
+      lineCount,
+      lineWCompleted
     } = this.state;
 
     if (!started)
@@ -216,50 +219,65 @@ class TypingComponent extends Component {
           <h4>Type the text below</h4>
           <progress value={progress} max="100" />
           <p className="text">
-            {text.split(" ").map((word, w_idx) => {
-              let highlight = false;
-              let currentWord = false;
-
-              // this means that the word is completed, so turn it green
-              if (completedWords.length > w_idx) {
-                highlight = true;
+            {text.split("\n").map((line, li_idx) => {
+              let indent = 0;
+              for (let i = 0; i < line.length; i++){
+                if (line[i] == " "){
+                  indent++;
+                }
+                else{
+                  break;
+                }
               }
+              return(
+              <div key = {li_idx}>
+              {line.split(" ").map((word, w_idx) => {
+                let highlight = false;
+                let currentWord = false;
 
-              if (completedWords.length === w_idx) {
-                currentWord = true;
-              }
+                // this means that the word is completed, so turn it green
+                if ((lineWCompleted+indent > w_idx && li_idx == lineCount) || li_idx < lineCount) {
+                  highlight = true;
+                }
 
-              return (
-                <span
-                  className={`word 
-                                ${highlight && "green"} 
-                                ${currentWord && "underline"}`}
-                  key={w_idx}
-                >
-                  {word.split("").map((letter, l_idx) => {
-                    const isCurrentWord = w_idx === completedWords.length;
-                    const isWronglyTyped = letter !== inputValue[l_idx];
-                    const shouldBeHighlighted = l_idx < inputValue.length;
+                if (lineWCompleted+indent === w_idx && lineCount == li_idx) {
+                  currentWord = true;
+                }
 
-                    return (
-                      <span
-                        className={`letter ${
-                          isCurrentWord && shouldBeHighlighted
-                            ? isWronglyTyped
-                              ? "red"
-                              : "green"
-                            : ""
-                        }`}
-                        key={l_idx}
-                      >
-                        {letter}
-                      </span>
-                    );
-                  })}
-                </span>
+                return (
+                  <span
+                    className={`word 
+                                  ${highlight && "green"} 
+                                  ${currentWord && "underline"}`}
+                    key={w_idx}
+                  >
+                    {word.split("").map((letter, l_idx) => {
+                      const isCurrentWord = w_idx === lineWCompleted+indent && li_idx == lineCount;
+                      const isWronglyTyped = letter !== inputValue[l_idx] && li_idx == lineCount;
+                      const shouldBeHighlighted = l_idx < inputValue.length && li_idx == lineCount;
+
+                      return (
+                        <span
+                          className={`letter ${
+                            isCurrentWord && shouldBeHighlighted
+                              ? isWronglyTyped
+                                ? "red"
+                                : "green"
+                              : ""
+                          }`}
+                          key={l_idx}
+                        >
+                          {letter}
+                        </span>
+                      );
+                    })}
+                  </span>
+                );
+              })}
+              </div>
               );
             })}
-          </p>
+            </p>
           <input
             type="text"
             onChange={this.handleChange}
