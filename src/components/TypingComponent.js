@@ -4,6 +4,7 @@ import "./styles.css";
 class TypingComponent extends Component {
   state = {
     text: this.props.text,
+    textID: this.props.textID,
     inputValue: "",
     lastLetter: "",
     words: [],

@@ -45,7 +45,7 @@ export default function CodePracticeJava(match) {
 	const user = getUser();
 	return (
 		<Layout user = {user}>
-			<TypingComponent text={code}/>
+			<TypingComponent text={code} textID={_id}/>
 		</Layout>
 	);
 }
