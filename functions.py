@@ -79,6 +79,7 @@ def parseCodeFile():
 def updateProfile(problemId, request):
 
     intProblemID = int(int(problemId)/1000)
+    print("INT PROBLEM ID:" + intProblemID)
     request_json = request.get_json()
     userID = request_json.get('userID')
     userID = int(userID)
