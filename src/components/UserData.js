@@ -47,18 +47,10 @@ class UserData extends Component {
             <>
                 <h1>Welcome back {this.state.user.fullName}!</h1>
                 <div>
-                  Easy:
-                  <Circle percentage={(100 * easy/15).toFixed(1)} primaryColor={["#AAFFB9", "#AAFFB9"]} secondaryColor="#F0F0F0"/>
-                  Medium:
-                  <Circle percentage={(100 * medium/9).toFixed(1)} strokeWidth={8} secondaryColor="#F0F0F0"/>
-                  Hard:
-                  <Circle percentage={(100 * hard/6).toFixed(1)} strokeWidth={8} primaryColor={["#EB1547", "#EB1547"]} secondaryColor="#F0F0F0"/>
+                  <Circle percentage={(100 * easy/15).toFixed(1)} strokeWidth={7} text="Easy" primaryColor={["#AAFFB9", "#AAFFB9"]} secondaryColor="#F0F0F0"/>
+                  <Circle percentage={(100 * medium/9).toFixed(1)} text="Medium" strokeWidth={7} secondaryColor="#F0F0F0"/>
+                  <Circle percentage={(100 * hard/6).toFixed(1)} text="Hard" strokeWidth={7} primaryColor={["#EB1547", "#EB1547"]} secondaryColor="#F0F0F0"/>
                 </div>
-                Number of easy problems completed: {easy}
-                <div>
-                Number of medium problems completed: {medium}
-                </div>
-                Number of hard problems completed: {hard} 
                 <br />
             </>
             );

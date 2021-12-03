@@ -24,6 +24,7 @@ const StyledCircle = styled.circle`
 // const StyledCircle = ({ children, ...props }) => <circle className="react-super-progressbar__styled-circle" {...props}>{children}</circle>
 const Circle = ({
   percentage,
+  text,
   width,
   strokeWidth,
   fontSize,
@@ -59,6 +60,8 @@ const Circle = ({
             }}
           >
             {percentage}%
+            <br/>
+            {text}
           </span>
         </PercentageContainer>
         : null
@@ -115,6 +118,7 @@ Circle.propTypes = {
   secondaryColor: PropTypes.string,
   fill: PropTypes.string,
   hidePercentageText: PropTypes.bool,
+  text: PropTypes.string,
 }
 Circle.defaultProps = {
   width: 200,
