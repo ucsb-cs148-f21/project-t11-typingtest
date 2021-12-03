@@ -45,7 +45,7 @@ export default function CodePracticeCpp(match) {
 
 	console.log("CODE1:" + code);
 
-	if(code !== ""){
+	if(code !== "" && _id != ""){
 	
 	const user = getUser();
 	console.log("CODE2:" + code);
