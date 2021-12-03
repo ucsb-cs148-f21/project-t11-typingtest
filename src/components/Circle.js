@@ -130,7 +130,7 @@ Circle.propTypes = {
 }
 
 Circle.defaultProps = {
-  width: 200,
+  width: 365,
   strokeWidth: 5,
   strokeLinecap: 'round',
   fontSize: 'inherit',

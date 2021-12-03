@@ -13,7 +13,7 @@ import {Link} from 'react-router-dom';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: '#3699cf',
     color: theme.palette.common.white,
   },
   body: {

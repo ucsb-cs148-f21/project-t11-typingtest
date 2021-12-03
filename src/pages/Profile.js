@@ -5,12 +5,6 @@ import Layout from "../components/Layout";
 import getUser from "../utils/get-user";
 import UserData from "../components/UserData";
 
-const Doggo = styled.img`
-  width: 500px;
-  max-width: 100%;
-  height: auto;
-`;
-
 export default function Profile() {
   const user = getUser();
 
