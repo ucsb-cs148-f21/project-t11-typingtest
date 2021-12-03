@@ -47,9 +47,9 @@ class UserData extends Component {
             <>
                 <h1>Welcome back {this.state.user.fullName}!</h1>
                 <div>
-                  <Circle percentage={easy/15} strokeWidth={8} primaryColor="#2CE629" secondaryColor="#F0F0F0"/>
-                  <Circle percentage={medium/9} strokeWidth={8} secondaryColor="#F0F0F0"/>
-                  <Circle percentage={hard/6} strokeWidth={8} primaryColor="#D11C19" secondaryColor="#F0F0F0"/>
+                  <Circle percentage={(100 * easy/15).toFixed(1)} primaryColor={["#EB1547", "#EB1547"]} secondaryColor="#F0F0F0" />
+                  <Circle percentage={(100 * medium/9).toFixed(1)} strokeWidth={8} secondaryColor="#F0F0F0"/>
+                  <Circle percentage={(100 * hard/6).toFixed(1)} strokeWidth={8} primaryColor={["#AAFFB9", "#AAFFB9"]} secondaryColor="#F0F0F0"/>
                 </div>
                 Number of easy problems completed: {easy}
                 <div>
