@@ -50,7 +50,7 @@ export default function CodePracticeCpp(match) {
 	const user = getUser();
 	return (
 		<Layout user = {user}>
-			<TypingComponent text={code} textID={_id}/>
+			{code}
 		</Layout>
 	);
 }
