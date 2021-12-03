@@ -19,7 +19,16 @@ class TypingComponent extends Component {
     lineWCompleted: 0
   };
   componentDidMount(){
-    console.log(this.state.text)
+    var fetchURL = window.location.href
+    console.log(fetchURL)
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userID: this.state.user.id.toString().substr(0, 17), problemID: this.state.textID}) //userID: this.state.user.id, problemID: this.state.textID
+      //body: JSON.stringify({ userID: 43531, problemID: this.state.textID}) //userID: this.state.user.id, problemID: this.state.textID
+  };
+  fetch(fetchURL, requestOptions)
+      .catch(err => console.error(err));
   }
   setText = () => {
     const wordsE = this.state.text.split(" ");
@@ -195,14 +204,6 @@ class TypingComponent extends Component {
     if (!text) return <p>Loading...</p>;
 
     if (completed) {
-      const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userID: this.state.user.id.toString().substr(0, 17), problemID: this.state.textID}) //userID: this.state.user.id, problemID: this.state.textID
-        //body: JSON.stringify({ userID: 43531, problemID: this.state.textID}) //userID: this.state.user.id, problemID: this.state.textID
-    };
-    fetch(fetchURL, requestOptions)
-        .catch(err => console.error(err));
       return (
         <div className="container">
           <h2>

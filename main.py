@@ -22,6 +22,30 @@ def returnID(problemId):
         updateProfile(problemId, request)
         return "Profile Updated."
     return "ERROR"
+
+@app.route('/Java/<problemId>', methods=['GET', 'POST'])
+def returnID(problemId):
+    if request.method == 'POST':
+        print('Hello world!', file=sys.stderr)
+        updateProfile(problemId, request)
+        return "Profile Updated."
+    return "ERROR"
+
+@app.route('/Python/<problemId>', methods=['GET', 'POST'])
+def returnID(problemId):
+    if request.method == 'POST':
+        print('Hello world!', file=sys.stderr)
+        updateProfile(problemId, request)
+        return "Profile Updated."
+    return "ERROR"
+
+@app.route('/Cpp/<problemId>', methods=['GET', 'POST'])
+def returnID(problemId):
+    if request.method == 'POST':
+        print('Hello world!', file=sys.stderr)
+        updateProfile(problemId, request)
+        return "Profile Updated."
+    return "ERROR"
 # codesnippet?language=Java&skill=2
 @app.route('/codesnippet/<language>/<skill>', methods=['GET'])
 def returnLanguageAndSkill(language, skill):
