@@ -52,7 +52,7 @@ export default function CodePracticeCpp(match) {
 	console.log("ID: " + _id);
 	return (
 		<Layout user = {user}>
-			<TypingComponent text={code} textID={_id}/>
+			<TypingComponent text={code} textID={_id} userID = {user.id}/>
 		</Layout>
 	);
 }

@@ -5,6 +5,7 @@ class TypingComponent extends Component {
   state = {
     text: this.props.text,
     textID: this.props.textID,
+    userID: this.props.userID,
     inputValue: "",
     lastLetter: "",
     words: [],
@@ -24,7 +25,7 @@ class TypingComponent extends Component {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ userID: this.state.user.id.toString().substr(0, 17), problemID: this.state.textID}) //userID: this.state.user.id, problemID: this.state.textID
+      body: JSON.stringify({ userID: this.state.userID.substr(0, 17), problemID: this.state.textID}) //userID: this.state.user.id, problemID: this.state.textID
       //body: JSON.stringify({ userID: 43531, problemID: this.state.textID}) //userID: this.state.user.id, problemID: this.state.textID
   };
   fetch(fetchURL, requestOptions)
