@@ -24,7 +24,7 @@ def returnID(problemId):
     return "ERROR"
 
 @app.route('/Java/<problemId>', methods=['GET', 'POST'])
-def returnID(problemId):
+def returnIDJava(problemId):
     if request.method == 'POST':
         print('Hello world!', file=sys.stderr)
         updateProfile(problemId, request)
@@ -32,7 +32,7 @@ def returnID(problemId):
     return "ERROR"
 
 @app.route('/Python/<problemId>', methods=['GET', 'POST'])
-def returnID(problemId):
+def returnIDPython(problemId):
     if request.method == 'POST':
         print('Hello world!', file=sys.stderr)
         updateProfile(problemId, request)
@@ -40,7 +40,7 @@ def returnID(problemId):
     return "ERROR"
 
 @app.route('/Cpp/<problemId>', methods=['GET', 'POST'])
-def returnID(problemId):
+def returnIDCpp(problemId):
     if request.method == 'POST':
         print('Hello world!', file=sys.stderr)
         updateProfile(problemId, request)
