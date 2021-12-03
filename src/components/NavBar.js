@@ -10,7 +10,7 @@ export default function NavBar(props) {
   return (
     <Navbar data-testid="NavBar" bg="light" expand="lg" sticky="top">
       <Container>
-        <Navbar.Brand href="/">TypingTest</Navbar.Brand>
+        <Navbar.Brand href="/">CodePerMinute</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
