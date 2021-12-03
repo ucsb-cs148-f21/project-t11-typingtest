@@ -39,8 +39,11 @@ export default function CodePracticeCpp(match) {
 				setID(obj._id);
 			}
 		}
-		console.log(_id);
 	}
+	
+	console.log(_id);
+	console.log(code);
+
 	if(code !== ""){
 	
 	const user = getUser();
