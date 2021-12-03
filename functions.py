@@ -78,23 +78,23 @@ def parseCodeFile():
     codeFile.close()
 def updateProfile(problemId, request):
 
-    problemId = int(int(problemId)/1000)
+    intProblemID = int(int(problemId)/1000)
     request_json = request.get_json()
     userID = request_json.get('userID')
     userID = int(userID)
-    problem = codesnippets.objects.get(_id=problemId)
+    problem = codesnippets.objects.get(_id=intProblemID)
     if not (profile.objects(_id=userID)):
         newUser = profile(_id=userID, Easy=0, Medium=0, Hard=0, problemsSolved = [])
         newUser.save()
     user = profile.objects(_id=userID)
-    if int(problemId) not in user[0].problemsSolved:
+    if intProblemID not in user[0].problemsSolved:
         if (problem.difficulty == "Easy"):
             user.update(inc__Easy=1)
         elif (problem.difficulty == "Medium"):
             user.update(inc__Medium=1)
         elif (problem.difficulty == "Hard"):
             user.update(inc__Hard=1)
-        user.update(add_to_set__problemsSolved=problemId)
+        user.update(add_to_set__problemsSolved=intProblemID)
 def returnProblemFromIndex(problemIndex):
     jsonfile = json.loads(codesnippets.objects(_id=str(problemIndex)).to_json()) #returns a single problem
     first_elem = jsonfile[0] #access the list
