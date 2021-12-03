@@ -2,9 +2,9 @@ LANGUAGE:Java
 
 
 NAME:Two or Three Twice
-DIFFICULTY:2
+DIFFICULTY:Easy
 SKILL:Array
-PROBLEMSTART:1
+PROBLEMSTART
 /* Given an int array, return true if the array contains 2 twice, or 3 twice. 
  * The array will be length 0, 1, or 2.
  */
@@ -21,12 +21,13 @@ public boolean double23(int[] nums) {
     }
                                       
     return count2 == 2 || count3 == 2;
-PROBLEMEND:1
+PROBLEMEND
 
 
 NAME:Combine First Elements of Array
-DIFFICULTY:3
-PROBLEMSTART:2
+DIFFICULTY:Easy
+SKILL:Array
+PROBLEMSTART
 /* Given 2 int arrays, a and b, of any length, return a new array with the 
  * first element of each array. If either array is length 0, ignore that array.
  */
@@ -40,15 +41,207 @@ public int[] front11(int[] a, int[] b) {
     }
                       
     return new int[0];
-PROBLEMEND:2
+PROBLEMEND
+
+NAME:Compare Sets of Bits
+DIFFICULTY:Easy
+SKILL:Operations
+PROBLEMSTART
+/*Given an integer a, take the first 8 and the next 8 bits of the integer.
+* Then compare these two sets of bits with each other by performing an xor operation.
+*/
+public int compareBits(int a){
+   a8 = a & 256;
+   a16 = (a >> 8) & 256;
+   return a8^a16;
+}
+PROBLEMEND
+
+NAME:Point Constructor
+DIFFICULTY:Easy
+SKILL:Constructor
+PROBLEMSTART
+/*Write 3 constructors for a 2 dimensional point, with int variables x and y. One with 0 arguments that creates a default point, one with
+* 1 argument n such that the point is placed at (n,n), and one with 2 arguments i,j such that the point is placed at i,j.
+*/
+Point(){
+   x = 0;
+   y = 0;
+}
+Point(int n){
+   x = n;
+   y = n;
+}
+Point(int i, int j){
+   x = i;
+   y = j;
+}
+PROBLEMEND
+
+NAME:ToString Summary
+DIFFICULTY:Easy
+SKILL:toString
+PROBLEMSTART
+/*For a Cat class with parameters (int length, string color, bool cute),
+* write a toString to summarize these variables.
+*/
+public String toString()
+{
+   String start = "This cat ";
+   if (cute)
+   {
+      start = "This cute cat ";
+   }
+   String finalString = start + "is " + color;
+   finalString += " and " + length + " inches long.";
+   return finalString;
+}
+PROBLEMEND
+
+NAME: Encapsulate Card Details
+DIFFICULTY:Medium
+SKILL:Class,Input
+PROBLEMSTART
+/*Create a card class with two integers, one representing the ID of the card holder, and the other the passcode.
+* Write a method that only gives the ID if the user writes the passcode. The two integers and the ID acquisition are private.
+* If the user does not put in the right password, inform them and return -1.
+*/
+import java.util.Scanner;
+public class IDCard
+{
+   private int ID;
+   private int passcode;
+   Scanner input = new Scanner(System.in);
+
+   IDCard(int i, int p)
+   {
+      ID = i;
+      passcode = p;
+   }
+   
+   private int getID()
+   {
+       return ID;
+   }
+   public int requestID()
+   {
+       System.out.print("What is the passcode? ");
+       int entry = input.nextInt();
+       if (entry == passcode)
+       {
+          return getID();
+       }
+       else
+       {
+          System.out.println("Wrong passcode");
+          return -1;
+       }
+   }
+}
+PROBLEMEND
+
+NAME: Halved Number in Certain Type
+DIFFICULTY:Medium
+SKILL:Input,Switch
+PROBLEMSTART
+/*Write a main function that allows a user to choose whether they want an integer, double, or float,
+* and then half a number they input. The result will then be printed, and be in the requested type.
+*/ 
+public static void main(String args[]){
+   Scanner input = Scanner(System.in);
+   bool haveOption = false;
+   String type_option;
+   while (!(haveOption))
+   {
+      System.out.println("Please choose what type your number will be. (i for int, d for double, f for float)");
+      type_option = input.next();
+      haveOption = type_option.equals("i") | type_option.equals("d") | type_option.equals("f");
+      if (!(haveOption)){
+         System.out.println("Invalid option");
+      }
+   }
+   System.out.println("Please input a number");
+   switch(type_option){
+      case "i":
+         int n = input.nextInt();
+         System.out.println(n/2);
+         break;
+      case "d":
+         int n = input.nextDouble();
+         System.out.println(n/2);
+         break;
+      case "f":
+         int n = input.nextFloat();
+         System.out.println(n/2);
+         break;
+      default:
+         System.out.println("Sorry, an error has occurred.");
+         break;
+   }
+}
+PROBLEMEND
+
+NAME: Abstract Class Extension
+DIFFICULTY:Medium
+SKILL:Class
+PROBLEMSTART
+/*Create two separate classes from an abstract vehicle class, one that tracks the miles driven,
+* and another that simply prints multiple strings as it drives.
+*/
+abstract class Vehicle{
+   public abstract void drive();
+   public abstract String toString();
+   public void noise(){
+      System.out.println("Vroom");
+  }
+}
+class Car extends Vehicle{
+   int miles = 0;
+   public void drive(){
+      miles += 50;
+      noise();
+   }
+   public String toString(){
+      return "The car went "+Integer.toString(miles)+" miles.";
+   }
+}
+class Truck extends Vehicle{
+   public void noise(){
+       System.out.println("Vroom Vroom");
+   }
+   public void drive(){
+       noise();
+       noise();
+   }
+   public string toString()
+   {
+       return "It's a truck";
+   }
+}
+public void rideVehicle(Vehicle v)
+{
+   v.drive();
+   v.toString();  
+}
+PROBLEMEND
+
 
 
 LANGUAGE:Python
 
-
-DIFFICULTY:1
+NAME: Right Shift by Division
+DIFFICULTY:Easy
 SKILL:String
-PROBLEMSTART:3
+PROBLEMSTART
+ #Write a function that mimics (without the use of >>) the right shift operator and returns the result from the two given integers.
+def shift_to_right(x, y):
+	return x // 2**y
+PROBLEMEND
+
+NAME: Short Long Short
+DIFFICULTY:Easy
+SKILL:String
+PROBLEMSTART
 def combo_string(a, b):
   """
   Given 2 strings, a and b, return a string of the form short+long+short, 
@@ -56,21 +249,266 @@ def combo_string(a, b):
   The strings will not be the same length, but they may be empty (length 0). 
   """
   return a+b+a if len(a)<len(b) else b+a+b
-PROBLEMEND:3
+PROBLEMEND
 
+Name: Move Front 3 in Array
+DIFFICULTY:Easy
+SKILL:Array
+PROBLEMSTART
+#Given an array arr, take the first 3 elements of the array and move them to the end of the array.
+#If the length of the array is 3 or less, do not change the array
+def move_front3(arr):
+  if len(arr) <= 3:
+    return arr
+  back = arr[0:2]
+  arr[0:2] = []
+  arr = arr + back
+  return arr
+PROBLEMEND
 
+Name: Print Strings depending on Size
+DIFFICULTY:Easy
+SKILL:Input,Format
+PROBLEMSTART
+#Write a function that requests that the user write two strings. The larger one is placed first in the sentence.
+def sentence_based_on_size():
+    a = input("Write a string: ")
+    b = input("Write another string: ")
+    if (len(a) > len(b)):
+        print('The {0} said hello to the {1}'.format(a,b))
+    else:
+        print('The {1} said hello to the {0}'.format(a,b))
+PROBLEMEND
+
+Name: First Sums of Squares
+DIFFICULTY:Easy
+Skill:Loop
+PROBLEMSTART
+#Write a function that prints the sums of all squares from 0 to i^2 for each i in the loop.
+#The code goes up to a maximum of i = a, where a is passed as a parameter. Assume a is always an integer.
+def sums_of_squares(a):
+    runningsum = 0
+    for i in range(0,a):
+        runningsum += a*a
+        print(runningsum)
+PROBLEMEND
 LANGUAGE:C++
 
 
-NAME: Short Long Short
-DIFFICULTY:3
-SKILL:String
-PROBLEMSTART:3
-def combo_string(a, b):
-  """
-  Given 2 strings, a and b, return a string of the form short+long+short, 
-  with the shorter string on the outside and the longer string on the inside. 
-  The strings will not be the same length, but they may be empty (length 0). 
-  """
-  return a+b+a if len(a)<len(b) else b+a+b
-PROBLEMEND:3
+NAME: Cutting Past Middle
+DIFFICULTY:Easy
+Skill:String
+PROBLEMSTART
+/* Given one string a, create a new string, which is a copy of a, which stops before 
+ * the middle character (for a string of odd length)
+ * or the middle two characters (for a string of even length) of a.
+ * If a is empty, return the empty string
+ */
+public string cutMiddle(string a)
+{
+    if (a.empty())
+        return a;
+    
+    int half_len = (a.length()-1)/2;
+    return a.substr(0,half_len);
+}
+PROBLEMEND
+
+NAME: Recursive Equation
+SKILL:Recursion
+DIFFICULTY:Easy
+PROBLEMSTART
+/* For a given number n, calculate 2^n * n!
+* If the given n is less than 0, return 0
+*/
+int recursive2NFact(int n)
+{
+    if (n<0)
+    {
+        return 0;
+    }
+    if (n==0)
+    {
+        return 1;
+    }
+    return 2*n*recursive2NFact(n-1);
+}
+PROBLEMEND
+
+NAME: Number Wrapper Class
+SKILL:Memory
+DIFFICULTY:Easy
+PROBLEMSTART
+/* Create the default constructor, constructor, and destructor
+* for the wrapper class containing pointers to one integer and one double,
+* given that the variables are defined as int* i and double* d
+*/
+Wrapper()
+{
+    i = new int(0);
+    d = new double(0.0);
+}
+Wrapper(int n1, double n2)
+{
+    i = new int(n1);
+    d = new double(n2);
+}
+~Wrapper()
+{
+    delete i;
+    delete d;
+}
+PROBLEMEND
+
+NAME: Array Traversal of Various Step Sizes
+SKILL:Input, Exceptions
+DIFFICULTY:Easy
+PROBLEMSTART
+/*Assume array a[] has already been initialized and filled with strings, with variable arraysize equal to its length,
+* and the function traverseInStep() has been declared.
+* Ask for an integer n > 0, and then put that input into a function, which will
+* print out every value a[i] such that i is a multiple of n.
+* If not given an integer, or the integer is nonpositive, loop the prompt until an integer is given.
+*/
+bool noIntProvided = true;
+int n;
+while (noIntProvided)
+{
+        cout<<"Please provide an integer\n";
+        cin>>n;
+    if (n < 1)
+    {
+        cout<<"Integer is below 1, not valid\n";
+    }
+    else
+    {
+        noIntProvided = false;
+    }
+}
+traverseInStep(n,a);
+
+void traverseInStep(int n, string array[], int arraysize)
+{
+    for (int i = 0; i < arraysize; i+=n)
+    {
+        cout<<array[i]<<endl;
+    }
+}
+PROBLEMEND
+
+NAME: Vector of Words
+SKILL:File, Vectors
+DIFFICULTY:Easy
+PROBLEMSTART
+/* For an input file i.txt, push every word onto a vector of strings,
+*  where each word is separated by spaces. If i.txt does not exist or another error occurs,
+*  exit the program.
+*/
+ifStream in;
+in.open("i.txt");
+if (in.fail())
+{
+	exit(1);
+}
+vector<string> v;
+while(!(in.eof))
+{
+    string word;
+    getline(in,word," ");
+    v.push_back(word);
+}
+PROBLEMEND
+
+NAME: Random Day
+SKILL:Random
+DIFFICULTY:Medium
+PROBLEMSTART
+/*Generate a string of a random day (in the format (first 3 letters of month) day), 
+* that is a valid day in the calendar. Ignore February 29th.
+*/
+#include <random>
+string randomDay()
+{
+   string months[12] = {Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec};
+   int 31dayMonths = {1,3,5,7,8,10,12};
+   int num31dayMonths = 7;
+   int month = rand() % 12 + 1;
+   int day;
+   if (month == 2)
+   {
+      day = ran() % 28 + 1;
+   }
+   else
+   {
+      bool is31month = false;
+      for (int i = 0; i < num31dayMonths; i++)
+      {
+          if (month = 31dayMonths[i])
+          {
+             is31month = true;
+          }
+      }
+      if (is31month)
+      {
+         day = rand() % 31 + 1;
+      }
+      else
+      {
+         day = rand() % 30 + 1;
+      }
+   }
+   string randDay = months[month-1];
+   randDay+=" ";
+   randDay+=to_string(day);
+   return randDay;
+}
+PROBLEMEND
+
+NAME: Search Tree for String
+SKILL:Traversal,Pointer
+DIFFICULTY:Medium
+PROBLEMSTART
+/*Given a tree of strings, already sorted such that alphabetically, the left child comes before the node, which comes before the right child,
+* search from the root to find a given string, and then return the ID on the node. If the string does not exist, return -1.
+* Assume that constructors, sort and insert methods, and node methods are defined elsewhere, which include giving every node a unique positive ID.
+*/
+struct Node{
+   Node* left = nullptr;
+   Node* right = nullptr;
+   string str;
+   int ID;
+   Node(string s, int i);
+   setL(Node* n);
+   setR(Node* n);
+}
+class Tree{
+   Node* head;
+   int counter = 0;
+   Tree();
+   public:
+      int search(string target);
+      void sort();
+      void insert(Node insertee);
+};
+int Tree::search(string target)
+{
+   Node traverse = head;
+   while (traverse)
+   {
+      int diff = (traverse -> str).compare(target)
+      if (diff == 0)
+      {
+         return traverse -> ID;
+      }
+      else if (diff < 0)
+      {
+         traverse = traverse -> left;
+      }
+      else
+      {
+         traverse = traverse -> right;
+      }
+   }
+   return -1;
+}
+PROBLEMEND
