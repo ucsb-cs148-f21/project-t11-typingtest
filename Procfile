@@ -1,2 +1,2 @@
-web: gunicorn app:main
-web: gunicorn server:flask_app
+web: gunicorn main:app
+set PYTHONHASHSEED=1234
