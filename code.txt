@@ -1,6 +1,173 @@
 LANGUAGE:Java
-DIFFICULTY:2
+
+
+NAME:Two or Three Twice
+DIFFICULTY:Easy
 SKILL:Array
-PROBLEMSTART:0
-This is where our code will go, code snippet 1
-PROBLEMEND:0
+PROBLEMSTART
+/* Given an int array, return true if the array contains 2 twice, or 3 twice. 
+ * The array will be length 0, 1, or 2.
+ */
+public boolean double23(int[] nums) {
+    int count2 = 0;
+    int count3 = 0;
+      
+    for(int i = 0; i < nums.length; i++) {
+        if(nums[i] == 2)
+            count2++;
+                        
+        if(nums[i] == 3)
+            count3++;
+    }
+                                      
+    return count2 == 2 || count3 == 2;
+PROBLEMEND
+
+
+NAME:Combine First Elements of Array
+DIFFICULTY:Easy
+PROBLEMSTART
+/* Given 2 int arrays, a and b, of any length, return a new array with the 
+ * first element of each array. If either array is length 0, ignore that array.
+ */
+public int[] front11(int[] a, int[] b) {
+    if(a.length > 0 && b.length > 0) {
+        return new int[] {a[0], b[0]};
+    } else if(a.length > 0) {
+        return new int[] {a[0]};
+    } else if(b.length > 0) {
+        return new int[] {b[0]};
+    }
+                      
+    return new int[0];
+PROBLEMEND
+
+
+LANGUAGE:Python
+
+NAME: Right Shift by Division
+DIFFICULTY:Easy
+SKILL:String
+PROBLEMSTART
+ #Write a function that mimics (without the use of >>) the right shift operator and returns the result from the two given integers.
+def shift_to_right(x, y):
+	return x // 2**y
+PROBLEMEND
+
+
+LANGUAGE:C++
+
+
+NAME: Short Long Short
+DIFFICULTY:Easy
+SKILL:String
+PROBLEMSTART
+def combo_string(a, b):
+  """
+  Given 2 strings, a and b, return a string of the form short+long+short, 
+  with the shorter string on the outside and the longer string on the inside. 
+  The strings will not be the same length, but they may be empty (length 0). 
+  """
+  return a+b+a if len(a)<len(b) else b+a+b
+PROBLEMEND
+
+NAME: Cutting Past Middle
+DIFFICULTY:Easy
+Skill:String
+PROBLEMSTART
+/* Given one string a, create a new string, which is a copy of a, which stops before 
+ * the middle character (for a string of odd length)
+ * or the middle two characters (for a string of even length) of a.
+ * If a is empty, return the empty string
+ */
+public string cutMiddle(string a)
+{
+    if (a.empty())
+        return a;
+    
+    int half_len = (a.length()-1)/2;
+    return a.substr(0,half_len);
+}
+PROBLEMEND
+
+NAME: Recursive Equation
+SKILL:Recursion
+DIFFICULTY:Easy
+PROBLEMSTART
+/* For a given number n, calculate 2^n * n!
+* If the given n is less than 0, return 0
+*/
+int recursive2NFact(int n)
+{
+    if (n<0)
+    {
+        return 0;
+    }
+    if (n==0)
+    {
+        return 1;
+    }
+    return 2*n*recursive2NFact(n-1);
+}
+PROBLEMEND
+
+NAME: Number Wrapper Class
+SKILL:Memory
+DIFFICULTY:Easy
+PROBLEMSTART
+/* Create the default constructor, constructor, and destructor
+* for the wrapper class containing pointers to one integer and one double,
+* given that the variables are defined as int* i and double* d
+*/
+Wrapper()
+{
+    i = new int(0);
+    d = new double(0.0);
+}
+Wrapper(int n1, double n2)
+{
+    i = new int(n1);
+    d = new double(n2);
+}
+~Wrapper()
+{
+    delete i;
+    delete d;
+}
+PROBLEMEND
+
+NAME: Array Traversal of Various Step Sizes
+SKILL:Input, Exceptions
+DIFFICULTY:Easy
+PROBLEMSTART
+/*Assume array a[] has already been initialized and filled with strings, with variable arraysize equal to its length,
+* and the function traverseInStep() has been declared.
+* Ask for an integer n > 0, and then put that input into a function, which will
+* print out every value a[i] such that i is a multiple of n.
+* If not given an integer, or the integer is nonpositive, loop the prompt until an integer is given.
+*/
+bool noIntProvided = true;
+int n;
+while (noIntProvided)
+{
+        cout<<"Please provide an integer\n";
+        cin>>n;
+    if (n < 1)
+    {
+        cout<<"Integer is below 1, not valid\n";
+    }
+    else
+    {
+        noIntProvided = false;
+    }
+}
+traverseInStep(n,a);
+
+void traverseInStep(int n, string array[], int arraysize)
+{
+    for (int i = 0; i < arraysize; i+=n)
+    {
+        cout<<array[i]<<endl;
+    }
+}
+PROBLEMEND

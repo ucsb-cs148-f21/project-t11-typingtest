@@ -65,7 +65,7 @@ def parseCodeFile():
         if "NAME:" in x:
             pName = x.split("NAME:",1)[1].strip()
         if "PROBLEMEND" in x: #detects end of problem, saves json file to server
-            problem = codesnippets(_id=hash(pName), language=pLanguage, skillcategory = pSkill, difficulty = pDifficulty, code = codeString, name = pName)
+            problem = codesnippets(_id=(hash(pName) // 100000), language=pLanguage, skillcategory = pSkill, difficulty = pDifficulty, code = codeString, name = pName)
             problem.save()
             parsingCode = False
             pDifficulty = ""
@@ -78,7 +78,7 @@ def parseCodeFile():
     codeFile.close()
 def updateProfile(problemId, request):
 
-    intProblemID = int(int(problemId)/1000)
+    intProblemID = int(problemId)
     print("INT PROBLEM ID:", intProblemID)
     request_json = request.get_json()
     userID = request_json.get('userID')
