@@ -12,7 +12,7 @@ export default function CodePracticeCpp(match) {
 
 	const [item, setItem] = useState([]); 
 	const [code, setCode] = useState(""); 
-	const [_id, setID] = useState();
+	const [_id, setID] = useState("");
     
 	const fetchItem = async () => {
 		const fetchItem = await fetch(`https://code-per-minute.herokuapp.com/codesnippet/C++`
@@ -45,7 +45,7 @@ export default function CodePracticeCpp(match) {
 
 	console.log("CODE1:" + code);
 
-	if(code !== "" && _id != null){
+	if(code !== ""){
 	
 	const user = getUser();
 	console.log("CODE2:" + code);
