@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useState } from "react";
 import "./styles.css";
-
+import Circle from "./Circle"
 
 class UserData extends Component {
   state = {
@@ -47,12 +47,13 @@ class UserData extends Component {
             <>
                 <h1>Welcome back {this.state.user.fullName}!</h1>
                 <div>
+                  <Circle percentage={80} strokeWidth={8} secondaryColor="#F0F0F0"/>
+                </div>
                 Number of easy problems completed: {easy}
-                </div>
-                Number of medium problems completed: {medium}
                 <div>
-                Number of hard problems completed: {hard} 
+                Number of medium problems completed: {medium}
                 </div>
+                Number of hard problems completed: {hard} 
                 <br />
             </>
             );
