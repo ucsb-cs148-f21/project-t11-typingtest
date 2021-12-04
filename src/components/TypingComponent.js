@@ -20,16 +20,7 @@ class TypingComponent extends Component {
     lineWCompleted: 0
   };
   componentDidMount(){
-    var fetchURL = window.location.href
-    console.log(fetchURL)
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ userID: this.state.userID.substr(0, 17), problemID: this.state.textID}) //userID: this.state.user.id, problemID: this.state.textID
-      //body: JSON.stringify({ userID: 43531, problemID: this.state.textID}) //userID: this.state.user.id, problemID: this.state.textID
-  };
-  fetch(fetchURL, requestOptions)
-      .catch(err => console.error(err));
+
   }
   setText = () => {
     const wordS = this.state.text.replace(/\n/g, "\n ");
@@ -206,6 +197,16 @@ class TypingComponent extends Component {
     if (!text) return <p>Loading...</p>;
 
     if (completed) {
+      var fetchURL = window.location.href
+      console.log(fetchURL)
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userID: this.state.userID.substr(0, 17), problemID: this.state.textID}) //userID: this.state.user.id, problemID: this.state.textID
+        //body: JSON.stringify({ userID: 43531, problemID: this.state.textID}) //userID: this.state.user.id, problemID: this.state.textID
+    };
+    fetch(fetchURL, requestOptions)
+        .catch(err => console.error(err));
       return (
         <div className="container">
           <h2>
