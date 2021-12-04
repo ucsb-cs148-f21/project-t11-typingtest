@@ -5,9 +5,6 @@ NAME:Two or Three Twice
 DIFFICULTY:Easy
 SKILL:Array
 PROBLEMSTART
-/* Given an int array, return true if the array contains 2 twice, or 3 twice. 
- * The array will be length 0, 1, or 2.
- */
 public boolean double23(int[] nums) {
     int count2 = 0;
     int count3 = 0;
@@ -23,13 +20,10 @@ public boolean double23(int[] nums) {
     return count2 == 2 || count3 == 2;
 PROBLEMEND
 
-
 NAME:Combine First Elements of Array
 DIFFICULTY:Easy
+SKILL:Array
 PROBLEMSTART
-/* Given 2 int arrays, a and b, of any length, return a new array with the 
- * first element of each array. If either array is length 0, ignore that array.
- */
 public int[] front11(int[] a, int[] b) {
     if(a.length > 0 && b.length > 0) {
         return new int[] {a[0], b[0]};
@@ -42,44 +36,974 @@ public int[] front11(int[] a, int[] b) {
     return new int[0];
 PROBLEMEND
 
+NAME:Compare Sets of Bits
+DIFFICULTY:Easy
+SKILL:Operations
+PROBLEMSTART
+public int compareBits(int a){
+   a8 = a & 256;
+   a16 = (a >> 8) & 256;
+   return a8^a16;
+}
+PROBLEMEND
+
+NAME:Point Constructor
+DIFFICULTY:Easy
+SKILL:Constructor
+PROBLEMSTART
+Point(){
+   x = 0;
+   y = 0;
+}
+Point(int n){
+   x = n;
+   y = n;
+}
+Point(int i, int j){
+   x = i;
+   y = j;
+}
+PROBLEMEND
+
+NAME:ToString Summary
+DIFFICULTY:Easy
+SKILL:toString
+PROBLEMSTART
+public String toString()
+{
+   String start = "This cat ";
+   if (cute)
+   {
+      start = "This cute cat ";
+   }
+   String finalString = start + "is " + color;
+   finalString += " and " + toString(length) + " inches long.";
+   return finalString;
+}
+PROBLEMEND
+
+NAME:Reverse Bits
+DIFFICULTY:Easy
+SKILL:Divide and Conquer
+PROBLEMSTART
+public class Solution {
+    // you need treat n as an unsigned value
+    public int reverseBits(int n) {
+        int match = 1;
+        long result = 0;
+        for(int i=31; i>= 0; i--){
+            if((match & n) != 0){
+                result += Math.pow(2, i);
+            }
+            match <<= 1;
+        }
+        return (int)result;
+    }
+}
+PROBLEMEND
+
+NAME:Palindrome Number
+DIFFICULTY:Easy
+SKILL:Math
+PROBLEMSTART
+class Solution {
+    public boolean isPalindrome(int x) {
+        int ans=0,temp=x;
+        if(x>=0 && x<=9)// all numbers b/w 0 to 9 are palindrome
+           return true;
+        else if(x>9){
+            while(x!=0){ // reversing the number 
+                ans=ans*10+x%10;
+                x=x/10;
+                      }
+            if(ans==temp)
+                return true;
+            }
+        return false;//if number is negative then it will never be Palindrome 
+    }
+}
+PROBLEMEND
+
+
+NAME:Roman to Integer
+DIFFICULTY:Easy
+SKILL:Math
+PROBLEMSTART
+class Solution {
+    public int romanToInt(String s) {
+        HashMap<Character, Integer> vals = new HashMap<Character, Integer>();
+        int value1, value2;
+        int sum = 0;
+        char currentChar, nextChar;
+        vals.put('I',1);
+        vals.put('V',5);
+        vals.put('X',10);
+        vals.put('L',50);
+        vals.put('C',100);
+        vals.put('D',500);
+        vals.put('M',1000);
+
+        for(int i = 0; i < s.length(); i++) {
+            currentChar = s.charAt(i);
+            value1 = vals.get(currentChar);
+            if(i != s.length()-1) {
+                nextChar = s.charAt(i + 1);
+                value2 = vals.get(nextChar);
+                if (value2 > value1) {
+                    sum += (value2 - value1);
+                    i++;
+                }
+                else sum += value1;
+            }
+            else sum += value1;
+        }
+        return sum;
+    }
+}
+PROBLEMEND
+
+NAME:Create Reverse Array
+DIFFICULTY:Easy
+SKILL:Array
+PROBLEMSTART
+public int[] reverse(int[] nums){
+   int[] numsR = nums;
+   for (int i = 0; i < nums.length; i++){
+      numsR[i] = nums[nums.length-1-i];
+   }
+   return numsR;
+}
+PROBLEMEND
+
+NAME:Candy
+DIFFICULTY:Easy
+SKILL:Array
+PROBLEMSTART
+class Solution {
+    public int candy(int[] ratings) {
+        int[] ans = new int[ratings.length];
+        ans[0] = 1;
+        
+        for(int i = 1; i < ratings.length; i++){
+            if(ratings[i] > ratings[i-1]) ans[i] = ans[i-1]+1;
+            else ans[i] = 1;
+        }
+        
+        for(int i = ratings.length-2; i >= 0; i--){
+            if(ratings[i] > ratings[i+1] && ans[i] <= ans[i+1])
+                ans[i] = ans[i+1]+1;
+        }
+        
+        int res = 0;
+        for(int n : ans) res += n;
+        return res;
+    }
+}
+PROBLEMEND
+
+NAME:Encapsulate Card Details
+DIFFICULTY:Medium
+SKILL:Class,Input
+PROBLEMSTART
+import java.util.Scanner;
+public class IDCard
+{
+   private int ID;
+   private int passcode;
+   Scanner input = new Scanner(System.in);
+
+   IDCard(int i, int p)
+   {
+      ID = i;
+      passcode = p;
+   }
+   
+   private int getID()
+   {
+       return ID;
+   }
+   public int requestID()
+   {
+       System.out.print("What is the passcode? ");
+       int entry = input.nextInt();
+       if (entry == passcode)
+       {
+          return getID();
+       }
+       else
+       {
+          System.out.println("Wrong passcode");
+          return -1;
+       }
+   }
+}
+PROBLEMEND
+
+NAME:Complex Number Class
+DIFFICULTY:Medium
+SKILL:Math,Class
+PROBLEMSTART
+class ComplexNum{
+   public int real;
+   public int imag;
+   
+   ComplexNum(){real = 0; imag = 0};
+   ComplexNum(int r, int m){real = r; imag = m};
+   
+}
+ComplexNum scalarMult(ComplexNum n, int s, boolean realScalar)
+{
+   if (realScalar)
+   {
+      return ComplexNum(n.real*s,n.imag*s);
+   }
+   else
+   {
+      return ComplexNum(-1*n.imag*s,n.real*s);
+   }
+}
+ComplexNum add(ComplexNum n1, ComplexNum n2)
+{
+   return ComplexNum(n1.real + n2.real,n1.imag + n2.imag);
+}
+ComplexNum subtract(ComplexNum n1, ComplexNum n2)
+{
+   return add(n1, scalarMult(n2,-1,true));
+}
+ComplexNum multiply(ComplexNum n1, ComplexNum n2)
+{
+   return ComplexNum(n1.real*n2.real - n1.imag*n2.imag, n1.real*n2.imag + n2.real*n1.imag);
+}
+PROBLEMEND
+
+NAME:Abstract Class Extension
+DIFFICULTY:Medium
+SKILL:Class
+PROBLEMSTART
+abstract class Vehicle{
+   public abstract void drive();
+   public abstract String toString();
+   public void noise(){
+      System.out.println("Vroom");
+  }
+}
+class Car extends Vehicle{
+   int miles = 0;
+   public void drive(){
+      miles += 50;
+      noise();
+   }
+   public String toString(){
+      return "The car went "+Integer.toString(miles)+" miles.";
+   }
+}
+class Truck extends Vehicle{
+   public void noise(){
+       System.out.println("Vroom Vroom");
+   }
+   public void drive(){
+       noise();
+       noise();
+   }
+   public string toString()
+   {
+       return "It's a truck";
+   }
+}
+public void rideVehicle(Vehicle v)
+{
+   v.drive();
+   v.toString();  
+}
+PROBLEMEND
+
+NAME:4Sum
+DIFFICULTY:Medium
+SKILL:Array
+PROBLEMSTART
+class Solution {
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        
+        Arrays.sort(nums);
+        
+        for (int i = 0; i < nums.length-3; i++) {
+            for (int j = i+1; j < nums.length-2; j++) {
+                int l = j+1, r = nums.length-1;
+                while (l < r) {
+                    int x = nums[i] + nums[j] + nums[l] + nums[r];
+                    if (x == target) {
+                        List<Integer> curr = Arrays.asList(nums[i], nums[j], nums[l], nums[r]);
+                        if (!result.contains(curr))
+                            result.add(curr);
+                        l++; r--;
+                    }
+                    else if (x < target) l++;
+                    else r--;
+                }
+            }
+        }
+        return result;
+    }
+}
+PROBLEMEND
+
+NAME:Next Permutation
+DIFFICULTY:Medium
+SKILL:Array
+PROBLEMSTART
+class Solution {
+    public void nextPermutation(int[] nums) {
+        if(nums.length < 2)
+            return;
+        int i = nums.length-2;
+        
+        // find till pattern(all descending) breaks
+        while(i>=0 && nums[i]>=nums[i+1])
+            i--;
+        
+        // full descending
+        if(i<0){
+            reverse(nums, i+1, nums.length-1);
+        }
+        //if there is a break in the pattern
+        else {
+            int j = nums.length-1;
+            while(nums[j]<=nums[i]) // find next greater element
+                j--;
+            swap(nums, i, j);
+            reverse(nums, i+1, nums.length-1);
+        }     
+    }
+    
+    public void swap(int[] nums, int i, int j){
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+    
+    public void reverse(int[] nums, int i, int j){
+        while(i<j){
+            swap(nums,i++,j--);
+        }
+    }
+}
+PROBLEMEND
+
+NAME:Valid Sudoku
+DIFFICULTY:Medium
+SKILL:Array
+PROBLEMSTART
+public boolean isValidSudoku(char[][] b) {
+        for(int i = 0; i < 9; i++){
+            int row[] = new int[10];
+            int col[] = new int[10];
+            for(int j = 0; j < 9; j++){
+                if(b[i][j] != '.'){
+                    int n = b[i][j] - '0';
+                    if(col[n] == 1) return false;
+                    col[n] = 1;
+                }
+                if(b[j][i] != '.'){
+                    int n = b[j][i] - '0';
+                    if(row[n] == 1) return false;
+                    row[n] = 1;
+                }
+            }
+        }
+        for(int r = 0; r < 9; r += 3){
+            for(int c = 0; c < 9; c += 3){
+                int grid[] = new int[10];
+                for(int i = r; i < r + 3; i++){
+                    for(int j = c; j < c + 3; j++){
+                        if(b[i][j] != '.'){
+                            int n = b[i][j] - '0';
+                            if(grid[n] == 1) return false;
+                            grid[n] = 1;
+                        }
+                    }
+                }
+            }
+        }
+        return true;
+    }
+PROBLEMEND
+
+NAME:Iterate through Tree Recursively
+DIFFICULTY:Hard
+SKILL:Traversal
+PROBLEMSTART
+class Node{
+   public Node left = null;
+   public Node right = null;
+   public String str;
+   public Node();
+   public void setString(String s);
+   public void setL(Node n);
+   public void setR(Node n);
+
+   public void recNodePrint()
+   {
+        if (left)
+        {
+           left.recNodePrint();
+        }
+        printNode();
+        if (right)
+        {
+           left.recNodePrint();
+        }
+   }
+
+   public void printNode()
+   {
+        for (int i = 0; i < str.length(); i++)
+        {
+           System.out.println(str.substring(0,str.length()-i));
+        }
+   }
+} 
+
+class Tree{
+   Node head = null;
+   Tree();
+   void addNode(string s);
+   public void treePrint()
+   {
+        if (head)
+        {
+           head.recNodePrint();
+        }
+   }
+}
+PROBLEMEND
+
+NAME:Half Number in Requested Type
+DIFFICULTY:Hard
+SKILL:Input,Switch
+PROBLEMSTART
+public static void main(String args[]){
+   Scanner input = Scanner(System.in);
+   bool haveOption = false;
+   String type_option;
+   while (!(haveOption))
+   {
+      System.out.println("Please choose what type your number will be. (i for int, d for double, f for float)");
+      type_option = input.next();
+      haveOption = type_option.equals("i") | type_option.equals("d") | type_option.equals("f");
+      if (!(haveOption)){
+         System.out.println("Invalid option");
+      }
+   }
+   System.out.println("Please input a number");
+   switch(type_option){
+      case "i":
+         int n = input.nextInt();
+         System.out.println(n/2);
+         break;
+      case "d":
+         double n = input.nextDouble();
+         System.out.println(n/2);
+         break;
+      case "f":
+         float n = input.nextFloat();
+         System.out.println(n/2);
+         break;
+      default:
+         System.out.println("Sorry, an error has occurred.");
+         break;
+   }
+}
+PROBLEMEND
+
+NAME:Text Justification
+DIFFICULTY:Hard
+SKILL:Array
+PROBLEMSTART
+class Solution {
+    public List<String> fullJustify(String[] words, int maxWidth) {
+        List<String> currWords = new ArrayList<>(), done = new ArrayList<>();
+        int currLen = 0;
+        
+        for (int i = 0 ; i < words.length ; i++) {
+            if (currLen + currWords.size() + words[i].length() <= maxWidth) {
+                currLen += words[i].length();
+                currWords.add(words[i]);
+            } else {
+                StringBuilder sb = new StringBuilder();
+                
+                if (currWords.size() == 1) {
+                    sb.append(currWords.get(0));
+                    while (sb.length() != maxWidth) sb.append(" ");
+                } else {
+                    int spaces = maxWidth - currLen;
+                    int between = spaces/(currWords.size()-1);
+                    int remainder = spaces%(currWords.size()-1);
+                
+                    for (int j = 0 ; j < currWords.size() ; j++) {
+                        if (sb.length() != 0) {
+                            for (int k = 0 ; k < between ; k++) sb.append(" ");
+                            if (remainder-- > 0) sb.append(" ");
+                        }
+                        sb.append(currWords.get(j));
+                    }
+                }
+                
+                done.add(sb.toString());
+                currWords.clear();
+                currLen = 0;
+                i--;
+            }
+        }
+        StringBuilder sb = new StringBuilder(); 
+        for (String s : currWords) {
+            if (sb.length() != 0) sb.append(" ");
+            sb.append(s);
+        }
+        while (sb.length() != maxWidth) sb.append(" ");
+        done.add(sb.toString());
+        
+        return done;
+    }
+}
+PROBLEMEND
+
+NAME:Longest Common Prefix
+DIFFICULTY:Hard
+SKILL:String
+PROBLEMSTART
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        int minLenIndex=0;
+        for(int i=0; i<strs.length; i++){
+            if(strs[i].length()<strs[minLenIndex].length()) minLenIndex=i;
+        }
+        
+        String prefix=strs[minLenIndex];
+        
+        for(int i=0; i<strs.length; i++){
+            if(i!=minLenIndex) prefix=commonPrefix(prefix,strs[i]);
+        }
+        
+        return prefix;
+        
+    }
+    
+    public String commonPrefix(String str1,String str2){
+        String mins="", maxs="";
+        if(str1.length()>=str2.length()){
+            mins=str2;
+            maxs=str1;
+        } else {
+            mins=str1;
+            maxs=str2;
+        }
+        for(int i=0; i<mins.length(); i++){
+            if(mins.charAt(i)!=maxs.charAt(i)) return mins.substring(0,i);
+        }
+        return mins;
+    }
+}
+PROBLEMEND
+
 
 LANGUAGE:Python
 
-NAME: Right Shift by Division
+
+NAME:Right Shift by Division
 DIFFICULTY:Easy
 SKILL:String
 PROBLEMSTART
- #Write a function that mimics (without the use of >>) the right shift operator and returns the result from the two given integers.
 def shift_to_right(x, y):
 	return x // 2**y
+PROBLEMEND
+
+NAME:Short Long Short
+DIFFICULTY:Easy
+SKILL:String
+PROBLEMSTART
+def combo_string(a, b):
+    return a+b+a if len(a)<len(b) else b+a+b
+PROBLEMEND
+
+Name:Move Front 3 in Array
+DIFFICULTY:Easy
+SKILL:Array
+PROBLEMSTART
+def move_front3(arr):
+  if len(arr) <= 3:
+    return arr
+  back = arr[0:2]
+  arr[0:2] = []
+  arr = arr + back
+  return arr
+PROBLEMEND
+
+Name:Print Strings depending on Size
+DIFFICULTY:Easy
+SKILL:Input,Format
+PROBLEMSTART
+def sentence_based_on_size():
+    a = input("Write a string: ")
+    b = input("Write another string: ")
+    if (len(a) > len(b)):
+        print('The {0} said hello to the {1}'.format(a,b))
+    else:
+        print('The {1} said hello to the {0}'.format(a,b))
+PROBLEMEND
+
+NAME:Normalize all Columns in a Matrix
+DIFFICULTY:Easy
+SKILL:Matrix
+PROBLEMSTART
+import numpy as np
+def normColumns(M):
+   M2 = M
+   for i in range(len(M2)):
+       M2[:,i] = M[:,i]/sum(M[:,i]*M[:,i])
+   return M2
+PROBLEMEND
+
+NAME:Print Sums of Squares
+DIFFICULTY:Easy
+SKILL:Math
+PROBLEMSTART
+def sumOfSquares(n):
+   runningsum = 0
+   for i in range(n):
+      runningsum+=i*i
+      print(runningsum)
+PROBLEMEND
+
+NAME:Name a Random Desert
+DIFFICULTY:Easy
+SKILL:Random
+PROBLEMSTART
+import random
+def randomDesert():
+   flavors = ["Chocolate","Peach","Rainbow"]
+   types = ["Cake","Donut","Ice Cream","Milkshake"]
+
+   return choice(flavors)+" "+choice(types)
+PROBLEMEND
+
+NAME:Write to File with Warning
+DIFFICULTY:Easy
+SKILL:Input,Output
+PROBLEMSTART
+def overwriteWarning(filename):
+   with open(filename,"r+") as f:
+      if (f.readline() != ""):
+         request = input("Existing file detected. Type Yes if you are OK with overwriting it. ")
+         if (request != "Yes"):
+            print("Cancelling write operation")
+            f.close()
+            return
+      f.write("Hello Apple")
+      f.close()
+      return
+PROBLEMEND
+
+NAME:Display Random Number of Hits
+DIFFICULTY:Easy
+SKILL:Random
+PROBLEMSTART
+import random
+def displayHits(prob):
+   if prob >= 1 or prob <= 0:
+      return
+   hits = 0
+   while(random.random() <= prob)
+   {
+      hits++
+   }
+   print(hits)
+PROBLEMEND
+
+NAME:Count Positive Hexadecimal F's
+DIFFICULTY:Easy
+SKILL:Math
+PROBLEMSTART
+numbers = [1643,67,2,134,65]
+fs = 0
+for i in range(len(numbers)):
+   n = numbers[i]
+   while(n > 14):
+      if (n % 16 == 15):
+         fs++
+      n >> 4
+print(fs)
+PROBLEMEND
+
+NAME:Get Two Elements from Periodic Table
+DIFFICULTY:Medium
+SKILL:Array
+PROBLEMSTART
+def print_atoms_number(a,n):
+   alk_nums = [3,11,19,37,55,87]
+   alks = ["Lithium", "Sodium", "Potassium", "Rubidium", "Cesium", "Francium"]
+   noble_nums = [2,10,18,36,54,86,118]
+   nobles = ["Helium", "Neon", "Argon", "Krypton", "Xenon", "Radon", "Oganesson"]
+   
+   found = false
+   for i in range(len(alk_nums)):
+       if (a == alk_nums[i]):
+           found = true
+           print(alks[i])
+
+   if (not found):
+      print("null")
+
+   found = false
+   for i in range(len(noble_nums)):
+       if (n == noble_nums[i]):
+           found = true
+           print(nobles[i])
+
+   if (not found):
+      print("null")
+PROBLEMEND
+
+NAME:Draw a Scatter Plot
+DIFFICULTY:Medium
+SKILL:Plot,Random
+PROBLEMSTART
+import numpy
+import matplotlib.pyplot as plt
+
+def plotRandom():
+    random.seed()
+
+    x = [1,1,2,3,1,1,2,3,3,2,2,7,4,3,1,2,3]
+    y = x
+    for i in range(len(x)):
+        y[i] = 3*x[i]*random.random()
+    
+    plt.scatter(x,y)
+    plt.show()
+PROBLEMEND
+
+NAME:Ensure the Number is 1 Mod 3
+DIFFICULTY:Medium
+SKILL:Input,Exceptions
+PROBLEMSTART
+def input1Mod3(n):
+   while True:
+      print("Please enter a number to add to %d, or exit to quit",n)
+      startinput = input("")
+      if (startinput == "exit"):
+         return n
+      try:
+        addterm = int(startinput)
+        if ((n + addterm) % 3 == 1):
+           n += addterm
+        else:
+           print("The number was not equivalent to 1 mod 3, ignoring request")
+      except:
+           print("Could not make input an integer")
+PROBLEMEND      
+
+NAME:Error for Euler's Method
+SKILL:Math
+DIFFICULTY:Medium
+PROBLEMSTART
+def eulerError(a, b, stepsize, startx, endx)
+{
+   double y = a*startx*startx + b*startx;
+   double yCompare = a*endx*endx + b*endx;
+   for (double x = startx; x < endx; x += stepsize)
+   {
+      double deriv = 2*a*x + b;
+      y += deriv*stepsize;
+   }
+   return y-yCompare;
+}
+PROBLEMEND
+
+NAME:Sentence Without Repeating letters
+SKILL:Sets
+DIFFICULTY:Medium
+PROBLEMSTART
+import string
+def noRepeatLetters():
+   sentence = input("What's your sentence? ")
+   sentence = sentence.upper()
+   usedset = {"dummy"}
+   for i in range(len(sentence)):
+      if sentence[i] in string.ascii_uppercase:
+         if sentence[i] in usedset:
+            print("Repeat letters, bad sentence")
+            return
+         usedset.add(sentence[i])
+   print("Good sentence")
+   return
+PROBLEMEND
+
+NAME:Class Overseeing Students
+SKILL:Class
+DIFFICULTY:Medium
+PROBLEMSTART
+class Student:
+   def __init__(self,name,grade):
+      self.name = name
+      self.grade = grade
+   
+   def getGrade(self):
+      return grade
+
+   def getName(self):
+      return name
+
+class Class:
+   def __init__(self,subject,students):
+      self.subject = subject
+      self.students = students
+
+   def getSubject(self):
+      return subject
+   
+   def printGrades(self):
+      print("Grades for the {} class",subject)
+      for i in self.students:
+         print("{self.students[i].getName}: {self.students[i].getGrade}")
+PROBLEMEND
+
+NAME:Create Simulation Classes
+DIFFICULTY:Hard
+SKILL:Class
+PROBLEMSTART
+class City:
+   def __init__(self,popl,growth):
+       self.population = popl
+       self.pgrowth = growth
+
+    def incPopl(self):
+        self.population *= self.pgrowth
+
+    def reduceGrowth(self):
+        if self.pgrowth > 0.001:
+            self.pgrowth -= 0.001
+
+c1 = City(1230,0.01)
+c2 = City(20000, 0.002)
+c3 = City(70,0.05)
+
+c1.incPopl()
+c2.incPopl()
+c2.reduceGrowth()
+c2.incPopl()
+c3.incPopl()
+
+print(c1.population)
+print(c2.population)
+print(c3.population)
+PROBLEMEND
+
+NAME:Find Next Fridays
+DIFFICULTY:Hard
+SKILL:Date
+PROBLEMSTART
+from calendar import monthrange
+def nextFridays():
+   curr = datetime.date.now()
+   
+   dow = int(curr.strftime(%u))
+   
+   offset = 5 - dow
+   if (offset < 0):
+        offset += 7
+   
+   newday = (curr.day + offset) % monthrange(curr.year,curr.month)[1] + 1
+
+   newfri1 = curr.replace(day=newday)
+
+   bool feb29 = False
+   i = 1
+   if (curr.strftime(%m) == 2) and (curr.strftime(%d) == 29):
+        i = 4
+        feb29 = True
+   while i < 1000000:
+        newfri2 = curr.replace(year=(curr.year+1))
+        if newfri2.strftime(%u) == 5:
+            return newfri1,newfri2
+        if (feb29):
+           i+=4
+        else:
+            i++
+
+    print("Error, could not find Friday with same month and day in a million years")
+    return newfri1,newfri1
+PROBLEMEND
+
+NAME:Extensions of Cipher Class
+SKILL:Class,String
+DIFFICULTY:Hard
+PROBLEMSTART
+class Cipher:
+   def __init__(self,str):
+      self.text = str
+   
+   def encode(self):
+      return("Uninitialized cipher")
+
+class Reverse(Cipher):
+   def encode(self):
+      return(text[::-1])
+
+class PigLatin(Cipher):
+   def encode(self):
+      if (len(text) < 2):
+         return text + "ay"
+      return text[1:] + text[0] +"ay"
+
+class strDestroyer():
+   def __init__(self,str):
+      c1 = Reverse(str)
+      c2 = PigLatin(str)
+
+   def nonsenseStr(self):
+      output = "ay"
+      o1 = c1.encode()
+      o2 = c2.encode()
+      for i in range (len(c1)):
+         if (i % 2 = 0):
+            output += o2[i]
+         else:
+            output += o1[i]
+      return output
+PROBLEMEND
+
+NAME:Approximate Circle As Triangles
+SKILL:Math
+DIFFICULTY:Hard
+PROBLEMSTART
+import math
+def approxCircleWithTris(r,thresh):
+   angle = 120.0
+   actualArea = math.pi * r * r
+   threshmet = false
+   while not threshmet and angle != 0:
+      approxArea = r*math.sin(angle)*180/angle
+      if approxArea == 0:
+         print("A rounding error has occured due to using too small triangles to meet the threshold")
+         return 0
+      threshmet = math.abs(approxArea - actualArea) < thresh
+   if angle == 0:
+      print("Could not reach a conclusion")
+      return -1
+   print("For close enough results, use {360.0/angle} triangles")
+   print("This results in an area of {approxArea} compared to the actual value of {actualArea})
+   return (360.0/angle)
 PROBLEMEND
 
 
 LANGUAGE:C++
 
 
-NAME: Short Long Short
+NAME:Cutting Past Middle
 DIFFICULTY:Easy
 SKILL:String
 PROBLEMSTART
-def combo_string(a, b):
-  """
-  Given 2 strings, a and b, return a string of the form short+long+short, 
-  with the shorter string on the outside and the longer string on the inside. 
-  The strings will not be the same length, but they may be empty (length 0). 
-  """
-  return a+b+a if len(a)<len(b) else b+a+b
-PROBLEMEND
-
-NAME: Cutting Past Middle
-DIFFICULTY:Easy
-Skill:String
-PROBLEMSTART
-/* Given one string a, create a new string, which is a copy of a, which stops before 
- * the middle character (for a string of odd length)
- * or the middle two characters (for a string of even length) of a.
- * If a is empty, return the empty string
- */
 public string cutMiddle(string a)
 {
     if (a.empty())
@@ -90,13 +1014,10 @@ public string cutMiddle(string a)
 }
 PROBLEMEND
 
-NAME: Recursive Equation
-SKILL:Recursion
+NAME:Recursive Equation
 DIFFICULTY:Easy
+SKILL:Recursion
 PROBLEMSTART
-/* For a given number n, calculate 2^n * n!
-* If the given n is less than 0, return 0
-*/
 int recursive2NFact(int n)
 {
     if (n<0)
@@ -111,14 +1032,10 @@ int recursive2NFact(int n)
 }
 PROBLEMEND
 
-NAME: Number Wrapper Class
+NAME:Number Wrapper Class
 SKILL:Memory
 DIFFICULTY:Easy
 PROBLEMSTART
-/* Create the default constructor, constructor, and destructor
-* for the wrapper class containing pointers to one integer and one double,
-* given that the variables are defined as int* i and double* d
-*/
 Wrapper()
 {
     i = new int(0);
@@ -136,25 +1053,19 @@ Wrapper(int n1, double n2)
 }
 PROBLEMEND
 
-NAME: Array Traversal of Various Step Sizes
-SKILL:Input, Exceptions
+NAME:Array Traversal of Various Step Sizes
+SKILL:Input
 DIFFICULTY:Easy
 PROBLEMSTART
-/*Assume array a[] has already been initialized and filled with strings, with variable arraysize equal to its length,
-* and the function traverseInStep() has been declared.
-* Ask for an integer n > 0, and then put that input into a function, which will
-* print out every value a[i] such that i is a multiple of n.
-* If not given an integer, or the integer is nonpositive, loop the prompt until an integer is given.
-*/
 bool noIntProvided = true;
 int n;
 while (noIntProvided)
 {
-        cout<<"Please provide an integer\n";
+        cout<<"Please provide an integer"<<endl;
         cin>>n;
     if (n < 1)
     {
-        cout<<"Integer is below 1, not valid\n";
+        cout<<"Integer is below 1, not valid"<<endl;
     }
     else
     {
@@ -169,5 +1080,518 @@ void traverseInStep(int n, string array[], int arraysize)
     {
         cout<<array[i]<<endl;
     }
+}
+PROBLEMEND
+
+NAME:Vector of Words
+SKILL:File, Vectors
+DIFFICULTY:Easy
+PROBLEMSTART
+ifStream in;
+in.open("i.txt");
+if (in.fail())
+{
+	exit(1);
+}
+vector<string> v;
+while(!(in.eof))
+{
+    string word;
+    getline(in,word," ");
+    v.push_back(word);
+}
+PROBLEMEND
+
+NAME:Create Extra Pointer
+DIFFICULTY:Easy
+SKILL:Pointer
+PROBLEMSTART
+int* make_ptr(int n)
+{
+   int* ptr = &n;
+   return ptr;
+}
+PROBLEMEND
+
+
+NAME:Insert Chars in Between String
+DIFFICULTY:Easy
+SKILL:String
+PROBLEMSTART
+string charsBetween(string str, char a)
+{
+   string newstr;
+   for (int i = 0; i < str.length(); i++)
+   {
+      newstr.push_back(str[i]);
+      newstr.push_back(a);
+   }
+   return newstr;
+}
+PROBLEMEND
+
+NAME:Valid Parentheses Queue
+DIFFICULTY:Easy
+SKILL:Queue
+PROBLEMSTART
+#include <Queue>
+bool validParens(string str)
+{
+   queue<boolean> openP;
+
+   for (int i = 0; i < str.length(); i++)
+   {
+      if (str[i] == '(')
+      {
+         openP.push(true);
+      }
+      if (str[i] == ')')
+      {
+         if openP.empty()
+            return false;
+         
+         openP.pop();
+      }
+   }
+
+   return openP.empty();
+}
+PROBLEMEND
+
+NAME:Time an Operation
+SKILL:Time
+DIFFICULTY:Easy
+PROBLEMSTART
+#include <time.h>
+time_t current = time(NULL);
+for (int i = 0; i < 100000; i++)
+{
+   std::cout<<"ducks"<<std::endl;
+}
+time_t after = time(NULL);
+std::cout<<"Seconds Elapsed: "<<std::endl;
+std::cout<<difftime(after,current);
+PROBLEMEND
+
+NAME:Print Pattern Square with String
+SKILL:String
+DIFFICULTY:Easy
+PROBLEMSTART
+void printSquare(string str)
+{
+   for (int i = 0; i < str.size(); i++)
+   {
+      for (int j = 0; j < str.size(); j++)
+      {
+         if ((i+j)%2 == 0)
+         {
+            cout<<str[j];
+         }
+         else
+         {
+            cout<<"*";
+         }
+      }
+      cout<<endl;
+   }
+}
+PROBLEMEND
+
+NAME:Random Day
+SKILL:Random
+DIFFICULTY:Medium
+PROBLEMSTART
+#include <random>
+string randomDay()
+{
+   string months[12] = {Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec};
+   int 31dayMonths = {1,3,5,7,8,10,12};
+   int num31dayMonths = 7;
+   int month = rand() % 12 + 1;
+   int day;
+   if (month == 2)
+   {
+      day = ran() % 28 + 1;
+   }
+   else
+   {
+      bool is31month = false;
+      for (int i = 0; i < num31dayMonths; i++)
+      {
+          if (month = 31dayMonths[i])
+          {
+             is31month = true;
+          }
+      }
+      if (is31month)
+      {
+         day = rand() % 31 + 1;
+      }
+      else
+      {
+         day = rand() % 30 + 1;
+      }
+   }
+   string randDay = months[month-1];
+   randDay+=" ";
+   randDay+=to_string(day);
+   return randDay;
+}
+PROBLEMEND
+
+NAME:Search Tree for String
+SKILL:Traversal,Pointer
+DIFFICULTY:Medium
+PROBLEMSTART
+struct Node{
+   Node* left = nullptr;
+   Node* right = nullptr;
+   string str;
+   int ID;
+   Node(string s, int i);
+   setL(Node* n);
+   setR(Node* n);
+}
+class Tree{
+   Node* head;
+   int counter = 0;
+   Tree();
+   public:
+      int search(string target);
+      void sort();
+      void insert(Node insertee);
+};
+int Tree::search(string target)
+{
+   Node traverse = head;
+   while (traverse)
+   {
+      int diff = (traverse -> str).compare(target)
+      if (diff == 0)
+      {
+         return traverse -> ID;
+      }
+      else if (diff < 0)
+      {
+         traverse = traverse -> left;
+      }
+      else
+      {
+         traverse = traverse -> right;
+      }
+   }
+   return -1;
+}
+PROBLEMEND
+
+NAME:Copy a File Ignoring one Character
+DIFFICULTY:Medium
+SKILL:File
+PROBLEMSTART
+void copyFileWithoutChar(string filename, char c, ifStream in, ofStream out)
+{
+   in.open(filename);
+   string outputname = filename;
+   outputname += "_without_";
+   outputname.push_back(c);
+   out.open(outputname);
+   if (in.fail() | out.fail())
+   {
+      cout<<"Failed to open/close file"<<endl;
+      in.close();
+      out.close();
+      return;
+   }
+   char read;
+   while(in.get(read))
+   {
+     if (!(read == c))
+     {
+        out>>read;
+     }
+   }
+   in.close();
+   out.close();
+}
+PROBLEMEND
+
+NAME:First 5 Primes After Number
+DIFFICULTY:Medium
+SKILL:Math
+PROBLEMSTART
+int[] first5primes(int base)
+{
+   int primes[5] = {0,0,0,0,0};
+   int n = base;
+   if (n < 1)
+   {
+      n = 1;
+   }
+   for (int i = 0; i < 5; i++)
+   {
+      bool foundPrime = false;
+      while (!(missingPrime))
+      {
+         n++;
+         foundPrime = checkPrime(n);
+      }
+      primes[i] = n;
+      n++;
+   }
+   return primes;
+}
+bool checkPrime(int n)
+{
+   for (int i = 2; i <= n/2; i++)
+   {
+      if (n % i == 0)
+      {
+         return false;
+      }
+   }
+   return true;
+}
+PROBLEMEND
+
+NAME:Selection Sort by Number of Factors
+DIFFICULTY:Medium
+SKILL:Sort
+PROBLEMSTART
+vector<int> selectionSortFactors(vector<int> nums, int numlen)
+{
+   vector<int> num_of_factors;
+   for (int i = 0; i < num_of_factors.size(); i++)
+   {
+      num_of_factors.push_back(checkFactors(nums[i]));
+   }
+
+   for (int i = 0; i < num_of_factors.size(); i++)
+   {
+      int indexOfNextSmallest = getSmallestIndex(num_of_factors,i);
+      int temp = nums[i];
+      nums[i] = nums[indexOfNextSmallest];
+      nums[indexOfNextSmallest] = temp;
+   }
+   return nums;
+}
+int checkFactors(int n)
+{
+   int facs = 0;
+   for (int i = 2; i <= n/2; i++)
+   {
+      if (n % i == 0)
+      {
+         facs++;
+      }
+   }
+   return facs;
+}
+int getSmallestIndex(vector<int> f_vec, int start)
+{
+   mindex = start;
+   for (int i = start+1; i < f_vec.size(); i++)
+   {
+      if (f_vec[i] < mindex)
+         mindex = i;
+   }
+   return mindex;
+}
+PROBLEMEND
+
+NAME:Quadratic Formula
+DIFFICULTY:Medium
+SKILL:Math
+PROBLEMSTART
+#include <math.h>
+#include <vector>
+vector<double> quadratic(double a, double b, double c)
+{
+   vector<double> solutions;
+   double discrim = b*b - 4*a*c;
+   if (discrim < 0)
+      return solutions;
+   discrim = sqrt(discrim);
+   solutions.push_back((-1*b + discrim)/(2*a));
+   if (discrim > 0)
+      solutions.push_back((-1*b - discrim)/(2*a));
+   return solutions;
+}
+PROBLEMEND
+
+NAME:Convert from Array to Hash
+DIFFICULTY:Hard
+SKILL:Hash
+PROBLEMSTART
+struct HashTable
+{
+   HashTable(int j) 
+   {
+      table = vector<string>(j);
+      for (int i; i < j; i++)
+      {
+         table[i] = "";
+      }
+   };
+   vector<string> table;
+};
+HashTable putIntoHash(string arr[],int k)
+{
+   int j = generateJ(k);
+   Hashtable h = HashTable(j);
+   for (int i = 0; i < k; i++)
+   {
+      int insert_loc = hash(arr[i])%k;
+      
+      int attempt_move = 0;
+      while ((table[insert_loc].compare("") != 0) && attempt_move < j))
+      {
+          insert_loc = (insert_loc + attempt_move*attempt_move) % k;
+      }
+      table[insert_loc] = arr[i];
+   }
+}
+PROBLEMEND
+
+NAME:Odd Even Word Juggling with Two Queues
+DIFFICULTY:Hard
+SKILL:String,Vector
+PROBLEMSTART
+void oddEvenPrint(string sentence)
+{
+   if (sentence.length() == 0)
+      return;
+   vector<string> evens;
+   vector<string> odds;
+
+   size_t current_pos = 0;
+   string nextword;
+
+   do
+   {
+      size_t nextspace = sentence.find(" ");
+      nextword = sentence.substr(current_pos,nextspace-current_pos);
+      if (nextword.length() % 2 == 0)
+      {
+         evens.push_back(nextword);
+      }
+      else
+      {
+         odds.push_back(nextword);
+      }
+      current_pos = nextspace + 1;
+   }while (current_pos < sentence.length())
+
+   size_t smallest_vec = min(evens.size(),odds.size());
+   
+   for (int i = 0; i < smallest_vec; i++)
+   {
+      cout<<evens[i]<<endl;
+      cout<<odds[i]<<endl;
+   }
+   if (evens.size() == smallest_vec)
+   {
+      evens = odds;
+   }
+   for (int i = smallest_vec; i < evens.size(); i++)
+   {
+      cout<<evens[i]<<endl;
+   }
+}
+PROBLEMEND
+
+NAME:LinkedList Claas, plus Permutations of String
+SKILL:LinkedList,String
+DIFFICULTY:Hard
+PROBLEMSTART
+struct Node
+{
+   string value;
+   Node* next;
+   Node();
+   Node(string input);
+}
+class LinkedList
+{
+   LinkedList();
+   Node* head;
+   Node* tail;
+   void addNode(string val)
+   {
+      if (head)
+      {
+         tail -> next = new Node(val); 
+         tail = tail -> next;
+      }
+      else
+      {
+         head = new Node(val);
+         tail = head;
+      }
+   }
+   void traverse()
+   {
+      Node* trav = head;
+      while (trav)
+      {
+         std::cout<<trav->value<<std::endl;
+      }
+      trav = trav->next;
+   }
+}
+
+LinkedList* permutationsOfString(string str)
+{
+   LinkedList* permLL = new LinkedList();
+   permLL -> addNode("");
+   int permsNum = 2 << (str.size()-1);
+
+   for (int i = 1; i <= permsNum; i++)
+   {
+      string start = "";
+      for (int j = 0; j < str.size(); j++)
+      {
+         if ((i >> j) % 2 == 1)
+         {
+            start.push_back(str[i]);
+         }
+      }
+      permLL -> addNode(start);
+   }
+   return permLL;
+}
+PROBLEMEND
+
+NAME:Create Intermediate Pts for 3D Triangle
+SKILL:Array
+DIFFICULTY:Hard
+PROBLEMSTART
+struct Point
+{
+   double x;
+   double y;
+   double z;
+   Point(double q,double w,double e){x = q; y = w; z = e;}
+   Point(){x = 0; y = 0; z = 0;}
+}
+Point[][] intermedTri(Point p1, Point p2, Point p3, double ptsPerLine)
+{
+   Point[3][ptsPerLine] interPoints = {intermedLine(p1,p2,ptsPerLine),intermedLine(p2,p3,ptsPerLine),intermedLine(p3,p1,ptsPerLine)};
+   return interPoints;
+}
+Point[] intermedLine(Point pk, Point pj, double ptsPerLine)
+{
+   Point pts[ptsPerLine] = {};
+   pts[0] = pk;
+   pts[ptsPerLine-1] = pj;
+   double dx = pj.x - pk.x;
+   double dy = pj.y - pk.y;
+   double dz = pj.z - pk.z;
+
+   for (double i = 1; i < (ptsPerLine-1); i++)
+   {
+      double coeff = i/ptsPerLine;
+      pts[i] = Point(pk.x - coeff*dx,pk.y - coeff*dy,pk.z - coeff*dz);
+   }
+   return pts;
 }
 PROBLEMEND
