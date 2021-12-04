@@ -15,7 +15,7 @@ How to Deploy:
 =======
 To deploy the webapp we first run npm install, npm run build, (to build the static webpages) then deploy with flask:
 
-export FLASK_APP=./backend/main.py
+export FLASK_APP=main.py
 flask run
 
 Then click on the link.
