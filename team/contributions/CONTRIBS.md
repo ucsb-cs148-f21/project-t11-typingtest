@@ -4,3 +4,6 @@ Jason: I created the backend for this project. The backend consists of two files
 
 
 Hirish: I created the template for this project. I also added worked heavily with Zoey on creating a front-end that would allow the user to navigate between coding problems. Additionally, I also created code to loop through the coding list and return the coding problem relevant to the user. I also assisted a lot with debugging multiple issues and connecting the front end and backend. Most of my work is pair programming with Zoey.
+
+
+Jeffrey: I created the Typing Component for the project which handles the WPM (Words Per Minute), timer, and displays the code the the user is currently typing. It includes many QOL (Quality of Life) features as well,  such as turning completed text green, highlighting mistakes in red, and underlining the current word that the user is on. I also helped in general with many other aspects of the project such as connecting the languages page with the typing component, starting the design document, and adjusting the typing component to allow for information to be sent from the languages page to the profile page. I also spent a lot of time helping teammates with how to work with react, github, and the internal workings of the the typing component. 
