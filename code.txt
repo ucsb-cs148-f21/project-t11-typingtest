@@ -1205,7 +1205,7 @@ PROBLEMSTART
 string randomDay()
 {
    string months[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-   int 31dayMonths = {1,3,5,7,8,10,12};
+   int 31dayMonths[] = {1,3,5,7,8,10,12};
    int num31dayMonths = 7;
    int month = rand() % 12 + 1;
    int day;
