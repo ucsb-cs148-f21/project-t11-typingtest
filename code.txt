@@ -919,11 +919,11 @@ def nextFridays():
 
    bool feb29 = False
    i = 1
-   if (curr.strftime(%m) == 2) and (curr.strftime(%d) == 29):
+   if (curr.strftime(%m) == "2") and (curr.strftime(%d) == "29"):
         i = 4
         feb29 = True
    while i < 1000000:
-        newfri2 = curr.replace(year=(curr.year+1))
+        newfri2 = curr.replace(year=(curr.year+i))
         if newfri2.strftime(%u) == 5:
             return newfri1,newfri2
         if (feb29):
