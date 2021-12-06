@@ -1072,7 +1072,7 @@ while (noIntProvided)
         noIntProvided = false;
     }
 }
-traverseInStep(n,a);
+traverseInStep(n,arr,a);
 
 void traverseInStep(int n, string array[], int arraysize)
 {
