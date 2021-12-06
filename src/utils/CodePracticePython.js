@@ -48,10 +48,21 @@ export default function CodePracticePython(match) {
 	if(code !== "" && _id != ""){
 	
 	const user = getUser();
+	if (user == null)
+	{
+		return (
+			<div>
+				You must login peasant!
+			</div>
+		);
+	}
 	console.log("CODE2:" + code);
 	console.log("ID: " + _id);
 	return (
 		<Layout user = {user}>
+			<br/>
+			<br/>
+			<br/>
 			<TypingComponent text={code} textID={_id} userID = {user.id}/>
 		</Layout>
 	);
