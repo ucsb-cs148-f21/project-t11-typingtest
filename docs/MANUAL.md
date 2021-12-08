@@ -5,32 +5,28 @@ The current website is structured to allow students to learn and improve their t
 by adults trying to learn or gain some experience with code. 
 
 # Navigation
-<img width="1680" alt="Screen Shot 2021-11-19 at 2 41 57 AM" src="https://user-images.githubusercontent.com/32660271/142609682-3c77954b-ee2d-4c6e-ab6c-9d6c4dffc170.png">
-
-<img width="1680" alt="Screen Shot 2021-11-19 at 2 40 48 AM" src="https://user-images.githubusercontent.com/32660271/142609557-6c4b20a3-f687-4761-bf27-3fccbe7f5080.png">
+![image](https://user-images.githubusercontent.com/31222197/145154483-409424f5-6cae-4324-b438-f3e0f79a286d.png)
 
 In the future we have an additional navigation panel that links to statistics global and user specific.
-Currently there is only three tabs, Home, Language, Practice. 
-The Home page lists the information about the app, who is intended for its use, and how it can be  used.
-The Language page lists languages, C++, Python, and Java. Clicking on these languages takes you to a practice page for each language.
+Currently there is only three tabs, Home, Language, Profile. 
+The Home page lists the information about the app, who is intended for its use, and how it can be used.
+The Language page lists languages, C++, Python, and Java. Clicking on these languages takes you to a code problem list page for each language.
+The Profile page only shows when signed in.
 
-# Practice Page
-Each practice page contains a WPM counter, a progress bar, and a description of what the code does. It also contains a word count and at the end highlights
+# Problem Page
+Each problem page contains a WPM counter, a progress bar, and a timer. It also highlights
 the code that you have typed incorrectly.
-<img width="620" alt="Screen Shot 2021-11-19 at 2 42 42 AM" src="https://user-images.githubusercontent.com/32660271/142609770-9c7671d1-f292-4693-9316-026b06378673.png">
+![image](https://user-images.githubusercontent.com/31222197/145155064-9022b174-a0cf-4b35-9aed-7d796a9a2942.png)
 
 # Language Page
 Currently only we have C++, Python, Java:
-<img width="684" alt="Screen Shot 2021-11-19 at 2 43 28 AM" src="https://user-images.githubusercontent.com/32660271/142609853-a707332d-cff5-4061-a304-77c4638bc2e5.png">
+![image](https://user-images.githubusercontent.com/31222197/145155497-477b005f-fa70-4668-9406-dc9ea092a8e3.png)
 
 # Sign In
 Signing in allows you to save your problems, the problems that you submit get stored and saved to the database. The global user statistic are also stored here.
-<img width="891" alt="Screen Shot 2021-11-19 at 2 44 56 AM" src="https://user-images.githubusercontent.com/32660271/142610034-084fac03-3285-4878-bfd8-93120483a13e.png">
-
-
-<img width="620" alt="Screen Shot 2021-11-19 at 2 42 59 AM" src="https://user-images.githubusercontent.com/32660271/142609799-161a805a-c328-467f-9a79-cbe90952f631.png">
+![image](https://user-images.githubusercontent.com/31222197/145155815-df95ce0a-a5d8-4258-9f89-9ca8acb67b5a.png)
 
 # Profile Page
-The profile page is essential to our app. It allows the user to see the problem completed, number of incorrect problems, and a variety of 
-problems that the user should focus on. It also shows global user statistics and specific user statsitics like average WPM over all coding problems,
-trend in progress of WPM and accuracy, etc.
+The profile page is essential to our app. It allows the user to see the percentage of problems completed, and a variety of 
+problems that the user should focus on. It will also show global user statistics and specific user statsitics like average WPM over all coding problems,
+trend in progress of WPM and accuracy in the future, etc.
