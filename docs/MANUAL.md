@@ -1,8 +1,7 @@
-# How to use our current website
+# How to navigate our website
 
 # Intended User Audience
-The current website is structured to allow students to learn and improve their typing skills. It can also be used
-by adults trying to learn or gain some experience with code. 
+The current website is structured to allow users to learn to code in a top-down method of learning. This means that they learn through repitition & pattern recognition from typing many coding problems.
 
 # Navigation
 ![image](https://user-images.githubusercontent.com/31222197/145154483-409424f5-6cae-4324-b438-f3e0f79a286d.png)
