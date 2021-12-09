@@ -7,11 +7,12 @@ The home page is the place users will start at before either signing in or direc
 
 Language
 
-Users can choose between C++, Python, and Java.
+Users can choose between C++, Python, and Java with specific version and a breif description.
 Once a language is chosen, users are redirected to a list of problems of their selected language.
 
 List of Problems
 
+User will see a table with a certain language, along with basic information including name, difficulty and skills required for that problem. There is also a search bar for user to search according to problem name.
 Once the user chooses a problem, they will be taken to the practice page.
 
 Practice
