@@ -13,13 +13,10 @@ Backend: MongoDB, Flask
 
 How to Deploy:
 =======
-To deploy the webapp we first run npm install, npm run build, (to build the static webpages) then deploy with flask:
+Due to google sign-in requirements, it is no longer possible to deploy our project locally. 
 
-export FLASK_APP=main.py
-flask run
+For detailed instructions go to docs/DEPLOY.md
 
-Then click on the link.
-For more detailed instructions go to docs/DEPLOY.md
 Project final release: https://code-per-minute.herokuapp.com/
 
 
