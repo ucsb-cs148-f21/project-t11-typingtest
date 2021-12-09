@@ -3,9 +3,11 @@ Starting with "read only" access of our repo to deploy our app the following ste
 
 
 (1) Cloning the Repository 
-* You must create a local copy of our code
+* You must create a local copy of our code: git clone https://github.com/ucsb-cs148-f21/project-t11-typingtest.git
 * Run "npm install"
-* For local testing, replace the .envSAMPLE with a .env with the single parameter in the root of the directory: REACT_APP_AUTH_CLIENT_ID = ____
+* Get the Client ID according to (2) and copy the Client ID to the next instruction
+* For local testing, replace the .envSAMPLE with a .env with the single parameter in the root of the directory: REACT_APP_AUTH_CLIENT_ID = ____ 
+* (P.S .env is a hidden file For Windows: Select View > Show > Hidden items For Mac: Press Command+Shift+Dot)
 * You must replace the underscore with the correct authentication code
 
 
@@ -17,7 +19,6 @@ Starting with "read only" access of our repo to deploy our app the following ste
 * Add developer contact information
 * Go to credentials > Create OAuthClientID > select Web application and give it a name
 * Set authorized javascript origins and authorized redirect URIs to : http://localhost:3000 and https://localhost:3000
-
 
 
 (2.5) Optional: Run Locally (may not work with google auth)
