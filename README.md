@@ -19,6 +19,8 @@ export FLASK_APP=main.py
 flask run
 
 Then click on the link.
+For more detailed instructions go to docs/DEPLOY.md
+Project final release: https://code-per-minute.herokuapp.com/
 
 
 General Strategy: 
