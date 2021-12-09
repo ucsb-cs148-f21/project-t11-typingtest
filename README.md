@@ -15,7 +15,7 @@ How to Deploy:
 =======
 Due to google sign-in requirements, it is no longer possible to deploy our project locally. 
 
-For detailed instructions go to docs/DEPLOY.md
+For detailed instructions go to [a relative link](DEPLOY.md)
 
 Project final release: https://code-per-minute.herokuapp.com/
 
