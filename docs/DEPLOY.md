@@ -20,7 +20,7 @@ Starting with "read only" access of our repo to deploy our app the following ste
 
 
 
-(2.5) Optional: Run Locally
+(2.5) Optional: Run Locally (may not work with google auth)
 * Go to the root of the directory and run "npm run build"
 * Run "pip install Flask", "pip install mongoengine", and "pip install pymongo[tls]" (some users may need to preceed these commands with "python -m")
 * Get all the remaining packages required to run the project with flask if not already installed (specifics in requirements.txt)
@@ -36,7 +36,7 @@ Starting with "read only" access of our repo to deploy our app the following ste
 * Open Deploy tab and scroll to the “Deployment method” section
 * Select GitHub as the method
 * search for your GitHub repository and click connect (fork the repo to make your own repo to deploy)
-* Clickk Manual Deploy
+* Click Manual Deploy
 * Open the Settings tab and locate Buildpacks and click “Add buildpack”
 * Select python
 * You need to also look into authentication
