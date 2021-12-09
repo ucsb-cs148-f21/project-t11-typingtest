@@ -22,5 +22,5 @@ They type out the code, and once they are done, they can move on to the next que
 Profile
 
 The profile page requires Google authentication for the user to access it.
-This page provides metrics regarding how well the user did at typing.
+This page provides metrics regarding how well the user did at typing. It will keep track of the progress within each google account displayed in a chart.
 
