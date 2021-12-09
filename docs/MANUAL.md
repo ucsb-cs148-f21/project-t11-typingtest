@@ -1,7 +1,7 @@
 # How to navigate our website
 
 # Intended User Audience
-The current website is structured to allow users to learn to code in a top-down method of learning. This means that they learn through repitition & pattern recognition from typing many coding problems.
+The current website is structured to allow users to learn to code in a top-down method of learning. This method focuses on repitition & develops pattern recognition through typing many coding problems.
 
 # Navigation
 ![image](https://user-images.githubusercontent.com/31222197/145154483-409424f5-6cae-4324-b438-f3e0f79a286d.png)
