@@ -3,7 +3,7 @@ Starting with "read only" access of our repo to deploy our app the following ste
 
 
 (1) Cloning the Repository 
-* You must create a local copy of our code: git clone https://github.com/ucsb-cs148-f21/project-t11-typingtest.git
+* You must create a local copy of our code: git clone https://code-per-minute.herokuapp.com/
 * Run "npm install"
 * Get the Client ID according to (2) and copy the Client ID to the next instruction
 * For local testing, replace the .envSAMPLE with a .env with the single parameter in the root of the directory: REACT_APP_AUTH_CLIENT_ID = ____ 
